@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
       <div className={`hero__image-container`}>
-        <img src={'http://rachel-wang-here.local/wp-content/uploads/2020/07/IMG_20200623_214412.png'} />
+        <img src={'https://i2.wp.com/rachelwanghere.com/wp-content/uploads/2020/06/Featured-Photo-320x321-1.png?fit=320%2C321&ssl=1'} />
       </div>
       <div className={`hero__text-container`}>
         <h1 className="hero__heading text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">

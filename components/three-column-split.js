@@ -1,30 +1,29 @@
-import { CMS_NAME, CMS_URL } from '../lib/constants'
 import Link from 'next/link'
 
 export default function ThreeColumnSplit() {
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
+    <section className="three-column-split text-center align-center">
       <div className={`three-column-split__heading-container`}>
         <h2 className={`text-2xl`}>Take Action!</h2>
       </div>
       <div className={`three-column-split__links-container`}>
-        <ul className={`flex w-full`}>
+        <ul className={`three-column-split__links-list sm:inline md:flex w-full`}>
           <Link href="/">
-            <li className={`flex-initial w-1/4 px-6`}>
-              <div className={`sample-image`}></div>
-              <h3 className={`text-xl`}>Blah!</h3>
+            <li className={`three-column-split__column md:flex-initial w-full my-12`}>
+              <div className={`three-column-split__image-container sample-image m-auto w-40 h-20 bg-gray-400`} />
+              <h3 className={`three-column-split__text text-xl pt-4`}>Get Free Resources</h3>
             </li>
           </Link>
           <Link href="/">
-            <li className={`flex-initial w-1/4`}>
-              <div className={`sample-image`}></div>
-              <h3 className={`text-xl`}>Blah!</h3>
+            <li className={`three-column-split__column md:flex-initial w-full my-12`}>
+              <div className={`three-column-split__image-container sample-image m-auto w-40 h-20 bg-gray-400`} />
+              <h3 className={`three-column-split__text text-xl pt-4`}>Livestream Classes</h3>
             </li>
           </Link>
           <Link href="/">
-            <li className={`flex-initial w-1/4`}>
-              <div className={`sample-image`}></div>
-              <h3 className={`text-xl`}>Blah!</h3>
+            <li className={`three-column-split__column md:flex-initial w-full my-12`}>
+              <div className={`three-column-split__image-container sample-image m-auto w-40 h-20 bg-gray-400`} />
+              <h3 className={`three-column-split__text text-xl pt-4`}>Join Community</h3>
             </li>
           </Link>
         </ul>

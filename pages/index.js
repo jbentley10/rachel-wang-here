@@ -5,6 +5,7 @@ import HeroPost from '../components/hero-post'
 import Header from '../components/header'
 import Hero from '../components/hero'
 import ThreeColumnSplit from '../components/three-column-split'
+import ImageTextSplit from '../components/image-text-split'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import { BLOG_NAME } from '../lib/constants'
@@ -23,6 +24,7 @@ export default function Index({ allPosts: { edges }, preview }) {
           <Header />
           <Hero />
           <ThreeColumnSplit />
+          <ImageTextSplit />
           {heroPost && (
             <HeroPost
               title={heroPost.title}
