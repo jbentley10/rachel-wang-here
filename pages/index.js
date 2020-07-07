@@ -2,7 +2,9 @@ import Head from 'next/head'
 import Container from '../components/container'
 import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
+import Header from '../components/header'
+import Hero from '../components/hero'
+import ThreeColumnSplit from '../components/three-column-split'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import { BLOG_NAME } from '../lib/constants'
@@ -18,7 +20,9 @@ export default function Index({ allPosts: { edges }, preview }) {
           <title>{ BLOG_NAME }</title>
         </Head>
         <Container>
-          <Intro />
+          <Header />
+          <Hero />
+          <ThreeColumnSplit />
           {heroPost && (
             <HeroPost
               title={heroPost.title}
