@@ -1,18 +1,25 @@
+/**
+ * @file index.js
+ */
+// Import dependencies
 import Head from 'next/head'
+
+// Import library variables
+import { getAllPostsForHome } from '../lib/api'
+import { BLOG_NAME } from '../lib/constants'
+
+// Import components
 import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
+import RecentArticles from '../components/recent-articles'
 import Header from '../components/header'
 import Hero from '../components/hero'
 import ThreeColumnSplit from '../components/three-column-split'
 import ImageTextSplit from '../components/image-text-split'
+import SimpleCTA from '../components/simple-cta'
 import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
-import { BLOG_NAME } from '../lib/constants'
 
 export default function Index({ allPosts: { edges }, preview }) {
-  const heroPost = edges[0]?.node
-  const morePosts = edges.slice(1)
+  const recentPosts = edges.slice(0, 3)
 
   return (
     <>
@@ -25,17 +32,11 @@ export default function Index({ allPosts: { edges }, preview }) {
           <Hero />
           <ThreeColumnSplit />
           <ImageTextSplit />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.featuredImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          
+          {/* Show Recent Articles (3 at a time) */}
+          {recentPosts.length > 0 && <RecentArticles posts={recentPosts} />}
+
+          <SimpleCTA />
         </Container>
       </Layout>
     </>
