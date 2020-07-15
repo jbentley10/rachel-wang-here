@@ -4,7 +4,9 @@ export default function ImageTextSplit() {
   return (
     <section className="image-text-split align-center my-32">
       <h2 className={`image-text-split__heading text-2xl text-center mb-6`}>Hi, I'm Rachel</h2>
-      <div className={`image-text-split__sample-image bg-gray-400 m-auto w-40 h-40 mb-6`} />
+      <div className={`image-text-split__sample-image bg-gray-400 m-auto w-40 h-40 mb-6`}>
+        <img src={'https://i2.wp.com/rachelwanghere.com/wp-content/uploads/2020/06/Featured-Photo-320x321-1.png?fit=320%2C321&ssl=1'} />
+      </div>
       <p className={`image-text-split__text`}>
         Lorem ipsum dolor sit amet, consectetur 
         adipiscing elit. Phasellus ultricies ultricies 

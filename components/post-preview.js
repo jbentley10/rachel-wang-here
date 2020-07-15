@@ -13,10 +13,10 @@ export default function PostPreview({
 }) {
   return (
     <div className={`post-preview`}>
-      <div className={`post-preview__image-container mb-5`}>
+      <div className={`post-preview__image-container ml-16 mb-5 w-full text-center`}>
         <CoverImage title={title} coverImage={coverImage} slug={slug} />
       </div>
-      <h3 className={`post-preview__heading text-3xl mb-3 leading-snug`}>
+      <h3 className={`post-preview__heading text-3xl mb-3 leading-snug font-bold`}>
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a
             className="hover:underline"
@@ -25,10 +25,10 @@ export default function PostPreview({
         </Link>
       </h3>
       <div
-        className={`post-preview__excerpt text-lg leading-relaxed mb-4`}
+        className={`post-preview__excerpt text-lg leading-relaxed mb-4 truncate`}
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
-      <div className={`post-preview__date text-lg mb-4`}>
+      <div className={`post-preview__date text-lg mb-4 font-light`}>
         <Date dateString={date} />
       </div>
     </div>
