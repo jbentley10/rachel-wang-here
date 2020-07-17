@@ -1,14 +1,17 @@
 /**
  * @file simple-cta.js
  */
-// Import dependencies
+/**
+ * @file simple-cta.js
+ */
+ // Import dependencies
 import Link from 'next/link'
 
 export default function SimpleCTA() {
   return (
     <section className="simple-cta text-center align-center mt-8 mb-12 px-12">
       <div className={`simple-cta__heading-container pb-4 text-center text-3xl`}>
-        <h2 className={`mb-8 text-6xl md:text-7xl font-bold`}>Studio Membership</h2>
+        <h2 className={`text-6xl md:text-7xl font-bold`}>Studio Membership</h2>
       </div>
 
       <div className={`simple-cta__body-container w-full`}>
@@ -18,9 +21,6 @@ export default function SimpleCTA() {
             Lorem ipsum dolor sit amet, consectetur 
             adipiscing elit. Phasellus ultricies ultricies 
             augue eu feugiat. <br />
-            <Link href="/">
-              <strong>Read More</strong>
-            </Link>
           </p>
         </div>
         <Link href="/">

@@ -3,8 +3,8 @@ import Link from 'next/link'
 export default function ThreeColumnSplit() {
   return (
     <section className="three-column-split text-center align-center">
-      <div className={`three-column-split__heading-container`}>
-        <h2 className={`text-2xl`}>Take Action!</h2>
+      <div className={`three-column-split__heading-container pt-12 md:pt-24`}>
+        <h2 className={`text-6xl`}>Take Action!</h2>
       </div>
       <div className={`three-column-split__links-container`}>
         <ul className={`three-column-split__links-list sm:inline md:flex w-full`}>

@@ -2,10 +2,10 @@ import Link from 'next/link'
 
 export default function ImageTextSplit() {
   return (
-    <section className="image-text-split align-center my-32 md:flex md:px-12">
-      <div className={`image-text-split__text-container w-6/12 text-left md:flex-initial md:pr-32`}>
+    <section className="image-text-split align-center my-32 md:flex px-10 md:px-12 md:pb-24">
+      <div className={`image-text-split__text-container w-full md:w-6/12 text-left md:flex-initial md:pr-32`}>
         <h2 className={`image-text-split__heading text-5xl mb-6`}>Hi, I'm Rachel</h2>
-        <p className={`image-text-split__text`}>
+        <p className={`image-text-split__text pb-10 md:pb-0`}>
           Lorem ipsum dolor sit amet, consectetur 
           adipiscing elit. Phasellus ultricies ultricies 
           augue eu feugiat. Orci varius natoque 
