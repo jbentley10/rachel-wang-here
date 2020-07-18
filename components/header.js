@@ -4,10 +4,12 @@
 // Import dependencies
 import Link from 'next/link'
 import { useState } from 'react';
-import HamburgerMenu from 'react-hamburger-menu';
+import { slide as Menu } from 'react-burger-menu'
 
-export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+export default function Header() {  
+  function showSettings (event) {
+    event.preventDefault();    
+  }
 
   return (
     <div className={`navigation`}>
@@ -17,11 +19,18 @@ export default function Header() {
         </Link>        
       </h2>
 
-      {/* Hamburger Menu for Mobile */}
-      
+      {/* Mobile Navigation */}
+      <Menu>        
+        <a id="about" className="menu-item" href="/about">About</a>
+        <a id="blog" className="menu-item" href="/blog">Blog</a>
+        <a id="free-resources" className="menu-item" href="/free-resources">Free Resources</a>
+        <a id="shop" className="menu-item" href="/shop">Shop</a>
+        <a id="contact" className="menu-item" href="/contact">Contact</a>
+        <a onClick={ showSettings } className="menu-item--small" href="">Settings</a>
+      </Menu>
 
-      {/* Navigation */}
-      <div className={`navigation__links-container md:py-8 px-12 ${menuOpen ? 'inline' : 'hidden'} md:inline`}>
+      {/* Desktop Navigation */}
+      <div className={`navigation__links-container md:py-8 px-12 hidden md:inline`}>
         <div className={`navigation__links`}>
           <ul className={`navigation__link-list  md:flex text-3xl md:text-center md:w-full`}>
             <li className={`navigation__link md:flex-initial md:py-4 md:pr-8`}>
