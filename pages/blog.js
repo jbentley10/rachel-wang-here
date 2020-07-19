@@ -29,9 +29,13 @@ export default function Blog({ allPosts: { edges }, preview }) {
         <Container>
           <Header />
           <div className={`sidebar-body-split flex`}>
-            {/* Show Recent Articles (3 at a time) */}
-            {recentPosts.length > 0 && <RecentArticles posts={recentPosts} />}
-            <Sidebar />
+            <div className={`recent-articles-layout-container flex-initial md:w-7/12`}>
+              {/* Show Recent Articles (3 at a time) */}
+              {recentPosts.length > 0 && <RecentArticles posts={recentPosts} />}
+            </div>
+            <div className={`sidebar-layout-container flex-initial`}>
+              <Sidebar />
+            </div> 
           </div>
         </Container>
       </Layout>

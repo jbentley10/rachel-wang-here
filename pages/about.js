@@ -28,8 +28,12 @@ export default function About({ allPosts: { edges }, preview }) {
         <Container>
           <Header />
           <div className={`sidebar-body-split flex`}>
-            <TextBlock />
-            <Sidebar />
+            <div className={`text-block-layout-container flex-initial md:w-7/12`}>
+              <TextBlock />
+            </div>
+            <div className={`sidebar-layout-container flex-initial`}>
+              <Sidebar />
+            </div>
           </div>
         </Container>
       </Layout>
