@@ -43,27 +43,27 @@ export default function Footer() {
         <div className={`footer__links`}>
           <ul className={`footer__link-list md:flex text-3xl md:text-center md:w-full`}>
             <li className={`footer__link md:flex-initial py-4 md:px-8`}>
-              <Link href="/">
+              <Link href="/about">
                 <a>About</a>
               </Link>
             </li>
             <li className={`footer__link md:flex-initial py-4 md:px-8`}>
-              <Link href="/">
+              <Link href="/blog">
                 <a>Blog</a>
               </Link>
             </li>
             <li className={`footer__link md:flex-initial py-4 md:px-8`}>
-              <Link href="/">
+              <Link href="/free-resources">
                 <a>Free Resources</a>
               </Link>
             </li>
             <li className={`footer__link md:flex-initial py-4 md:px-8`}>
-              <Link href="/">
+              <Link href="/shop">
                 <a>Shop</a>
               </Link>
             </li>
             <li className={`footer__link md:flex-initial py-4 md:px-8`}>
-              <Link href="/">
+              <Link href="/contact">
                 <a>Contact</a>
               </Link>
             </li>

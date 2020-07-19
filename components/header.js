@@ -41,7 +41,7 @@ export default function Header() {
         noOverlay        
         onStateChange={handleOnMenuStateChange}
         isOpen={ isMenuOpen }
-        className={ menuClass + `flex-initial md:hidden mt-8` }
+        className={ menuClass + `flex-initial md:hidden` }
         htmlClassName=""
         bodyClassName=""
         burgerButtonClassName={ "w-12 h-full md:hidden" }
@@ -55,12 +55,12 @@ export default function Header() {
         customBurgerIcon={ <img src="../static/SVG/menu-burger.svg" /> }
         customCrossIcon={ <img src="../static/SVG/menu-cross.svg" /> }
       >        
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="blog" className="menu-item" href="/blog">Blog</a>
-        <a id="free-resources" className="menu-item" href="/free-resources">Free Resources</a>
-        <a id="shop" className="menu-item" href="/shop">Shop</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={ showSettings } className="menu-item--small" href="">Settings</a>
+        <a id="about" className="menu-item py-4" href="/about">About</a>
+        <a id="blog" className="menu-item py-4" href="/blog">Blog</a>
+        <a id="free-resources" className="menu-item py-4" href="/free-resources">Free Resources</a>
+        <a id="shop" className="menu-item py-4" href="/shop">Shop</a>
+        <a id="contact" className="menu-item py-4" href="/contact">Contact</a>
+        <a onClick={ showSettings } className="menu-item--small py-4" href="">Settings</a>
       </Menu>
       <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 px-12 flex-initial">
         <Link href="/">
@@ -73,27 +73,27 @@ export default function Header() {
         <div className={`navigation__links`}>
           <ul className={`navigation__link-list  md:flex text-3xl md:text-center md:w-full`}>
             <li className={`navigation__link md:flex-initial md:py-4 md:pr-8`}>
-              <Link href="/">
+              <Link href="/about">
                 <a>About</a>
               </Link>
             </li>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
-              <Link href="/">
+              <Link href="/blog">
                 <a>Blog</a>
               </Link>
             </li>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
-              <Link href="/">
+              <Link href="/free-resources">
                 <a>Free Resources</a>
               </Link>
             </li>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
-              <Link href="/">
+              <Link href="/shop">
                 <a>Shop</a>
               </Link>
             </li>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
-              <Link href="/">
+              <Link href="/contact">
                 <a>Contact</a>
               </Link>
             </li>
