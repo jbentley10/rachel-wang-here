@@ -45,10 +45,9 @@ export default function About({ about, preview }) {
           </div>
         </Container>
       </Layout>
+      {/* Only style elements that aren't dangerously set */}
       <style jsx>{`        
-        .about-page__content h2 {
-          font-size: 100px !important;
-        }
+
       `}</style>
     </div>
   )
