@@ -16,11 +16,12 @@ export default function About({ about, preview }) {
   // Set up variables for the About page
   let title = about.title.rendered;  
   let content = about.content.rendered;
+  let excerpt = about.excerpt.rendered;
 
   return (
     <div>
       {/* Meta description for SEO */}
-      <Layout metaDescription={'All about me | Rachel Wang Here'} preview={preview}>
+      <Layout metaDescription={excerpt} preview={preview}>
         <Head>
           {/* Title tag for SEO */}
           <title>{ 'About Me | Rachel Wang Here' }</title>
@@ -34,14 +35,14 @@ export default function About({ about, preview }) {
                   {title}
                 </h1>
                 <div
-                  className="about-page__content text-base leading-relaxed mb-4"
+                  className="page__content text-base leading-relaxed mb-4"
                   dangerouslySetInnerHTML={{ __html: content }}
                 />
-              </div>
+              </div>             
             </div>
             <div className={`sidebar-layout-container flex-initial`}>
-              <Sidebar />
-            </div>
+                <Sidebar />
+              </div>
           </div>
         </Container>
       </Layout>
@@ -53,17 +54,10 @@ export default function About({ about, preview }) {
   )
 }
 
-// This function gets called at build time on server-side.
-// It won't be called on client-side, so you can even do
-// direct database queries. See the "Technical details" section.
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
   const res = await fetch('http://rachel-wang-here.local/wp-json/wp/v2/pages/26')
   const about = await res.json()
 
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
     props: {
       about,

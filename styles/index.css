@@ -94,18 +94,18 @@
 }
 
 /* Page Styles */
-.about-page__content h2 {
+.page__content h2 {
   font-size: 4rem;
 }
 
-.about-page__content h2 {
+.page__content h2 {
   font-size: 2.25rem;
 }
 
-.about-page__content strong {
+.page__content strong {
   font-size: 1.125rem;
 }
 
-.about-page__content p {
+.page__content p {
   padding: 1rem 0;
 }
