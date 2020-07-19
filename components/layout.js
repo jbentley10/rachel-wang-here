@@ -1,11 +1,12 @@
 import Alert from '../components/alert'
 import Footer from '../components/footer'
 import Meta from '../components/meta'
+import PropTypes from 'prop-types';
 
-export default function Layout({ preview, children }) {
+export default function Layout({ preview, children, metaDescription }) {  
   return (
     <>
-      <Meta />
+      <Meta metaDescription={metaDescription} />
       <div className="min-h-screen">
         <Alert preview={preview} />
         <main>{children}</main>
