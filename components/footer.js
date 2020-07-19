@@ -14,7 +14,7 @@ export default function Footer() {
             <div className={`footer__input-fields my-6`}>
               <input className={`footer__name-input my-3 px-24 py-2`} placholder={"Name"} /><br />
               <input className={`footer__email-input my-3 px-24 py-2`} placholder={"Email"} /><br />
-              <input className={`footer__cookie-checkbox my-2 mr-4`} type={"checkbox"} /><label for={"checkbox"}>Accept Cookies</label>
+              <input className={`footer__cookie-checkbox my-2 mr-4`} type={"checkbox"} /><label htmlFor={"checkbox"}>Accept Cookies</label>
             </div>
             <button type="submit" className={`footer__subscribe-button uppercase bg-white px-24 py-4`}>
               <strong>Join Now</strong>
