@@ -8,13 +8,16 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "babel": "^6.23.0",
     "classnames": "2.2.6",
     "date-fns": "2.14.0",
     "next": "latest",
     "react": "^16.13.1",
     "react-burger-menu": "^2.7.0",
     "react-dom": "^16.13.1",
-    "react-spring": "^8.0.27"
+    "react-spring": "^8.0.27",
+    "styled-jsx": "^3.3.0",
+    "styled-jsx-plugin-postcss": "^2.0.1"
   },
   "devDependencies": {
     "postcss-flexbugs-fixes": "4.2.1",

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useState } from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import { animated, useSpring } from 'react-spring'
+import _JSXStyle from "styled-jsx/style";
 
 export default function Header() {  
   const [isMenuOpen, setIsMenuOpen ] = useState(false)

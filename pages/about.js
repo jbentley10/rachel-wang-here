@@ -18,7 +18,7 @@ export default function About({ about, preview }) {
   let content = about.content.rendered;
 
   return (
-    <>
+    <div>
       {/* Meta description for SEO */}
       <Layout metaDescription={'All about me | Rachel Wang Here'} preview={preview}>
         <Head>
@@ -34,7 +34,7 @@ export default function About({ about, preview }) {
                   {title}
                 </h1>
                 <div
-                  className="text-base leading-relaxed mb-4"
+                  className="about-page__content text-base leading-relaxed mb-4"
                   dangerouslySetInnerHTML={{ __html: content }}
                 />
               </div>
@@ -45,7 +45,12 @@ export default function About({ about, preview }) {
           </div>
         </Container>
       </Layout>
-    </>
+      <style jsx>{`        
+        .about-page__content h2 {
+          font-size: 100px !important;
+        }
+      `}</style>
+    </div>
   )
 }
 
