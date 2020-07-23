@@ -7,9 +7,9 @@ export default function ThreeColumnSplit() {
         <h2 className={`text-6xl md:text-7xl font-raleway`}>Take Action!</h2>
       </div>
       <div className={`three-column-split__links-container`}>
-        <ul className={`three-column-split__links-list sm:inline md:flex w-full`}>
+        <ul className={`three-column-split__links-list sm:inline lg:flex w-full`}>
           <Link href="/">
-            <li className={`three-column-split__column md:flex-initial w-full my-12`}>
+            <li className={`three-column-split__column lg:flex-initial w-full my-12`}>
               <div className={`three-column-split__image-container text-center rounded-lg m-auto w-56 h-auto bg-sedona opacity-100 py-8`}>
                 <img className={`opacity-100 w-1/3 m-auto text-center`} src={`../static/SVG/yoga-mat.svg`} />
               </div>
@@ -17,7 +17,7 @@ export default function ThreeColumnSplit() {
             </li>
           </Link>
           <Link href="/">
-            <li className={`three-column-split__column md:flex-initial w-full my-12`}>
+            <li className={`three-column-split__column lg:flex-initial w-full my-12`}>
               <div className={`three-column-split__image-container text-center rounded-lg m-auto w-56 h-auto bg-sedona opacity-100 py-8`}>
                 <img className={`opacity-100 w-1/3 m-auto text-center`} src={`../static/SVG/yoga-mat.svg`} />
               </div>
@@ -25,7 +25,7 @@ export default function ThreeColumnSplit() {
             </li>
           </Link>
           <Link href="/">
-            <li className={`three-column-split__column md:flex-initial w-full my-12`}>
+            <li className={`three-column-split__column lg:flex-initial w-full my-12`}>
               <div className={`three-column-split__image-container text-center rounded-lg m-auto w-56 h-auto bg-sedona opacity-100 py-8`}>
                 <img className={`opacity-100 w-1/3 m-auto text-center`} src={`../static/SVG/yoga-mat.svg`} />
               </div>
