@@ -52,20 +52,22 @@ export default function Header() {
         menuClassName={ `md:hidden` }
         morphShapeClassName={ `` }
         itemListClassName={ `` }
-        overlayClassName={ "bg-gray-400 opacity-100" }
+        overlayClassName={ "" }
         customBurgerIcon={ <img src="../static/SVG/menu-burger.svg" /> }
         customCrossIcon={ <img src="../static/SVG/menu-cross.svg" /> }
       >        
-        <a id="about" className="menu-item py-4" href="/about">About</a>
-        <a id="blog" className="menu-item py-4" href="/blog">Blog</a>
-        <a id="free-resources" className="menu-item py-4" href="/free-resources">Free Resources</a>
-        <a id="shop" className="menu-item py-4" href="/shop">Shop</a>
-        <a id="contact" className="menu-item py-4" href="/contact">Contact</a>
-        <a onClick={ showSettings } className="menu-item--small py-4" href="">Settings</a>
+        <a id="about" className="menu-item py-6 font-raleway text-3xl" href="/about">About</a>
+        <a id="blog" className="menu-item py-6 font-raleway text-3xl" href="/blog">Blog</a>
+        <a id="free-resources" className="menu-item py-6 font-raleway text-3xl" href="/free-resources">Free Resources</a>
+        <a id="shop" className="menu-item py-6 font-raleway text-3xl" href="/shop">Shop</a>
+        <a id="contact" className="menu-item py-6 font-raleway text-3xl" href="/contact">Contact</a>
       </Menu>
-      <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 px-12 flex-initial">
+      <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-10 px-12 flex-initial">
         <Link href="/">
-          <a className="hover:underline">Logo</a>
+          <div>
+            <a className="hover:underline font-sophillia">RachelWang</a>
+            <a className="hover:underline font-raleway font-light pl-2">here</a>
+          </div>
         </Link>        
       </h2>
 
@@ -75,27 +77,27 @@ export default function Header() {
           <ul className={`navigation__link-list  md:flex text-3xl md:text-center md:w-full`}>
             <li className={`navigation__link md:flex-initial md:py-4 md:pr-8`}>
               <Link href="/about">
-                <a>About</a>
+                <a className={`font-raleway`}>About</a>
               </Link>
             </li>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
               <Link href="/blog">
-                <a>Blog</a>
+                <a className={`font-raleway`}>Blog</a>
               </Link>
             </li>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
               <Link href="/free-resources">
-                <a>Free Resources</a>
+                <a className={`font-raleway`}>Free Resources</a>
               </Link>
             </li>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
               <Link href="/shop">
-                <a>Shop</a>
+                <a className={`font-raleway`}>Shop</a>
               </Link>
             </li>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
               <Link href="/contact">
-                <a>Contact</a>
+                <a className={`font-raleway`}>Contact</a>
               </Link>
             </li>
           </ul>

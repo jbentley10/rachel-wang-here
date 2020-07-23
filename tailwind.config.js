@@ -1,11 +1,21 @@
 module.exports = {
   purge: ['./components/**/*.js', './pages/**/*.js'],
   theme: {
+    fontFamily: {
+      'raleway': ['Raleway'],
+      'sophillia': ['Sophillia']
+    },
     extend: {
       colors: {
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
         'accent-7': '#333',
+        'purple': '#77435D',
+        'orange': '#F09756',
+        'sedona': '#B2573C',
+        'yellow': '#F4C06F',
+        'text-color': '#707070',
+        'neutral-background': '#F8EFE5',
         success: '#0070f3',
         cyan: '#79FFE1',
         text: '$4d4e53'

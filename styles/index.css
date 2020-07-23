@@ -4,6 +4,20 @@
 
 @import './header.css';
 
+@font-face {
+  font-family: 'Raleway';
+  src: url('/static/fonts/Raleway-Bold.ttf');
+  src: url('/static/fonts/Raleway-Light.ttf');
+  src: url('/static/fonts/Raleway-Medium.ttf');
+  src: url('/static/fonts/Raleway-MediumItalic.ttf');
+  src: url('/static/fonts/Raleway-Regular.ttf');
+  src: url('/static/fonts/Raleway-SemiBold.ttf');
+  src: url('/static/fonts/Raleway-Thin.ttf');
+
+  font-family: 'Sophillia';
+  src: url('/static/fonts/sophillia-webfont.ttf');
+}
+
 .has-text-align-left {
   @apply text-left;
 }
@@ -83,10 +97,6 @@
   @apply flex flex-wrap justify-center items-center bg-cover bg-center overflow-hidden;
 
   min-height: 430px;
-}
-
-.wp-block-verse {
-  @apply font-sans;
 }
 
 .wp-block-media-text {
