@@ -65,8 +65,8 @@ export default function Header() {
       <h2 className="text-2xl md:text-8xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-10 px-12 flex-initial md:inline-block md:text-center">
         <Link href="/">
           <div>
-            <a className="hover:underline font-sophillia">RachelWang</a>
-            <a className="hover:underline font-raleway font-light pl-2">here</a>
+            <a className="cursor-pointer font-sophillia">RachelWang</a>
+            <a className="cursor-pointer font-raleway font-light pl-2">here</a>
           </div>
         </Link>        
       </h2>
