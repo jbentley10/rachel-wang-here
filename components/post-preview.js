@@ -14,8 +14,8 @@ export default function PostPreview({
   return (
     <Link as={`/posts/${slug}`} href="/posts/[slug]">
       <div className={`post-preview shadow p-8 cursor-pointer`}>
-        <div className={`post-preview__image-container mb-5 w-full text-center`}>
-          <CoverImage title={title} coverImage={coverImage} slug={slug} />
+        <div className={`post-preview__image-container mb-5 w-full text-center md:max-w-sm md:max-h-sm`}>
+          <CoverImage className={`m-auto`} title={title} coverImage={coverImage} slug={slug} />
         </div>
         <h3 className={`post-preview__heading text-2xl mb-3 leading-snug font-bold mt-10 sm:h-full md:h-32 font-raleway normal-case`}>        
           <a className="hover:underline" dangerouslySetInnerHTML={{ __html: title }} />

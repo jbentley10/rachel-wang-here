@@ -35,7 +35,7 @@ export default function Header() {
   }
 
   return (
-    <div className={`navigation flex`}>
+    <div className={`navigation flex md:block md:text-center md:py-24`}>
       {/* Mobile Navigation */}
       <Menu
         left
@@ -62,7 +62,7 @@ export default function Header() {
         <a id="shop" className="menu-item py-6 font-raleway text-3xl" href="/shop">Shop</a>
         <a id="contact" className="menu-item py-6 font-raleway text-3xl" href="/contact">Contact</a>
       </Menu>
-      <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-10 px-12 flex-initial">
+      <h2 className="text-2xl md:text-8xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-10 px-12 flex-initial md:inline-block md:text-center">
         <Link href="/">
           <div>
             <a className="hover:underline font-sophillia">RachelWang</a>
@@ -73,29 +73,29 @@ export default function Header() {
 
       {/* Desktop Navigation */}
       <div className={`navigation__links-container md:py-8 px-12 hidden md:inline`}>
-        <div className={`navigation__links`}>
+        <div className={`navigation__links md:inline-block`}>
           <ul className={`navigation__link-list  md:flex text-3xl md:text-center md:w-full`}>
-            <li className={`navigation__link md:flex-initial md:py-4 md:pr-8`}>
+            <li className={`navigation__link md:flex-initial md:py-4 md:pr-16`}>
               <Link href="/about">
                 <a className={`font-raleway`}>About</a>
               </Link>
             </li>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-16`}>
               <Link href="/blog">
                 <a className={`font-raleway`}>Blog</a>
               </Link>
             </li>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-16`}>
               <Link href="/free-resources">
                 <a className={`font-raleway`}>Free Resources</a>
               </Link>
             </li>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-16`}>
               <Link href="/shop">
                 <a className={`font-raleway`}>Shop</a>
               </Link>
             </li>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8`}>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-16`}>
               <Link href="/contact">
                 <a className={`font-raleway`}>Contact</a>
               </Link>

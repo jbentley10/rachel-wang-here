@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className={`footer bg-accent-1 border-t border-accent-2`}>
       <div className={`footer__form-social-container bg-neutral-background align-left sm:px-6 md:px-12 py-12 md:flex`}>
-        <div className={`footer__form-container w-full md:flex-initial px-12`}>
+        <div className={`footer__form-container w-full md:flex-initial px-12 md:px-64`}>
           <form className={`footer__subscribe-form w-full`}>
             <h2 className={`footer__subscribe-heading text-4xl font-raleway font-light`}>Subscribe</h2>
             <div className={`footer__input-fields my-6`}>
@@ -39,38 +39,38 @@ export default function Footer() {
           </ul>
         </div>
       </div>    
-      <div className={`footer__links-container bg-neutral-background md:py-8 px-12`}>
+      <div className={`footer__links-container bg-neutral-background md:py-8 px-12 md:px-64`}>
         <div className={`footer__links`}>
           <ul className={`footer__link-list md:flex text-3xl md:text-center md:w-full`}>
             <li className={`footer__link md:flex-initial py-1 md:px-8`}>
               <Link href="/about">
-                <a className={`font-raleway font-normal text-lg`}>About</a>
+                <a className={`font-raleway font-normal text-lg md:text-2xl`}>About</a>
               </Link>
             </li>
             <li className={`footer__link md:flex-initial py-1 md:px-8`}>
               <Link href="/blog">
-                <a className={`font-raleway font-normal text-lg`}>Blog</a>
+                <a className={`font-raleway font-normal text-lg md:text-2xl`}>Blog</a>
               </Link>
             </li>
             <li className={`footer__link md:flex-initial py-1 md:px-8`}>
               <Link href="/free-resources">
-                <a className={`font-raleway font-normal text-lg`}>Free Resources</a>
+                <a className={`font-raleway font-normal text-lg md:text-2xl`}>Free Resources</a>
               </Link>
             </li>
             <li className={`footer__link md:flex-initial py-1 md:px-8`}>
               <Link href="/shop">
-                <a className={`font-raleway font-normal text-lg`}>Shop</a>
+                <a className={`font-raleway font-normal text-lg md:text-2xl`}>Shop</a>
               </Link>
             </li>
             <li className={`footer__link md:flex-initial py-1 md:px-8`}>
               <Link href="/contact">
-                <a className={`font-raleway font-normal text-lg`}>Contact</a>
+                <a className={`font-raleway font-normal text-lg md:text-2xl`}>Contact</a>
               </Link>
             </li>
           </ul>
         </div>
       </div>
-      <div className={`footer__copyright-container bg-neutral-background md:text-2xl text-center pb-12 pt-4`}>
+      <div className={`footer__copyright-container bg-neutral-background md:text-2xl text-center pb-12 pt-4 md:px-64`}>
         <span className={`font-raleway font-light`}>Copyright 2020 Rachel Wang</span>
       </div>      
     </footer>

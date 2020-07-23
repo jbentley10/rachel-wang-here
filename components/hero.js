@@ -3,17 +3,17 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12 px-10 md:px-12">
-      <div className={`hero__image-container sm:hidden md:inline w-full md:w-3/4`}>
+    <section className="homepage-hero hero flex-col md:flex-row flex items-center md:justify-between md:mb-12 px-10 py-16 md:px-64">
+      <div className={`hero__image-container sm:hidden md:inline w-full md:w-full`}>
         <img className={`hidden md:inline`} src={'https://i2.wp.com/rachelwanghere.com/wp-content/uploads/2020/06/Featured-Photo-320x321-1.png?fit=320%2C321&ssl=1'} />
       </div>
       <div className={`hero__text-container w-full`}>
-        <h1 className={`hero__heading font-medium font-raleway tracking-tighter leading-tight text-6xl md:text-7xl pt-6 pb-2 pr-8 w-full`}>
+        <h1 className={`hero__heading font-medium font-raleway tracking-tighter leading-tight text-6xl md:text-7xl pt-6 pb-2 w-full`}>
           Join and get access to my workbook!
         </h1>  
-        <p className={`hero__subtitle mb-10 font-raleway`}>Lorem ipsum solor dut amet</p>    
+        <p className={`hero__subtitle mb-10 font-raleway md:text-4xl md:mb-24`}>Lorem ipsum solor dut amet</p>    
         <Link href="/">
-          <a className={`hero__cta-button bg-purple text-white uppercase font-raleway font-bold text-white cursor-pointer text-lg px-10 py-4 rounded`}>Register Now</a>
+          <a className={`hero__cta-button bg-purple text-white uppercase font-raleway font-bold text-white cursor-pointer text-lg md:text-3xl px-10 py-4 md:px-24 md:py-8 rounded`}>Register Now</a>
         </Link>
       </div>
     </section>
