@@ -22,7 +22,7 @@ app.prepare()
     server.get('*', (req, res) => {
       return handle(req, res);
     });
-
+ 
     server.get('/getProducts', (req, res) => {
       wooCommerceAPI.get("products")
         .then((response) => {
