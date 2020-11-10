@@ -55,7 +55,7 @@ export default function About({ about, preview }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('http://rachel-wang-here.local/wp-json/wp/v2/pages/26')
+  const res = await fetch('https://rachelwanghere.com/wp-json/wp/v2/pages/3171')
   const about = await res.json()
 
   return {
