@@ -8,6 +8,9 @@ import Head from 'next/head'
 import { getAllPostsForHome } from '../lib/api'
 import { BLOG_NAME } from '../lib/constants'
 
+// Import functions
+import { getProducts } from '../lib/api';
+
 // Import components
 import Container from '../components/container'
 import RecentArticles from '../components/recent-articles'
@@ -32,6 +35,13 @@ export default function Index({ allPosts: { edges }, preview }) {
           <Hero />
           <ThreeColumnSplit />
           <ImageTextSplit />
+
+          {/* <div>
+            <h2>List of products</h2>
+            {products.map((product) =>
+              <p>{product.name}</p>
+            )}
+          </div> */}
           
           {/* Show Recent Articles (3 at a time) */}
           {recentPosts.length > 0 && <RecentArticles posts={recentPosts} />}
@@ -44,8 +54,10 @@ export default function Index({ allPosts: { edges }, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview)
+  const allPosts = await getAllPostsForHome(preview);
+  //const products = await getProducts();
+
   return {
     props: { allPosts, preview },
-  }
+  }  
 }
