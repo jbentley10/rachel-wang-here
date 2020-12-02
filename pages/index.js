@@ -5,11 +5,8 @@
 import Head from 'next/head'
 
 // Import library variables
-import { getAllPostsForHome } from '../lib/api'
+import { getAllPostsForHome, getProducts } from '../lib/api'
 import { BLOG_NAME } from '../lib/constants'
-
-// Import functions
-import { getProducts } from '../lib/api';
 
 // Import components
 import Container from '../components/container'
@@ -55,7 +52,7 @@ export default function Index({ allPosts: { edges }, preview }) {
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview);
-  //const products = await getProducts();
+  // const products = await getProducts();
 
   return {
     props: { allPosts, preview },
