@@ -2,30 +2,30 @@
  * @file index.js
  */
 // Import dependencies
-import Head from 'next/head'
+import Head from "next/head";
 
 // Import library variables
-import { getAllPostsForHome, getProducts } from '../lib/api'
-import { BLOG_NAME } from '../lib/constants'
+import { getAllPostsForHome, getProducts } from "../lib/api";
+import { BLOG_NAME } from "../lib/constants";
 
 // Import components
-import Container from '../components/container'
-import RecentArticles from '../components/recent-articles'
-import Header from '../components/header'
-import Hero from '../components/hero'
-import ThreeColumnSplit from '../components/three-column-split'
-import ImageTextSplit from '../components/image-text-split'
-import SimpleCTA from '../components/simple-cta'
-import Layout from '../components/layout'
+import Container from "../components/container";
+import RecentArticles from "../components/recent-articles";
+import Header from "../components/header";
+import Hero from "../components/hero";
+import ThreeColumnSplit from "../components/three-column-split";
+import ImageTextSplit from "../components/image-text-split";
+import SimpleCTA from "../components/simple-cta";
+import Layout from "../components/layout";
 
 export default function Index({ allPosts: { edges }, preview }) {
-  const recentPosts = edges.slice(0, 3)
+  const recentPosts = edges.slice(0, 3);
 
   return (
     <>
       <Layout preview={preview}>
         <Head>
-          <title>{ BLOG_NAME }</title>
+          <title>{BLOG_NAME}</title>
         </Head>
         <Container>
           <Header />
@@ -33,13 +33,15 @@ export default function Index({ allPosts: { edges }, preview }) {
           <ThreeColumnSplit />
           <ImageTextSplit />
 
-          {/* <div>
-            <h2>List of products</h2>
-            {products.map((product) =>
-              <p>{product.name}</p>
-            )}
-          </div> */}
-          
+          {/* {products && (
+            <div>
+              <h2>List of products</h2>
+              {products.map((product) => (
+                <p>{product}</p>
+              ))}
+            </div>
+          )} */}
+
           {/* Show Recent Articles (3 at a time) */}
           {recentPosts.length > 0 && <RecentArticles posts={recentPosts} />}
 
@@ -47,7 +49,7 @@ export default function Index({ allPosts: { edges }, preview }) {
         </Container>
       </Layout>
     </>
-  )
+  );
 }
 
 export async function getStaticProps({ preview = false }) {
@@ -56,5 +58,5 @@ export async function getStaticProps({ preview = false }) {
 
   return {
     props: { allPosts, preview },
-  }  
+  };
 }
