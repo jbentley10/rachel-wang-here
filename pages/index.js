@@ -18,7 +18,7 @@ import ImageTextSplit from "../components/image-text-split";
 import SimpleCTA from "../components/simple-cta";
 import Layout from "../components/layout";
 
-export default function Index({ allPosts: { edges }, preview }) {
+export default function Index({ allPosts: { edges }, preview, products }) {
   const recentPosts = edges.slice(0, 3);
 
   return (
@@ -33,14 +33,12 @@ export default function Index({ allPosts: { edges }, preview }) {
           <ThreeColumnSplit />
           <ImageTextSplit />
 
-          {/* {products && (
+          {products && (
             <div>
               <h2>List of products</h2>
-              {products.map((product) => (
-                <p>{product}</p>
-              ))}
+              <p>{products}</p>
             </div>
-          )} */}
+          )}
 
           {/* Show Recent Articles (3 at a time) */}
           {recentPosts.length > 0 && <RecentArticles posts={recentPosts} />}
@@ -54,9 +52,9 @@ export default function Index({ allPosts: { edges }, preview }) {
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview);
-  // const products = await getProducts();
+  const products = await getProducts();
 
   return {
-    props: { allPosts, preview },
+    props: { allPosts, preview, products },
   };
 }
