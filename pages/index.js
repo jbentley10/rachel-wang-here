@@ -36,7 +36,25 @@ export default function Index({ allPosts: { edges }, preview, products }) {
           {products && (
             <div>
               <h2>List of products</h2>
-              <p>{products}</p>
+              {products.map((product) => (
+                <div key={Math.random()}>
+                  <div className={`inline`}>
+                    <strong>Name: </strong>
+                    <p>{product.name}</p>
+                  </div>
+
+                  <div className={`inline`}>
+                    <strong>Description: </strong>
+                    <div>{product.description}</div>
+                  </div>
+
+                  <div className={`inline`}>
+                    <strong>Price: </strong>
+                    <p>${product.price}</p>
+                  </div>
+                </div>
+
+              ))}
             </div>
           )}
 
