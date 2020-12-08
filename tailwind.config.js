@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     fontFamily: {
       'raleway': ['Raleway'],
-      'sophillia': ['Sophillia']
+      'sophillia': ['Sophillia'],
+      'barlow': ['Barlow']
     },
     extend: {
       colors: {

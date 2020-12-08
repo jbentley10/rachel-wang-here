@@ -3,6 +3,7 @@
  */
 // Import dependencies
 import Link from 'next/link'
+import Image from 'next/image';
 import { useState } from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import { animated, useSpring } from 'react-spring'
@@ -35,7 +36,7 @@ export default function Header() {
   }
 
   return (
-    <div className={`navigation flex md:block md:text-center md:py-24`}>
+    <div className={`navigation flex md:block md:text-center md:py-24 align-middle`}>
       {/* Mobile Navigation */}
       <Menu
         left
@@ -57,19 +58,12 @@ export default function Header() {
         customCrossIcon={ <img src="../static/SVG/menu-cross.svg" /> }
       >        
         <a id="about" className="menu-item py-6 font-raleway text-3xl" href="/about">About</a>
+        <a id="practice" className="menu-item py-6 font-raleway text-3xl" href="/practice">Practice</a>
+        <a id="resources" className="menu-item py-6 font-raleway text-3xl" href="/resources">Resources</a>
         <a id="blog" className="menu-item py-6 font-raleway text-3xl" href="/blog">Blog</a>
-        <a id="free-resources" className="menu-item py-6 font-raleway text-3xl" href="/free-resources">Free Resources</a>
-        <a id="shop" className="menu-item py-6 font-raleway text-3xl" href="/shop">Shop</a>
         <a id="contact" className="menu-item py-6 font-raleway text-3xl" href="/contact">Contact</a>
       </Menu>
-      <h2 className="text-2xl md:text-7xl lg:text-8xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-10 px-12 flex-initial md:inline-block md:text-center">
-        <Link href="/">
-          <div>
-            <a className="cursor-pointer font-sophillia">RachelWang</a>
-            <a className="cursor-pointer font-raleway font-light pl-2">here</a>
-          </div>
-        </Link>        
-      </h2>
+      <Image quality={100} width={128} height={76} id="image-text-split__image" alt={`Rachel Wang Here logo`} src={"/logo.png"} loading="lazy" />        
 
       {/* Desktop Navigation */}
       <div className={`navigation__links-container md:py-8 px-12 hidden md:inline`}>
@@ -77,27 +71,27 @@ export default function Header() {
           <ul className={`navigation__link-list  md:flex md:text-xl lg:text-3xl md:text-center md:w-full`}>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
               <Link href="/about">
-                <a className={`font-raleway`}>About</a>
+                <a className={`font-barlow`}>About</a>
+              </Link>
+            </li>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
+              <Link href="/practice">
+                <a className={`font-barlow`}>Practice</a>
+              </Link>
+            </li>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
+              <Link href="/resources">
+                <a className={`font-barlow`}>Resources</a>
               </Link>
             </li>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
               <Link href="/blog">
-                <a className={`font-raleway`}>Blog</a>
-              </Link>
-            </li>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
-              <Link href="/free-resources">
-                <a className={`font-raleway`}>Free Resources</a>
-              </Link>
-            </li>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
-              <Link href="/shop">
-                <a className={`font-raleway`}>Shop</a>
+                <a className={`font-barlow`}>Blog</a>
               </Link>
             </li>
             <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
               <Link href="/contact">
-                <a className={`font-raleway`}>Contact</a>
+                <a className={`font-barlow`}>Contact</a>
               </Link>
             </li>
           </ul>
