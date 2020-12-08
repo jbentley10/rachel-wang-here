@@ -36,7 +36,7 @@ export default function Header() {
   }
 
   return (
-    <div className={`navigation flex md:block md:text-center md:py-24 align-middle`}>
+    <div className={`navigation flex bg-white relative z-20 md:block md:text-center md:py-24 align-middle`}>
       {/* Mobile Navigation */}
       <Menu
         left
