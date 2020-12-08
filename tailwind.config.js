@@ -4,7 +4,8 @@ module.exports = {
     fontFamily: {
       'raleway': ['Raleway'],
       'sophillia': ['Sophillia'],
-      'barlow': ['Barlow']
+      'barlow': ['Barlow'],
+      'rylan': ['Rylan']
     },
     extend: {
       colors: {
@@ -17,9 +18,9 @@ module.exports = {
         'yellow': '#F4C06F',
         'text-color': '#707070',
         'neutral-background': '#F8EFE5',
-        success: '#0070f3',
-        cyan: '#79FFE1',
-        text: '$4d4e53'
+        'success': '#0070f3',
+        'cyan': '#79FFE1',
+        'gray': '#4d4e53'
       },
       spacing: {
         28: '7rem',
