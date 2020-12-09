@@ -17,6 +17,7 @@ module.exports = {
         'sedona': '#B2573C',
         'yellow': '#F4C06F',
         'text-color': '#707070',
+        'clear-background': 'rgba(255, 255, 255, .5)',
         'neutral-background': '#F8EFE5',
         'success': '#0070f3',
         'cyan': '#79FFE1',
