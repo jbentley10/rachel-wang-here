@@ -34,7 +34,7 @@ export default function ImageTextSplit() {
           being, 
           <br/>inside and out.  
         </h2>
-        <div className={`highlight bg-yellow z-10 relative h-8 w-8/12 -mt-6`}></div>
+        <div className={`highlight bg-yellow-highlight z-10 relative h-8 w-8/12 -mt-6`}></div>
         <br />
         <p className={`text-text-color font-barlow text-paragraph`}>
           I teach people how to recognize their

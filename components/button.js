@@ -15,6 +15,8 @@ export default function Button({ text, color, href, className }) {
         return 'bg-orange hover:bg-orange-darkened'
       case 'brown': 
         return 'bg-sedona hover:bg-sedona-darkened'
+      case 'purple': 
+        return 'bg-purple hover:bg-purple-darkened'
       
       default:
         break;

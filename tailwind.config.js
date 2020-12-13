@@ -13,12 +13,14 @@ module.exports = {
         'accent-2': '#EAEAEA',
         'accent-7': '#333',
         'purple': '#77435D',
+        'purple-darkened': '#441f32',
         'orange': '#F09756',
         'orange-darkened': '#b3652b',
         'sedona': '#B2573C',
         'sedona-darkened': '#903c23',
         'yellow': '#F4C06F',
         'yellow-darkened': '#d0963b',
+        'yellow-highlight': 'rgba(244, 192, 111, .9)',
         'clear-background': 'rgba(255, 255, 255, .5)',
         'neutral-background': '#F8EFE5',
         'success': '#0070f3',
@@ -57,6 +59,7 @@ module.exports = {
       },
       backgroundImage: theme => ({
         'wavy-background': "url('../public/wavy-bg.png')",
+        'popout-pattern-background': "url('../public/popout-pattern-background.png')",
       })
     },
   },

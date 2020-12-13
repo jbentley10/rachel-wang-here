@@ -15,7 +15,7 @@ export default function Hero() {
         <div className={`clear-background bg-clear-background p-10 relative h-full leading-10 transform translate-x-4 translate-y-4`}>
           <div className={`neutral-text-box bg-neutral-background p-10`}>
             <h1 className={`font-rylan z-20 relative text-h1 text-text-color`}>Let's grow your movement and mindset capacity<br/>with intention.</h1>
-            <div className={`highlight bg-yellow z-10 relative h-8 w-3/4`}></div>
+            <div className={`highlight bg-yellow-highlight z-10 relative h-8 w-3/4`}></div>
           </div>
         </div>
         

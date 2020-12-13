@@ -17,6 +17,7 @@ import ThreeColumnSplit from "../components/three-column-split";
 import ImageTextSplit from "../components/image-text-split";
 import SimpleCTA from "../components/simple-cta";
 import Layout from "../components/layout";
+import PopoutBlade from "../components/popout-blade";
 
 export default function Index({ allPosts: { edges }, preview, products }) {
   const recentPosts = edges.slice(0, 3);
@@ -32,6 +33,23 @@ export default function Index({ allPosts: { edges }, preview, products }) {
           <Hero />
           <ThreeColumnSplit />
           <ImageTextSplit />
+          <PopoutBlade 
+            heading={`Learn Online with Me`}
+            body={`Join other students from all over the world to 
+            take part in practicing with me online.
+            <br />
+            Because it’s more fun when we are doing it together.`}
+            button1={{
+              href: '/',
+              text: 'View Class Schedule',
+              color: 'purple'
+            }}
+            button2={{
+              href: '/',
+              text: 'Work 1:1 with Rachel',
+              color: 'orange'
+            }}
+          />
 
           {products && (
             <div>
