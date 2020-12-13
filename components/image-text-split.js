@@ -1,30 +1,64 @@
-import Link from 'next/link'
+/**
+ * @file image-text-split.js
+ */
+
+// Import dependencies
+import Image from 'next/image';
+
+// Import components
+import Button from './button';
 
 export default function ImageTextSplit() {
   return (
-    <section className="image-text-split align-center my-32 md:block lg:flex px-10 md:px-12 md:pb-24 md:px-32 lg:px-64">
-      <div className={`image-text-split__text-container w-full lg:w-6/12 text-left lg:flex-initial lg:pr-32`}>
-        <h2 className={`image-text-split__heading text-5xl md:text-7xl mb-6 font-raleway text-center`}>Hi, I'm Rachel</h2>
-        <p className={`image-text-split__text pb-10 lg:pb-0 font-raleway md:text-2xl`}>
-          Lorem ipsum dolor sit amet, consectetur 
-          adipiscing elit. Phasellus ultricies ultricies 
-          augue eu feugiat. Orci varius natoque 
-          penatibus et magnis dis parturient montes, 
-          nascetur ridiculus mus. Sed vel lectus arcu. 
-
-          Vestibulum ante ipsum primis in faucibus 
-          orci luctus et ultrices posuere cubilia curae; 
-          Duis eleifend non lorem vel pulvinar. Proin 
-          in pretium nisi. 
-
-          In mollis, elit tristique pretium pharetra, 
-          tortor ullamcorper odio. Suspendisse 
-          posuere massa quis ipsum egestas, a 
-          ullamcorper libero faucibus. I
-        </p>
+    <section className="image-text-split align-center my-32 flex">
+      <div className={`image-text-split__left-container w-1/2 text-left lg:flex-initial`}>
+        <h1 className={`image-text-split__heading text-h1 font-rylan text-left text-text-color pl-32 leading-tight`}>
+          Hey there,<br /> 
+          &nbsp;&nbsp;I'm Rachel.
+        </h1>
+        <div className={`image-text-split__image-container`}>
+          <Image
+            layout="intrinsic"
+            width={960}
+            height={953}
+            src={'/rachel-handstand.png'}
+            alt={`Rachel doing a handstand`}
+          />
+        </div>
       </div>
-      <div className={`image-text-split__image-container m-auto w-full md:w-4/12 h-full mb-6 md:inline lg:flex-initial md:ml-12`}>
-        <img src={'../static/SVG/rachel-handstand.svg'} />
+      <div className={`image-text-split__right-container w-1/2 text-left lg:flex-initial pl-24 pr-32`}>
+        <h2 className={`image-text-split__heading text-h2 font-rylan text-left text-link-color leading-tight z-20 relative`}>
+          I believe in pursuing a
+          life that you want by
+          transforming your entire 
+          being, 
+          <br/>inside and out.  
+        </h2>
+        <div className={`highlight bg-yellow z-10 relative h-8 w-8/12 -mt-6`}></div>
+        <br />
+        <p className={`text-text-color font-barlow text-paragraph`}>
+          I teach people how to recognize their
+          unlimited potential by using the yoga practice and
+          science.  Around here, I share my insights and connect
+          you with tools to cultivate a life of purpose with your
+          body, mind, and heart. 
+        </p>
+        <br />
+        <p><strong className={`text-text-color font-barlow`}>
+          Ready to optimize the way you move through 
+          the world?
+        </strong></p>
+        <br />
+        
+        <p className={`text-text-color font-barlow text-paragraph`}>
+          Let’s get moving and being more human.
+        </p>
+        <Button 
+          color={`brown`}
+          href={`/`}
+          text={`Learn More About Me`}
+          className={`mt-12`}
+        />
       </div>
     </section>
   )

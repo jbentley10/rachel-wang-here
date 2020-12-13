@@ -19,11 +19,12 @@ module.exports = {
         'sedona-darkened': '#903c23',
         'yellow': '#F4C06F',
         'yellow-darkened': '#d0963b',
-        'link-color': '#707070',
         'clear-background': 'rgba(255, 255, 255, .5)',
         'neutral-background': '#F8EFE5',
         'success': '#0070f3',
         'cyan': '#79FFE1',
+        // Text
+        'link-color': '#707070',
         'link-color-darkened': '#4d4e53',
         'text-color': '#4d4e53'
       },
@@ -38,7 +39,7 @@ module.exports = {
       },
       fontSize: {
         'h1': '2.75rem', // H1 
-        'h2': '2.5rem', // H2
+        'h2': '2.25rem', // H2
         'h3': '1.75rem', // H3
         'h4': '1.5rem', // H4
         'h5': '1.25rem', // H4

@@ -19,6 +19,15 @@ export default function ThreeColumnSplit() {
           <h1 className={`font-rylan text-h1 text-text-color`}>Take Action Now</h1>
           <h4 className={`font-barlow text-h4 text-text-color`}>Choose a free workshop below.</h4>
         </div>
+        <div className={`three-column-split__yellow-dots-container -mt-64 ml-96`}>
+          <Image
+            layout="intrinsic"
+            width={800}
+            height={330}
+            src={'/yellow-dots.png'}
+            alt={`Yellow dots`}
+          />
+        </div>
         <div className={`three-column-split__columns-container flex`}>
           <div className={`three-column-split__left-column ${columnClasses}`}>
             <div className={`three-column-split__smudge-container -mt-16 -ml-64`}>

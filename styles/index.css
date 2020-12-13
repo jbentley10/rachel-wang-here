@@ -120,16 +120,6 @@
   padding: 1rem 0;
 }
 
-.homepage-hero {
-  background-image: url('../static/SVG/hero-background-shapes.svg');
-  background-repeat: no-repeat;
-}
-
-.image-text-split {
-  background-image: url('../static/SVG/image-text-split-background-shapes.svg');
-  background-repeat: no-repeat;
-}
-
 .truncate {
   white-space: unset !important;
 }
