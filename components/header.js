@@ -35,8 +35,10 @@ export default function Header() {
     event.preventDefault();    
   }
 
+  const linkStyles = `font-barlow text-link text-link-color hover:text-link-color-darkened transition-all`;
+
   return (
-    <div className={`navigation flex bg-white relative z-20 md:block md:text-center md:py-24 align-middle`}>
+    <div className={`navigation inline-grid gap-4 grid-col-6 bg-white relative z-20 md:block md:text-center md:py-16 align-middle`}>
       {/* Mobile Navigation */}
       <Menu
         left
@@ -57,41 +59,50 @@ export default function Header() {
         customBurgerIcon={ <img src="../static/SVG/menu-burger.svg" /> }
         customCrossIcon={ <img src="../static/SVG/menu-cross.svg" /> }
       >        
-        <a id="about" className="menu-item py-6 font-raleway text-3xl" href="/about">About</a>
-        <a id="practice" className="menu-item py-6 font-raleway text-3xl" href="/practice">Practice</a>
-        <a id="resources" className="menu-item py-6 font-raleway text-3xl" href="/resources">Resources</a>
-        <a id="blog" className="menu-item py-6 font-raleway text-3xl" href="/blog">Blog</a>
-        <a id="contact" className="menu-item py-6 font-raleway text-3xl" href="/contact">Contact</a>
+        <a id="about" className="menu-item py-6" href="/about">About</a>
+        <a id="practice" className="menu-item py-6" href="/practice">Practice</a>
+        <a id="resources" className="menu-item py-6" href="/resources">Resources</a>
+        <a id="blog" className="menu-item py-6" href="/blog">Blog</a>
+        <a id="contact" className="menu-item py-6" href="/contact">Contact</a>
       </Menu>
-      <Image quality={100} width={128} height={76} id="image-text-split__image" alt={`Rachel Wang Here logo`} src={"/logo.png"} loading="lazy" />        
+      <Image 
+        quality={100} 
+        width={128} 
+        height={76} 
+        id="image-text-split__image" 
+        className={`inline-grid`} 
+        alt={`Rachel Wang Here logo`} 
+        src={"/logo.png"} 
+        loading="lazy" 
+      />        
 
       {/* Desktop Navigation */}
-      <div className={`navigation__links-container md:py-8 px-12 hidden md:inline`}>
+      <div className={`navigation__links-container align-bottom md:py-8 pl-32 pr-12 hidden md:inline-grid`}>
         <div className={`navigation__links md:inline-block`}>
-          <ul className={`navigation__link-list  md:flex md:text-xl lg:text-3xl md:text-center md:w-full`}>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
+          <ul className={`navigation__link-list  md:flex md:text-30px md:text-center md:w-full`}>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-5`}>
               <Link href="/about">
-                <a className={`font-barlow`}>About</a>
+                <a className={linkStyles}>About</a>
               </Link>
             </li>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-5`}>
               <Link href="/practice">
-                <a className={`font-barlow`}>Practice</a>
+                <a className={linkStyles}>Practice</a>
               </Link>
             </li>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-5`}>
               <Link href="/resources">
-                <a className={`font-barlow`}>Resources</a>
+                <a className={linkStyles}>Resources</a>
               </Link>
             </li>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-5`}>
               <Link href="/blog">
-                <a className={`font-barlow`}>Blog</a>
+                <a className={linkStyles}>Blog</a>
               </Link>
             </li>
-            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-16`}>
+            <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-5`}>
               <Link href="/contact">
-                <a className={`font-barlow`}>Contact</a>
+                <a className={linkStyles}>Contact</a>
               </Link>
             </li>
           </ul>

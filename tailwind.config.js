@@ -14,14 +14,18 @@ module.exports = {
         'accent-7': '#333',
         'purple': '#77435D',
         'orange': '#F09756',
+        'orange-darkened': '#b3652b',
         'sedona': '#B2573C',
+        'sedona-darkened': '#903c23',
         'yellow': '#F4C06F',
-        'text-color': '#707070',
+        'yellow-darkened': '#d0963b',
+        'link-color': '#707070',
         'clear-background': 'rgba(255, 255, 255, .5)',
         'neutral-background': '#F8EFE5',
         'success': '#0070f3',
         'cyan': '#79FFE1',
-        'gray': '#4d4e53'
+        'link-color-darkened': '#4d4e53',
+        'text-color': '#4d4e53'
       },
       spacing: {
         28: '7rem',
@@ -33,8 +37,13 @@ module.exports = {
         tight: 1.2,
       },
       fontSize: {
-        '5xl': '2.5rem',
-        '6xl': '2.75rem',
+        'h1': '2.75rem', // H1 
+        'h2': '2.5rem', // H2
+        'h3': '1.75rem', // H3
+        'h4': '1.5rem', // H4
+        'h5': '1.25rem', // H4
+        'link': '1.25rem', // nav links
+        'paragraph': '1rem', // Paragraph / Body
         '7xl': '4.5rem',
         '8xl': '6.25rem',
       },
@@ -44,7 +53,10 @@ module.exports = {
       },
       margin: {
         'auto': '0 auto'
-      }
+      },
+      backgroundImage: theme => ({
+        'wavy-background': "url('../public/wavy-bg.png')",
+      })
     },
   },
 }
