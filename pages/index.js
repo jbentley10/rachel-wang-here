@@ -51,7 +51,7 @@ export default function Index({ allPosts: { edges }, preview, products }) {
             }}
           />
 
-          {products && (
+          {/* {products && (
             <div>
               <h2>List of products</h2>
               {products.map((product) => (
@@ -74,7 +74,7 @@ export default function Index({ allPosts: { edges }, preview, products }) {
 
               ))}
             </div>
-          )}
+          )} */}
 
           {/* Show Recent Articles (3 at a time) */}
           {recentPosts.length > 0 && <RecentArticles posts={recentPosts} />}
@@ -88,9 +88,9 @@ export default function Index({ allPosts: { edges }, preview, products }) {
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview);
-  const products = await getProducts();
+  // const products = await getProducts();
 
   return {
-    props: { allPosts, preview, products },
+    props: { allPosts, preview },
   };
 }
