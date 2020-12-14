@@ -7,7 +7,7 @@ export default function Avatar({ author }) {
   return (
     <div className="flex items-center">
       <img
-        src={author.avatar.url}
+        src={'https://secure.gravatar.com/avatar/6daef0f3f396343164b3ee1c5cd2f8bb?s=96&d=mm&r=g'}
         className="w-12 h-12 rounded-full mr-4"
         alt={name}
       />
