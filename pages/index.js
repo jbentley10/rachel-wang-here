@@ -19,7 +19,7 @@ import SimpleCTA from "../components/simple-cta";
 import Layout from "../components/layout";
 import PopoutBlade from "../components/popout-blade";
 
-export default function Index({ allPosts: { edges }, preview, products }) {
+export default function Index({ allPosts: { edges }, preview }) {
   const recentPosts = edges.slice(0, 3);
 
   return (
@@ -51,31 +51,6 @@ export default function Index({ allPosts: { edges }, preview, products }) {
             }}
           />
 
-          {products && (
-            <div>
-              <h2>List of products</h2>
-              {products.map((product) => (
-                <div key={Math.random()}>
-                  <div className={`inline`}>
-                    <strong>Name: </strong>
-                    <p>{product.name}</p>
-                  </div>
-
-                  <div className={`inline`}>
-                    <strong>Description: </strong>
-                    <div>{product.description}</div>
-                  </div>
-
-                  <div className={`inline`}>
-                    <strong>Price: </strong>
-                    <p>${product.price}</p>
-                  </div>
-                </div>
-
-              ))}
-            </div>
-          )}
-
           {/* Show Recent Articles (3 at a time) */}
           {recentPosts.length > 0 && <RecentArticles posts={recentPosts} />}
 
@@ -88,9 +63,8 @@ export default function Index({ allPosts: { edges }, preview, products }) {
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview);
-  const products = await getProducts();
 
   return {
-    props: { allPosts, preview, products },
+    props: { allPosts, preview },
   };
 }
