@@ -10,6 +10,8 @@
   "dependencies": {
     "@shopify/buy-button-js": "^2.1.7",
     "@shopify/koa-shopify-auth": "^3.2.0",
+    "@shopify/polaris": "^5.12.0",
+    "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.2",
     "babel": "^6.23.0",
     "classnames": "2.2.6",
