@@ -3,7 +3,7 @@ import Footer from '../components/footer'
 import Meta from '../components/meta'
 import PropTypes from 'prop-types';
 
-export default function Layout({ preview, children, metaDescription }) {  
+export default function PageLayout({ preview, children, metaDescription }) {  
   return (
     <>
       <Meta metaDescription={metaDescription} />
