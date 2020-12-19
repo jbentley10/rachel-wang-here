@@ -25,7 +25,7 @@ export default function Index({ allPosts: { edges }, preview }) {
   const shopifyProduct = () => {
     return {
       __html: `
-        <div id='product-component-1608334938096'></div>
+        <div id='product-component-1608339082928'></div>
         <script type="text/javascript">
         /*<![CDATA[*/
         (function () {
@@ -48,13 +48,13 @@ export default function Index({ allPosts: { edges }, preview }) {
           }
           function ShopifyBuyInit() {
             var client = ShopifyBuy.buildClient({
-              domain: 'john-bentley-test.myshopify.com',
-              storefrontAccessToken: '0c13f26b2513e396a61201b67b4ebcc8',
+              domain: 'john-bentley-partner-test.myshopify.com',
+              storefrontAccessToken: 'fc674d3f4e2a6a13a4a0e654dce6ab00',
             });
             ShopifyBuy.UI.onReady(client).then(function (ui) {
               ui.createComponent('product', {
-                id: '6131257802938',
-                node: document.getElementById('product-component-1608334938096'),
+                id: '5964302680225',
+                node: document.getElementById('product-component-1608339082928'),
                 moneyFormat: '%24%7B%7Bamount%7D%7D',
                 options: {
           "product": {
@@ -64,10 +64,14 @@ export default function Index({ allPosts: { edges }, preview }) {
                   "max-width": "calc(25% - 20px)",
                   "margin-left": "20px",
                   "margin-bottom": "50px"
-                }
+                },
+                "text-align": "left"
               },
               "button": {
-                "font-family": "Roboto, sans-serif",
+                "font-family": "Arial, sans-serif",
+                "font-size": "18px",
+                "padding-top": "17px",
+                "padding-bottom": "17px",
                 ":hover": {
                   "background-color": "#6b3c54"
                 },
@@ -75,15 +79,17 @@ export default function Index({ allPosts: { edges }, preview }) {
                 ":focus": {
                   "background-color": "#6b3c54"
                 }
+              },
+              "quantityInput": {
+                "font-size": "18px",
+                "padding-top": "17px",
+                "padding-bottom": "17px"
               }
             },
             "buttonDestination": "checkout",
             "text": {
               "button": "Buy now"
-            },
-            "googleFonts": [
-              "Roboto"
-            ]
+            }
           },
           "productSet": {
             "styles": {
@@ -110,7 +116,10 @@ export default function Index({ allPosts: { edges }, preview }) {
                 }
               },
               "button": {
-                "font-family": "Roboto, sans-serif",
+                "font-family": "Arial, sans-serif",
+                "font-size": "18px",
+                "padding-top": "17px",
+                "padding-bottom": "17px",
                 ":hover": {
                   "background-color": "#6b3c54"
                 },
@@ -118,11 +127,13 @@ export default function Index({ allPosts: { edges }, preview }) {
                 ":focus": {
                   "background-color": "#6b3c54"
                 }
+              },
+              "quantityInput": {
+                "font-size": "18px",
+                "padding-top": "17px",
+                "padding-bottom": "17px"
               }
             },
-            "googleFonts": [
-              "Roboto"
-            ],
             "text": {
               "button": "Add to cart"
             }
@@ -130,7 +141,10 @@ export default function Index({ allPosts: { edges }, preview }) {
           "cart": {
             "styles": {
               "button": {
-                "font-family": "Roboto, sans-serif",
+                "font-family": "Arial, sans-serif",
+                "font-size": "18px",
+                "padding-top": "17px",
+                "padding-bottom": "17px",
                 ":hover": {
                   "background-color": "#6b3c54"
                 },
@@ -143,15 +157,12 @@ export default function Index({ allPosts: { edges }, preview }) {
             "text": {
               "total": "Subtotal",
               "button": "Checkout"
-            },
-            "googleFonts": [
-              "Roboto"
-            ]
+            }
           },
           "toggle": {
             "styles": {
               "toggle": {
-                "font-family": "Roboto, sans-serif",
+                "font-family": "Arial, sans-serif",
                 "background-color": "#77435d",
                 ":hover": {
                   "background-color": "#6b3c54"
@@ -159,11 +170,11 @@ export default function Index({ allPosts: { edges }, preview }) {
                 ":focus": {
                   "background-color": "#6b3c54"
                 }
+              },
+              "count": {
+                "font-size": "18px"
               }
-            },
-            "googleFonts": [
-              "Roboto"
-            ]
+            }
           }
         },
               });
