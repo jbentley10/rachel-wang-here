@@ -1,12 +1,20 @@
+/**
+ * @file recent-articles.js
+ */
+// Import dependencies
+import Image from 'next/image';
+
+// Import components
 import PostPreview from '../components/post-preview'
+import Button from './button';
 
 export default function RecentArticles({ posts }) {
   return (
-    <section className={`md:px-32 lg:px-64 bg-neutral-background py-24`}>
-      <h2 className="mb-8 text-6xl md:text-7xl font-raleway font-normal text-center tracking-tighter leading-tight">
+    <section className={`md:px-32 lg:px-64 bg-wavy-background bg-cover bg-no-repeat pt-64 pb-12`}>
+      <h2 className="text-h2 font-rylan text-center">
         Recent Articles
       </h2>
-      <div className="grid grid-cols-1 lg:grid-cols-3 md:col-gap-24 lg:col-gap-12 mb-32">
+      <div className="flex mr-4">
         {posts.map(({ node }) => (
           <PostPreview
             key={node.slug}
@@ -19,6 +27,12 @@ export default function RecentArticles({ posts }) {
           />
         ))}
       </div>
+      <Button
+        color={`brown`}
+        href={`/blog`}
+        text={`More Posts Here`}
+        className={`w-1/2 m-auto`}
+      />
     </section>
   )
 }

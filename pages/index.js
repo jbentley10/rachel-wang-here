@@ -18,6 +18,8 @@ import ImageTextSplit from "../components/image-text-split";
 import SimpleCTA from "../components/simple-cta";
 import PageLayout from "../components/layout";
 import PopoutBlade from "../components/popout-blade";
+import ThreeButtonBlade from "../components/three-button-blade";
+import ThreePhotoBackground from "../components/three-photo-background";
 
 export default function Index({ allPosts: { edges }, preview }) {
   const recentPosts = edges.slice(0, 3);  
@@ -198,22 +200,70 @@ export default function Index({ allPosts: { edges }, preview }) {
           <Hero />
           <ThreeColumnSplit />
           <ImageTextSplit />
-          <PopoutBlade 
-            heading={`Learn Online with Me`}
-            body={`Join other students from all over the world to 
-            take part in practicing with me online.
-            <br />
-            Because it’s more fun when we are doing it together.`}
-            button1={{
-              href: '/',
-              text: 'View Class Schedule',
-              color: 'purple'
-            }}
-            button2={{
-              href: '/',
-              text: 'Work 1:1 with Rachel',
-              color: 'orange'
-            }}
+          <ThreeButtonBlade
+            heading={`Learn online with me`}
+            buttons={[
+              {
+                heading: `Body`,
+                description: `Lorem ipsum solor dut amet.`,
+                link: `/`
+              },
+              {
+                heading: `Mind`,
+                description: `Lorem ipsum solor dut amet.`,
+                link: `/`
+              },
+              {
+                heading: `Heart`,
+                description: `Lorem ipsum solor dut amet.`,
+                link: `/`
+              }
+            ]}
+          />
+          <ThreePhotoBackground 
+            heading={`Start Here. Start Now.`}
+            subheading={`Discover the Library`}
+            body={`With FREE full length classes, tutorials, and how-to’s to 
+            choose from, you will always find something to help 
+            improve your body, mind, and overall well-being.  
+            
+            I offer a variety of styles and pose breakdowns, 
+            ranging from beginner basics, to gentle sequences, 
+            to strong and dynamic flows, to functional mobility 
+            work, to mindset tools, and a little bit of 
+            everything in between.
+            
+            Let’s be human together.`}
+            button={{
+              text: 'Subscribe on YouTube',
+              color: 'purple',
+              href: '/'
+            }} 
+            images={[
+              {
+                photo: '',
+                heading: 'Be Here Now',
+                subtext: 'Lorem ipsum solor dut amet.',
+                buttonText: 'Practice Now',
+                buttonLink: '/',
+                buttonColor: 'purple'
+              },
+              {
+                photo: '',
+                heading: 'YouTube',
+                subtext: 'Lorem ipsum solor dut amet.',
+                buttonText: 'Practice Now',
+                buttonLink: '/',
+                buttonColor: 'orange'
+              },{
+                photo: '',
+                heading: 'Audio',
+                subtext: 'Lorem ipsum solor dut amet.',
+                buttonText: 'Practice Now',
+                buttonLink: '/',
+                buttonColor: 'yellow'
+              }
+            ]}
           />
 
           {/* Show Recent Articles (3 at a time) */}
@@ -222,7 +272,6 @@ export default function Index({ allPosts: { edges }, preview }) {
           {/* Testing Shopify */}
           <div dangerouslySetInnerHTML={shopifyProduct()} />
 
-          <SimpleCTA />
         </Container>
       </PageLayout>
     </>
