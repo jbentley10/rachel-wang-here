@@ -3,12 +3,9 @@
  */
 // Import dependencies
 import Head from "next/head";
-import { EmptyState, Layout, Page } from '@shopify/polaris';
-import Client from 'shopify-buy';
-import ShopifyBuy from 'shopify-buy';
 
 // Import library variables
-import { getAllPostsForHome, getProducts } from "../lib/api";
+import { getAllPostsForHome } from "../lib/api";
 import { BLOG_NAME } from "../lib/constants";
 
 // Import components
@@ -51,8 +48,8 @@ export default function Index({ allPosts: { edges }, preview }) {
           }
           function ShopifyBuyInit() {
             var client = ShopifyBuy.buildClient({
-              domain: ${process.env.SHOPIFY_STORE_DOMAIN},
-              storefrontAccessToken: ${process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN},
+              domain: '${process.env.SHOPIFY_STORE_DOMAIN}',
+              storefrontAccessToken: '${process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN}',
             });
             ShopifyBuy.UI.onReady(client).then(function (ui) {
               ui.createComponent('product', {
