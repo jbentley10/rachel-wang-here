@@ -13,7 +13,9 @@ export default function PopoutBlade({heading, body, button1, button2}) {
     <section className="popout-blade bg-popout-pattern-background bg-cover flex py-12 px-32">
       <div className={`popout-blade__text-container w-7/12 mr-24 pr-24`}>
         <h3 className={`font-rylan text-h3 text-text-color`}>{heading}</h3>
-        <p className={`font-barlow text-paragraph text-text-color`}>{body}</p>
+        {body && 
+          <p className={`font-barlow text-paragraph text-text-color`}>{body}</p>
+        }
       </div>
       <div className={`popout-blade__button-container w-5/12 ml-24`}>
         <Button 

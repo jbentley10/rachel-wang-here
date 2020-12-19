@@ -13,20 +13,19 @@ export default function PostPreview({
 }) {
   return (
     <Link as={`/posts/${slug}`} href="/posts/[slug]">
-      <div className={`post-preview shadow p-8 cursor-pointer`}>
-        <div className={`post-preview__image-container mb-5 w-full text-center md:max-w-sm md:max-h-sm`}>
+      <div className={`post-preview p-8 cursor-pointer w-1/3`}>
+        <div className={`post-preview__image-container mb-5 w-full text-center`}>
           <CoverImage className={`m-auto`} title={title} coverImage={coverImage} slug={slug} />
         </div>
-        <h3 className={`post-preview__heading text-2xl mb-3 leading-snug font-bold mt-10 sm:h-full md:h-32 font-raleway normal-case`}>        
+        <span className={`font-barlow uppercase text-text-color opacity-50`}>Yoga</span>
+        <h5 className={`post-preview__heading text-h5 font-barlow font-semibold pb-2`}>        
           <a className="hover:underline" dangerouslySetInnerHTML={{ __html: title }} />
-        </h3>
+        </h5>
         <div
-          className={`post-preview__excerpt text-lg leading-relaxed mb-4 mt-4 truncate font-raleway`}
+          className={`font-barlow text-paragraph text-text-color pb-4 truncate overflow-ellipsis`}
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />
-        <div className={`post-preview__date text-lg mb-4 font-light font-raleway`}>
-          <Date dateString={date} />
-        </div>
+        <span className={`font-semibold text-paragraph font-barlow text-purple`}>Read More</span>
       </div>
     </Link>
   )
