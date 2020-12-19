@@ -48,8 +48,8 @@ export default function Index({ allPosts: { edges }, preview }) {
           }
           function ShopifyBuyInit() {
             var client = ShopifyBuy.buildClient({
-              domain: '${process.env.SHOPIFY_STORE_DOMAIN}',
-              storefrontAccessToken: '${process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN}',
+              domain: 'john-bentley-test.myshopify.com',
+              storefrontAccessToken: '0c13f26b2513e396a61201b67b4ebcc8',
             });
             ShopifyBuy.UI.onReady(client).then(function (ui) {
               ui.createComponent('product', {
