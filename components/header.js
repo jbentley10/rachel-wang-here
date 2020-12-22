@@ -39,7 +39,7 @@ export default function Header() {
   const mobileLinkStyles = `py-6 text-link-color text-h3 hover:text-purple`;
 
   return (
-    <div className={`navigation bg-white relative z-20 md:text-center md:py-16 align-middle w-full`}>
+    <div className={`navigation bg-white relative z-30 md:text-center md:py-16 align-middle w-full`}>
       {/* Mobile Navigation */}
       <div className={`flex align-middle py-8 md:hidden`}>
         <div className={`menu-container w-7/12 flex-initial`}>
