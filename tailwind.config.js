@@ -48,7 +48,7 @@ module.exports = {
         'h5': '1.25rem', // H4
         'link': '1.25rem', // nav links
         'paragraph': '1rem', // Paragraph / Body
-        'footer': '.75rem',
+        'footer': '1.25rem',
         '7xl': '4.5rem',
         '8xl': '6.25rem',
       },
@@ -61,6 +61,7 @@ module.exports = {
       },
       backgroundImage: theme => ({
         'wavy-background': "url('../public/wavy-bg.png')",
+        'blob-background': "url('../public/blob-background.png')",
         'popout-pattern-background': "url('../public/popout-pattern-background.png')",
         'image--0': "url('../public/image-1.png')",
         'image--1': "url('../public/image-2.png')",

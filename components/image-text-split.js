@@ -10,23 +10,23 @@ import Button from './button';
 
 export default function ImageTextSplit() {
   return (
-    <section className="image-text-split align-center my-32 flex">
-      <div className={`image-text-split__left-container w-1/2 text-left lg:flex-initial`}>
+    <section className="image-text-split align-center my-32 sm:block lg:flex">
+      <div className={`image-text-split__left-container sm:w-full lg:w-1/2 text-left lg:flex-initial`}>
         <h1 className={`image-text-split__heading text-h1 font-rylan text-left text-text-color pl-32 leading-tight`}>
           Hey there,<br /> 
           &nbsp;&nbsp;I'm Rachel.
         </h1>
-        <div className={`image-text-split__image-container`}>
+        <div className={`image-text-split__image-container text-center m-auto md:m-0`}>
           <Image
             layout="intrinsic"
-            width={960}
-            height={953}
+            width={450}
+            height={450}
             src={'/rachel-handstand.png'}
             alt={`Rachel doing a handstand`}
           />
         </div>
       </div>
-      <div className={`image-text-split__right-container w-1/2 text-left lg:flex-initial pl-24 pr-32`}>
+      <div className={`image-text-split__right-container sm:w-full lg:w-1/2 text-left lg:flex-initial p-12 md:py-0 md:pl-24 md:pr-32 sm:mt-10 lg:mt-0`}>
         <h2 className={`image-text-split__heading text-h2 font-rylan text-left text-link-color leading-tight z-20 relative`}>
           I believe in pursuing a
           life that you want by
