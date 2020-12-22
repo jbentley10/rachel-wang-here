@@ -1,7 +1,9 @@
-import Alert from '../components/alert'
+/**
+ * @file layout.js
+ */
+// Import components
 import Footer from '../components/footer'
 import Meta from '../components/meta'
-import PropTypes from 'prop-types';
 
 export default function PageLayout({ preview, children, metaDescription }) {  
   return (
@@ -15,19 +17,19 @@ export default function PageLayout({ preview, children, metaDescription }) {
         heading={`Follow @RachelWangHere`}
         posts={[
           {
-            image: '/rachel-handstand.png',
+            image: '/instagram-1.png',
             link: '/'
           },
           {
-            image: '/rachel-handstand.png',
+            image: '/instagram-2.png',
             link: '/'
           },
           {
-            image: '/rachel-handstand.png',
+            image: '/instagram-3.png',
             link: '/'
           },
           {
-            image: '/rachel-handstand.png',
+            image: '/instagram-4.png',
             link: '/'
           }
         ]}

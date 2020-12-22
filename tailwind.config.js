@@ -20,6 +20,7 @@ module.exports = {
         'sedona-darkened': '#903c23',
         'yellow': '#F4C06F',
         'yellow-darkened': '#d0963b',
+        'yellow-transparent': 'rgba(244, 192, 111, .5)',
         'yellow-highlight': 'rgba(244, 192, 111, .9)',
         'clear-background': 'rgba(255, 255, 255, .5)',
         'neutral-background': '#F8EFE5',
