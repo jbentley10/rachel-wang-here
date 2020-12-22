@@ -10,11 +10,11 @@ import Button from './button';
 
 export default function RecentArticles({ posts }) {
   return (
-    <section className={`md:px-32 lg:px-64 bg-wavy-background bg-cover bg-no-repeat pt-64 pb-12`}>
+    <section className={`px-12 md:px-32 lg:px-64 bg-wavy-background bg-cover bg-no-repeat pt-64 pb-12`}>
       <h2 className="text-h2 font-rylan text-center">
         Recent Articles
       </h2>
-      <div className="flex mr-4">
+      <div className="block lg:flex mr-4">
         {posts.map(({ node }) => (
           <PostPreview
             key={node.slug}

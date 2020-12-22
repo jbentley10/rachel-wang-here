@@ -11,11 +11,11 @@ import Button from './button';
 
 export default function ThreeButtonBlade({heading, buttons}) {
   return (
-    <section className="popout-blade bg-popout-pattern-background bg-cover py-12 px-32">
+    <section className="popout-blade bg-popout-pattern-background bg-cover px-32 py-20">
       <div className={`popout-blade__text-container w-full mr-24 pr-24`}>
         <h3 className={`font-rylan text-h3 text-text-color`}>{heading}</h3>
       </div>
-      <div className={`popout-blade__button-container flex w-full`}>
+      <div className={`popout-blade__button-container block lg:flex w-full`}>
         {buttons.map((button, index) => {
           return (
             <Link className={``} href={button.link}>

@@ -13,7 +13,7 @@ export default function PostPreview({
 }) {
   return (
     <Link as={`/posts/${slug}`} href="/posts/[slug]">
-      <div className={`post-preview p-8 cursor-pointer w-1/3`}>
+      <div className={`post-preview p-8 cursor-pointer w-full lg:w-1/3`}>
         <div className={`post-preview__image-container mb-5 w-full text-center`}>
           <CoverImage className={`m-auto`} title={title} coverImage={coverImage} slug={slug} />
         </div>
