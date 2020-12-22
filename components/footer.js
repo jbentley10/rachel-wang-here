@@ -17,8 +17,8 @@ import {
 import Button from './button';
 
 export default function Footer({heading, posts, subheading, subtext, button}) {
-  const iconClasses = `w-8 pr-4 cursor-pointer text-text-color hover:text-link-color-darkened`;
-  const linkClasses = `pr-4 cursor-pointer hover:text-link-color-darkened`;
+  const iconClasses = `w-8 pr-4 cursor-pointer text-text-color hover:text-purple`;
+  const linkClasses = `pr-4 cursor-pointer hover:text-purple`;
 
   return (
     <footer className={`footer`}>
