@@ -13,7 +13,7 @@ import Sidebar from '../components/sidebar'
 import { fetchSidebar } from '../utils/contentfulPages'
 import { getAllPostsForHome } from '../lib/api'
 
-export default function About({ about, preview, contentfulRes, posts: { edges } }) {
+export default function About({ about, preview, sidebarContent, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
 
   // Set up variables for the About page
@@ -44,7 +44,7 @@ export default function About({ about, preview, contentfulRes, posts: { edges } 
               </div>             
             </div>
             <div className={`sidebar-layout-container flex-initial md:w-2/12`}>
-                <Sidebar posts={recentPosts} content={contentfulRes.fields}/>
+                <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
               </div>
           </div>
         </Container>
@@ -60,13 +60,13 @@ export default function About({ about, preview, contentfulRes, posts: { edges } 
 export async function getStaticProps({ preview = false }) {
   const res = await fetch('https://rachelwanghere.com/wp-json/wp/v2/pages/3171')
   const about = await res.json()
-  const contentfulRes = await fetchSidebar();
+  const sidebarContent = await fetchSidebar();
   const posts = await getAllPostsForHome(preview);
 
-  if (contentfulRes.fields) {
+  if (sidebarContent.fields) {
     return {
       props: {
-        contentfulRes,
+        sidebarContent,
         about,
         posts,
         preview

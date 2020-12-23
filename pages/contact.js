@@ -15,7 +15,7 @@ import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import { fetchSidebar } from '../utils/contentfulPages'
 
-export default function Contact({ contact, preview, contentfulRes, posts: { edges } }) {
+export default function Contact({ contact, preview, sidebarContent, posts: { edges } }) {
   // Set up variables for the Contact page
   let title = contact.title.rendered;  
   let content = contact.content.rendered;
@@ -51,7 +51,7 @@ export default function Contact({ contact, preview, contentfulRes, posts: { edge
               </div>
             </div>
             <div className={`sidebar-layout-container flex-initial`}>
-              <Sidebar posts={recentPosts} content={contentfulRes.fields}/>
+              <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
             </div>
           </div>
           
@@ -69,13 +69,13 @@ export default function Contact({ contact, preview, contentfulRes, posts: { edge
 export async function getStaticProps({ preview = false }) {
   const res = await fetch('https://rachelwanghere.com/wp-json/wp/v2/pages/5')
   const contact = await res.json()
-  const contentfulRes = await fetchSidebar();
+  const sidebarContent = await fetchSidebar();
   const posts = await getAllPostsForHome(preview);
 
-  if (contentfulRes.fields) {
+  if (sidebarContent.fields) {
     return {
       props: {
-        contentfulRes,
+        sidebarContent,
         contact,
         preview,
         posts
