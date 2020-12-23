@@ -64,7 +64,7 @@ export default function Contact({ contact, preview, contentfulRes, posts }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview = false }) {
   const res = await fetch('https://rachelwanghere.com/wp-json/wp/v2/pages/5')
   const contact = await res.json()
   const contentfulRes = await fetchSidebar();
@@ -75,13 +75,15 @@ export async function getStaticProps() {
       props: {
         contentfulRes,
         contact,
+        preview
       },
     }
   } else {
     return {
       props: {
         contact,
-        posts
+        posts,
+        preview
       }
     }
   }
