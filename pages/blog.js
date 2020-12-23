@@ -15,7 +15,8 @@ import BlogArticles from '../components/blog-articles'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 
-export default function Blog({ allPosts: { edges }, preview }) {
+export default function Blog({ posts: { edges }, preview }) {
+  const recentPosts = edges.slice(0, 3);
   const allPosts = edges.slice(0, 20);
 
   return (
@@ -34,8 +35,8 @@ export default function Blog({ allPosts: { edges }, preview }) {
               {/* Show All Articles (20 at a time) */}
               {allPosts.length > 0 && <BlogArticles posts={allPosts} />}
             </div>
-            <div className={`sidebar-layout-container`}>
-              <Sidebar />
+            <div className={`sidebar-layout-container w-2/12`}>
+              <Sidebar posts={recentPosts} />
             </div> 
           </div>
         </Container>
@@ -45,8 +46,8 @@ export default function Blog({ allPosts: { edges }, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview)
+  const posts = await getAllPostsForHome(preview)
   return {
-    props: { allPosts, preview },
+    props: { posts, preview },
   }
 }

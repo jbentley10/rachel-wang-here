@@ -40,7 +40,7 @@ export default function About({ about, preview }) {
                 />
               </div>             
             </div>
-            <div className={`sidebar-layout-container flex-initial`}>
+            <div className={`sidebar-layout-container flex-initial md:w-2/12`}>
                 <Sidebar />
               </div>
           </div>

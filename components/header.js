@@ -72,7 +72,7 @@ export default function Header() {
           </Menu>
         </div>
         <div className={`logo-container w-5/12 flex-inital`}>
-          <Link href="/">
+          <Link to={`/`} href="/">
             <Image 
               quality={100} 
               width={200} 
