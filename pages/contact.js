@@ -75,7 +75,8 @@ export async function getStaticProps({ preview = false }) {
       props: {
         contentfulRes,
         contact,
-        preview
+        preview,
+        posts
       },
     }
   } else {
