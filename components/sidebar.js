@@ -13,7 +13,6 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import Button from './button';
 import SidebarPostPreview from './sidebar-post-preview';
-import { fetchSidebar } from '../utils/contentfulPages';
 
 export default function Sidebar({ posts, content }) {   
   const iconClasses = `w-16 flex-initial pr-8 cursor-pointer text-text-color hover:text-purple`;
@@ -77,17 +76,19 @@ export default function Sidebar({ posts, content }) {
       </div>
       
       {/* Latest Blog Posts */}
-      <div className={`my-16`}>
-        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.recentPostsHeading}</h2>
-        {posts.map(({ node }) => (
-          <SidebarPostPreview
-            key={node.slug}
-            title={node.title}
-            coverImage={node.featuredImage}
-            slug={node.slug}
-          />
-        ))}
-      </div>
+      {posts && 
+        <div className={`my-16`}>
+          <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.recentPostsHeading}</h2>
+          {posts.map(({ node }) => (
+            <SidebarPostPreview
+              key={node.slug}
+              title={node.title}
+              coverImage={node.featuredImage}
+              slug={node.slug}
+            />
+          ))}
+        </div>
+      }
     </div>
   )
 }
