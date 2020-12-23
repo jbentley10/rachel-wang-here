@@ -5,18 +5,15 @@
 import Image from 'next/image';
 
 // Import components
-import PostPreview from '../components/post-preview'
+import PostPreviewWithImage from '../components/post-preview-with-image'
 import Button from './button';
 
 export default function BlogArticles({ posts }) {
   return (
-    <section className={`px-4 md:px-32 lg:px-32`}>
-      <h2 className="text-h2 font-rylan text-center">
-        Latest Posts
-      </h2>
-      <div className="flex mr-4">
+    <section className={`px-32`}>
+      <div className="mr-4">
         {posts.map(({ node }) => (
-          <PostPreview
+          <PostPreviewWithImage
             key={node.slug}
             title={node.title}
             coverImage={node.featuredImage}

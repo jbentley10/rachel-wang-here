@@ -27,11 +27,14 @@ export default function Blog({ allPosts: { edges }, preview }) {
         <Container>
           <Header />
           <div className={`sidebar-body-split flex`}>
-            <div className={`all-articles-layout-container flex-initial md:w-7/12`}>
+            <div className={`all-articles-layout-container w-7/12`}>
+              <h2 className="text-h2 font-rylan text-center">
+                Latest Posts
+              </h2>
               {/* Show All Articles (20 at a time) */}
               {allPosts.length > 0 && <BlogArticles posts={allPosts} />}
             </div>
-            <div className={`sidebar-layout-container flex-initial`}>
+            <div className={`sidebar-layout-container`}>
               <Sidebar />
             </div> 
           </div>
