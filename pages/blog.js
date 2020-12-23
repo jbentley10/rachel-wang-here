@@ -14,8 +14,10 @@ import Container from '../components/container'
 import BlogArticles from '../components/blog-articles'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
+import { fetchSidebar } from '../utils/contentfulPages'
 
-export default function Blog({ allPosts: { edges }, preview }) {
+export default function Blog({ posts: { edges }, preview, res }) {
+  const recentPosts = edges.slice(0, 3);
   const allPosts = edges.slice(0, 20);
 
   return (
@@ -27,12 +29,15 @@ export default function Blog({ allPosts: { edges }, preview }) {
         <Container>
           <Header />
           <div className={`sidebar-body-split flex`}>
-            <div className={`all-articles-layout-container flex-initial md:w-7/12`}>
+            <div className={`all-articles-layout-container w-7/12`}>
+              <h2 className="text-h2 font-rylan text-center">
+                Latest Posts
+              </h2>
               {/* Show All Articles (20 at a time) */}
               {allPosts.length > 0 && <BlogArticles posts={allPosts} />}
             </div>
-            <div className={`sidebar-layout-container flex-initial`}>
-              <Sidebar />
+            <div className={`sidebar-layout-container w-2/12`}>
+              <Sidebar posts={recentPosts} content={res.fields} />
             </div> 
           </div>
         </Container>
@@ -42,8 +47,23 @@ export default function Blog({ allPosts: { edges }, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview)
+  const posts = await getAllPostsForHome(preview);
+
+  const res = await fetchSidebar();
+  console.log("Response");
+  console.log(res);
+  console.log(res.fields);
+
+  if (res.fields) {
+    return {
+      props: {
+        res,
+        posts,
+        preview
+      },
+    };
+  } else
   return {
-    props: { allPosts, preview },
+    props: { posts, preview },
   }
 }

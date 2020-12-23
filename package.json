@@ -19,6 +19,7 @@
     "axios": "^0.19.2",
     "babel": "^6.23.0",
     "classnames": "2.2.6",
+    "contentful": "^8.1.5",
     "date-fns": "2.14.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
