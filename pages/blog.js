@@ -11,14 +11,12 @@ import { BLOG_NAME } from '../lib/constants'
 // Import components
 import Layout from '../components/layout'
 import Container from '../components/container'
-import RecentArticles from '../components/recent-articles'
+import BlogArticles from '../components/blog-articles'
 import Header from '../components/header'
-import SimpleCTA from '../components/simple-cta'
-import TextBlock from '../components/text-block'
 import Sidebar from '../components/sidebar'
 
 export default function Blog({ allPosts: { edges }, preview }) {
-  const recentPosts = edges.slice(0, 3)
+  const allPosts = edges.slice(0, 20);
 
   return (
     <>
@@ -29,9 +27,9 @@ export default function Blog({ allPosts: { edges }, preview }) {
         <Container>
           <Header />
           <div className={`sidebar-body-split flex`}>
-            <div className={`recent-articles-layout-container flex-initial md:w-7/12`}>
-              {/* Show Recent Articles (3 at a time) */}
-              {recentPosts.length > 0 && <RecentArticles posts={recentPosts} />}
+            <div className={`all-articles-layout-container flex-initial md:w-7/12`}>
+              {/* Show All Articles (20 at a time) */}
+              {allPosts.length > 0 && <BlogArticles posts={allPosts} />}
             </div>
             <div className={`sidebar-layout-container flex-initial`}>
               <Sidebar />

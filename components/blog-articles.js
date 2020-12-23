@@ -1,5 +1,5 @@
 /**
- * @file recent-articles.js
+ * @file blog-articles.js
  */
 // Import dependencies
 import Image from 'next/image';
@@ -8,11 +8,11 @@ import Image from 'next/image';
 import PostPreview from '../components/post-preview'
 import Button from './button';
 
-export default function RecentArticles({ posts }) {
+export default function BlogArticles({ posts }) {
   return (
-    <section className={`md:px-32 lg:px-64 bg-wavy-background bg-cover bg-no-repeat pt-64 pb-12`}>
+    <section className={`px-4 md:px-32 lg:px-32`}>
       <h2 className="text-h2 font-rylan text-center">
-        Recent Articles
+        Latest Posts
       </h2>
       <div className="flex mr-4">
         {posts.map(({ node }) => (
@@ -30,7 +30,7 @@ export default function RecentArticles({ posts }) {
       <Button
         color={`brown`}
         href={`/blog`}
-        text={`More Posts Here`}
+        text={`Load More Posts`}
         className={`w-1/2 m-auto`}
       />
     </section>

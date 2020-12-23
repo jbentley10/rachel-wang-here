@@ -23,7 +23,7 @@ export default function Hero() {
       <div className={`hero-image-container`}>
         <Image
           layout="fill"
-          className="object-center object-cover pointer-events-none"
+          className="object-right md:object-center object-cover pointer-events-none"
           src={backgroundImage}
           alt={title}
         />
