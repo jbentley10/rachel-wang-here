@@ -1,6 +1,14 @@
+/**
+ * @file post-preview.js
+ */
+// Import components
 import Avatar from '../components/avatar'
 import Date from '../components/date'
+
+// Import assets
 import CoverImage from './cover-image'
+
+// Import dependencies
 import Link from 'next/link'
 
 export default function PostPreview({
