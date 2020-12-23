@@ -11,6 +11,7 @@ import Container from '../components/container'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import { fetchSidebar } from '../utils/contentfulPages'
+import { getAllPostsForHome } from '../lib/api'
 
 export default function About({ about, preview, contentfulRes, posts }) {
 
