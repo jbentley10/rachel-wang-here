@@ -17,7 +17,7 @@ import SimpleCTA from '../components/simple-cta'
 import TextBlock from '../components/text-block'
 import Sidebar from '../components/sidebar'
 
-export default function Contact({ contact, preview }) {
+export default function Contact({ contact, preview, contentfulRes }) {
   // Set up variables for the Contact page
   let title = contact.title.rendered;  
   let content = contact.content.rendered;
@@ -51,7 +51,7 @@ export default function Contact({ contact, preview }) {
               </div>
             </div>
             <div className={`sidebar-layout-container flex-initial`}>
-              <Sidebar />
+              <Sidebar content={contentfulRes.fields}/>
             </div>
           </div>
           
@@ -69,10 +69,20 @@ export default function Contact({ contact, preview }) {
 export async function getStaticProps() {
   const res = await fetch('https://rachelwanghere.com/wp-json/wp/v2/pages/5')
   const contact = await res.json()
+  const contentfulRes = await fetchSidebar();
 
-  return {
-    props: {
-      contact,
-    },
+  if (contentfulRes.fields) {
+    return {
+      props: {
+        contentfulRes,
+        contact,
+      },
+    }
+  } else {
+    return {
+      props: {
+        contact
+      }
+    }
   }
 }
