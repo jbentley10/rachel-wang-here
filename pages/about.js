@@ -56,7 +56,7 @@ export default function About({ about, preview, contentfulRes, posts }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview = false }) {
   const res = await fetch('https://rachelwanghere.com/wp-json/wp/v2/pages/3171')
   const about = await res.json()
   const contentfulRes = await fetchSidebar();
@@ -67,11 +67,12 @@ export async function getStaticProps() {
       props: {
         contentfulRes,
         about,
-        posts
+        posts,
+        preview
       },
     };
   } else
   return {
-    props: { about, posts },
+    props: { about, posts, preview },
   }
 }
