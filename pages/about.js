@@ -10,8 +10,9 @@ import Layout from '../components/layout'
 import Container from '../components/container'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
+import { fetchSidebar } from '../utils/contentfulPages'
 
-export default function About({ about, preview }) {
+export default function About({ about, preview, contentfulRes }) {
 
   // Set up variables for the About page
   let title = about.title.rendered;  
@@ -41,7 +42,7 @@ export default function About({ about, preview }) {
               </div>             
             </div>
             <div className={`sidebar-layout-container flex-initial md:w-2/12`}>
-                <Sidebar />
+                <Sidebar content={contentfulRes.fields}/>
               </div>
           </div>
         </Container>
@@ -57,10 +58,17 @@ export default function About({ about, preview }) {
 export async function getStaticProps() {
   const res = await fetch('https://rachelwanghere.com/wp-json/wp/v2/pages/3171')
   const about = await res.json()
+  const contentfulRes = await fetchSidebar();
 
+  if (res.fields) {
+    return {
+      props: {
+        contentfulRes,
+        about
+      },
+    };
+  } else
   return {
-    props: {
-      about,
-    },
+    props: { about },
   }
 }
