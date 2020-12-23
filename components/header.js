@@ -35,7 +35,7 @@ export default function Header() {
     event.preventDefault();    
   }
 
-  const linkStyles = `font-barlow text-link text-link-color hover:text-link-color-darkened transition-all`;
+  const linkStyles = `font-barlow text-link text-link-color hover:text-purple transition-all`;
   const mobileLinkStyles = `py-6 text-link-color text-h3 hover:text-purple`;
 
   return (

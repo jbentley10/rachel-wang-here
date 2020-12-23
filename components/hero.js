@@ -35,7 +35,7 @@ export default function Hero() {
 
         .neutral-text-box {
           transform: translate(10px, 0px);
-          width: 115%;
+          width: 100%;
         }
 
         .highlight {

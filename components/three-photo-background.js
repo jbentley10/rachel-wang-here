@@ -11,13 +11,13 @@ import Button from './button';
 
 export default function ThreePhotoBackground({heading, subheading, body, button, images}) {
   return (
-    <section className="three-photo-background bg-blob-background bg-cover py-12 px-32">
+    <section className="three-photo-background md:bg-blob-background bg-cover p-8 md:px-32 md:py-20">
       <h3 className={`text-h3 font-rylan text-center text-text-color`}>{heading}</h3>
-      <div className={`p-12`}>
+      <div className={`p-8 md:p-12`}>
         <h2 className={`text-h2 font-rylan text-center text-text-color pb-6`}>{subheading}</h2>
-        <p className={`text-paragraph text-text-color font-barlow w-9/12 text-left m-auto mb-16`}>{body}</p>
+        <p className={`text-paragraph text-text-color font-barlow w-full md:w-9/12 text-left m-auto mb-16`}>{body}</p>
         <Button
-          className={`w-4/12 m-auto`}
+          className={`w-full md:w-4/12 m-auto`}
           color={button.color}
           href={button.href}
           text={button.text}
