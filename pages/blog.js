@@ -50,9 +50,6 @@ export async function getStaticProps({ preview = false }) {
   const posts = await getAllPostsForHome(preview);
 
   const res = await fetchSidebar();
-  console.log("Response");
-  console.log(res);
-  console.log(res.fields);
 
   if (res.fields) {
     return {
