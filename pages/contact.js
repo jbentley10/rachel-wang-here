@@ -16,6 +16,7 @@ import Header from '../components/header'
 import SimpleCTA from '../components/simple-cta'
 import TextBlock from '../components/text-block'
 import Sidebar from '../components/sidebar'
+import { fetchSidebar } from '../utils/contentfulPages'
 
 export default function Contact({ contact, preview, contentfulRes }) {
   // Set up variables for the Contact page
