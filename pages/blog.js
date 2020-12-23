@@ -48,7 +48,6 @@ export default function Blog({ posts: { edges }, preview, contentfulRes }) {
 
 export async function getStaticProps({ preview = false }) {
   const posts = await getAllPostsForHome(preview);
-
   const contentfulRes = await fetchSidebar();
 
   if (contentfulRes.fields) {
