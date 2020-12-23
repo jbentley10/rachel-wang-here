@@ -13,7 +13,8 @@ import Sidebar from '../components/sidebar'
 import { fetchSidebar } from '../utils/contentfulPages'
 import { getAllPostsForHome } from '../lib/api'
 
-export default function About({ about, preview, contentfulRes, posts }) {
+export default function About({ about, preview, contentfulRes, posts: { edges } }) {
+  const recentPosts = edges.slice(0, 3);
 
   // Set up variables for the About page
   let title = about.title.rendered;  
@@ -43,7 +44,7 @@ export default function About({ about, preview, contentfulRes, posts }) {
               </div>             
             </div>
             <div className={`sidebar-layout-container flex-initial md:w-2/12`}>
-                <Sidebar posts={posts} content={contentfulRes.fields}/>
+                <Sidebar posts={recentPosts} content={contentfulRes.fields}/>
               </div>
           </div>
         </Container>

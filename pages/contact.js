@@ -15,10 +15,12 @@ import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import { fetchSidebar } from '../utils/contentfulPages'
 
-export default function Contact({ contact, preview, contentfulRes, posts }) {
+export default function Contact({ contact, preview, contentfulRes, posts: { edges } }) {
   // Set up variables for the Contact page
   let title = contact.title.rendered;  
   let content = contact.content.rendered;
+
+  const recentPosts = edges.slice(0, 3);
 
   return (
     <>
@@ -49,7 +51,7 @@ export default function Contact({ contact, preview, contentfulRes, posts }) {
               </div>
             </div>
             <div className={`sidebar-layout-container flex-initial`}>
-              <Sidebar posts={posts} content={contentfulRes.fields}/>
+              <Sidebar posts={recentPosts} content={contentfulRes.fields}/>
             </div>
           </div>
           
