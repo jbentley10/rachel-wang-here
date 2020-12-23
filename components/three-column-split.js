@@ -14,7 +14,7 @@ export default function ThreeColumnSplit() {
 
   return (
     <section className="three-column-split text-center mt-32">
-      <div className={`bg-wavy-background bg-cover relative z-20 p-32`}>   
+      <div className={`bg-wavy-background bg-cover relative z-20 p-8 pt-32 md:p-32`}>   
         <div className={`flex`}>
           <div className={`three-column-split__heading-container text-left lg:mb-16 w-full lg:w-5/12`}>
             <h1 className={`font-rylan text-h1 text-text-color`}>Take Action Now</h1>

@@ -11,7 +11,7 @@ import Button from './button';
 
 export default function ThreeButtonBlade({heading, buttons}) {
   return (
-    <section className="popout-blade bg-popout-pattern-background bg-cover px-32 py-20">
+    <section className="popout-blade bg-popout-pattern-background bg-cover p-8 md:px-32 md:py-20">
       <div className={`popout-blade__text-container w-full mr-24 pr-24`}>
         <h3 className={`font-rylan text-h3 text-text-color`}>{heading}</h3>
       </div>

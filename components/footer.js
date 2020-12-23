@@ -45,7 +45,7 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
       </div>
       <div className={`footer-credits block md:flex bg-yellow-transparent px-16 py-12`}>
         <p className={`text-text-color font-barlow text-footer font-light text-center md:text-left pb-4 md:pb-0`}>Copyright 2020 Rachel Wang Here</p>
-        <ul className={`flex text-footer m-auto text-text-color font-barlow font-normal`}>
+        <ul className={`block lg:flex text-footer m-auto text-text-color font-barlow font-normal`}>
           <Link href={`/`}><li className={linkClasses}>Home</li></Link>
           <Link href={`/contact`}><li className={linkClasses}>Contact</li></Link>
           <Link href={`/privacy-policy`}><li className={linkClasses}>Privacy Policy</li></Link>
