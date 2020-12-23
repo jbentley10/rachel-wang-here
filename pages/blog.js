@@ -16,7 +16,7 @@ import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import { fetchSidebar } from '../utils/contentfulPages'
 
-export default function Blog({ posts: { edges }, preview, res }) {
+export default function Blog({ posts: { edges }, preview, contentfulRes }) {
   const recentPosts = edges.slice(0, 3);
   const allPosts = edges.slice(0, 20);
 
@@ -37,7 +37,7 @@ export default function Blog({ posts: { edges }, preview, res }) {
               {allPosts.length > 0 && <BlogArticles posts={allPosts} />}
             </div>
             <div className={`sidebar-layout-container w-2/12`}>
-              <Sidebar posts={recentPosts} content={res.fields} />
+              <Sidebar posts={recentPosts} content={contentfulRes.fields} />
             </div> 
           </div>
         </Container>
@@ -49,12 +49,12 @@ export default function Blog({ posts: { edges }, preview, res }) {
 export async function getStaticProps({ preview = false }) {
   const posts = await getAllPostsForHome(preview);
 
-  const res = await fetchSidebar();
+  const contentfulRes = await fetchSidebar();
 
-  if (res.fields) {
+  if (contentfulRes.fields) {
     return {
       props: {
-        res,
+        contentfulRes,
         posts,
         preview
       },

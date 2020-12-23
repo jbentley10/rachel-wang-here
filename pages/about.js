@@ -60,7 +60,7 @@ export async function getStaticProps() {
   const about = await res.json()
   const contentfulRes = await fetchSidebar();
 
-  if (res.fields) {
+  if (contentfulRes.fields) {
     return {
       props: {
         contentfulRes,
