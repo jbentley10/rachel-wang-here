@@ -13,8 +13,9 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import Button from './button';
 import SidebarPostPreview from './sidebar-post-preview';
+import { fetchSidebar } from '../utils/contentfulPages';
 
-export default function Sidebar({ posts }) {   
+export default function Sidebar({ posts, content }) {   
   const iconClasses = `w-16 flex-initial pr-8 cursor-pointer text-text-color hover:text-purple`;
 
   return (
@@ -29,25 +30,18 @@ export default function Sidebar({ posts }) {
         </ul>
       </div>
       <div className={`sidebar__free-resources-cta`}>
-        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>I'm Rachel Wang</h2>
+        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.aboutHeading}</h2>
         <Image
           src={`/rachel-handstand.png`}
           width={200}
           height={100}
         />
-        <p className={`text-paragraph pt-8`}>
-          I help humans like you overcome 
-          habitual movement and mindset 
-          patterns that keep you small so you 
-          can heal, thrive, and make long 
-          lasting changes to live the expansive 
-          life you deserve.
-        </p>
+        <p className={`text-paragraph pt-8`}>{content.aboutSubtext}</p>
       </div>
       {/* TODO: Search Bar */}
       {/* Links to blog categories */}
       <div className={`mt-16`}>
-        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>I Want to Read About</h2>
+        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.blogCategoriesHeading}</h2>
         <Button 
           href={`/`}
           text={`Yoga and Movement`}
@@ -70,7 +64,7 @@ export default function Sidebar({ posts }) {
 
       {/* MailChimp sign up */}
       <div className={`my-16`}>
-        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>Subscribe</h2>
+        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.subscribeHeading}</h2>
         {/* TODO: MailChimp sign-up */}
         <input type={`text`} placeholder={`First Name`} className={`border-black border-solid mb-4 py-4 px-4`} />
         <input type={`text`} placeholder={`Email Address`} className={`border-black border-solid mb-4 py-4 px-4`} />
@@ -84,7 +78,7 @@ export default function Sidebar({ posts }) {
       
       {/* Latest Blog Posts */}
       <div className={`my-16`}>
-        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>Stay Updated</h2>
+        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.recentPostsHeading}</h2>
         {posts.map(({ node }) => (
           <SidebarPostPreview
             key={node.slug}
