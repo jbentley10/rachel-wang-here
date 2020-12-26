@@ -29,7 +29,7 @@ export default function Blog({ posts: { edges }, preview, sidebarContent }) {
         <Container>
           <Header />
           <div className={`sidebar-body-split flex`}>
-            <div className={`all-articles-layout-container w-7/12`}>
+            <div className={`all-articles-layout-container bg-orange-blob-background bg-no-repeat w-7/12`}>
               <h2 className="text-h2 font-rylan text-center">
                 Latest Posts
               </h2>
