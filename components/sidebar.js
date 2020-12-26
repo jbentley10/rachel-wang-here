@@ -18,7 +18,7 @@ export default function Sidebar({ posts, content }) {
   const iconClasses = `w-16 flex-initial pr-8 cursor-pointer text-text-color hover:text-purple`;
 
   return (
-    <div className={`sidebar hidden md:inline md:flex-initial md:w-5/12 md:ml-48`}>
+    <div className={`sidebar bg-clear-background hidden md:inline md:flex-initial md:w-5/12 md:ml-48`}>
       {/* Social links */}
       <div className={`sidebar__social-media-container flex mb-10`}>
         <ul className={`flex align-middle text-center md:text-left mt-8 md:mt-0`}>

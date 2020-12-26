@@ -15,6 +15,7 @@ import BlogArticles from '../components/blog-articles'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import { fetchSidebar } from '../utils/contentfulPages'
+import Button from '../components/button'
 
 export default function Blog({ posts: { edges }, preview, sidebarContent }) {
   const recentPosts = edges.slice(0, 3);
@@ -28,15 +29,41 @@ export default function Blog({ posts: { edges }, preview, sidebarContent }) {
         </Head>
         <Container>
           <Header />
-          <div className={`sidebar-body-split flex`}>
+          <div className={`sidebar-body-split bg-side-blobs-combined bg-no-repeat bg-contain flex px-32`}>
             <div className={`all-articles-layout-container w-7/12`}>
-              <h2 className="text-h2 font-rylan text-center">
-                Latest Posts
-              </h2>
-              {/* Show All Articles (20 at a time) */}
-              {allPosts.length > 0 && <BlogArticles posts={allPosts} />}
+              <div className={`blog-categories mb-24`}>
+                <h2 className="text-h2 font-rylan text-left mb-8">
+                  Categories
+                </h2>
+                <Button 
+                  href={`/`}
+                  text={`Yoga and Movement`}
+                  color={`purple`}
+                  className={`mb-4 w-1/2`}
+                />
+                <Button 
+                  href={`/`}
+                  text={`Mindset`}
+                  color={`brown`}
+                  className={`mb-4 w-1/2`}
+                />
+                <Button 
+                  href={`/`}
+                  text={`Wellness`}
+                  color={`yellow`}
+                  className={`mb-4 w-1/2`}
+                />
+              </div>
+
+              <div className={`latest-posts`}>
+                <h2 className="text-h2 font-rylan text-left">
+                  Latest Posts
+                </h2>
+                {/* Show All Articles (20 at a time) */}
+                {allPosts.length > 0 && <BlogArticles posts={allPosts} />}
+              </div>
             </div>
-            <div className={`sidebar-layout-container w-2/12`}>
+            <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
               <Sidebar posts={recentPosts} content={sidebarContent.fields} />
             </div> 
           </div>

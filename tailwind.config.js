@@ -25,7 +25,7 @@ module.exports = {
         'clear-background': 'rgba(255, 255, 255, .5)',
         'neutral-background': '#F8EFE5',
         'success': '#0070f3',
-        'cyan': '#79FFE1',
+        'cyan': '#79FFE1',        
         // Text
         'link-color': '#707070',
         'link-color-darkened': '#4d4e53',
@@ -60,9 +60,12 @@ module.exports = {
         'auto': '0 auto'
       },
       backgroundImage: theme => ({
-        'wavy-background': "url('../public/wavy-bg.png')",
-        'blob-background': "url('../public/blob-background.png')",
-        'popout-pattern-background': "url('../public/popout-pattern-background.png')",
+        'wavy-background': "url('../public/backgrounds/wavy-bg.png')",
+        'blob-background': "url('../public/backgrounds/blob-background.png')",
+        'popout-pattern-background': "url('../public/backgrounds/popout-pattern-background.png')",
+        'orange-blob-background': "url('../public/backgrounds/orange-blob-background.png')",
+        'tan-blob-background': "url('../public/backgrounds/wavy-tan-side-background.png')",
+        'side-blobs-combined': "url('../public/backgrounds/side-blobs-combined.png')",
         'image--0': "url('../public/image-1.png')",
         'image--1': "url('../public/image-2.png')",
         'image--2': "url('../public/image-3.png')",
