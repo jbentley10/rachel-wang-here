@@ -41,6 +41,7 @@ module.exports = {
         tight: 1.2,
       },
       fontSize: {
+        'huge': '5rem',
         'h1': '2.75rem', // H1 
         'h2': '2.25rem', // H2
         'h3': '1.75rem', // H3

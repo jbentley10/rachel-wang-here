@@ -10,6 +10,8 @@ import Layout from '../components/layout'
 import Container from '../components/container'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
+import HeroSplitRight from '../components/hero-split-right'
+import OverlayTextBox from '../components/overlay-text-box'
 import { fetchSidebar } from '../utils/contentfulPages'
 import { getAllPostsForHome } from '../lib/api'
 
@@ -31,21 +33,31 @@ export default function About({ about, preview, sidebarContent, posts: { edges }
         </Head>
         <Container>
           <Header />
-          <div className={`sidebar-body-split flex`}>
-            <div className={`text-block-layout-container flex-initial md:w-7/12`}>
-              <div className={`text-block__container items-center md:justify-between mt-16 mb-16 md:mb-12 px-10 md:px-12`}>
-                <h1 className={`text-block__heading text-6xl md:text-7xl pb-10`}>
-                  {title}
-                </h1>
-                <div
-                  className="page__content text-base leading-relaxed mb-4"
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
-              </div>             
+          <HeroSplitRight 
+            heading={'About'}
+          />
+          <OverlayTextBox 
+            text1={`I’m a former corporate tech employee 
+            turned yoga teacher who is here to 
+            share with people like you how to 
+            improve strength, mobility, 
+            coordination, and balance in the 
+            physical body along with your 
+            mental game.`}
+            text2={`As an eager student myself, I am always 
+            exploring my yoga practice, knowledge of 
+            movement, and self inquiry.  I enjoy 
+            experimenting, doing things that are 
+            reflective of the moment, all from 
+            a mindful place.`}
+          />
+          <div className={`page-body-content px-32`}>
+            <div className={`sidebar-body-split flex`}>
+              <div className={`text-block-layout-container flex-initial md:w-7/12`}>hi!</div>
+              <div className={`sidebar-layout-container flex-initial md:w-2/12`}>
+                  <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
+                </div>
             </div>
-            <div className={`sidebar-layout-container flex-initial md:w-2/12`}>
-                <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
-              </div>
           </div>
         </Container>
       </Layout>
