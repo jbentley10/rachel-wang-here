@@ -5,7 +5,7 @@
 // Import dependencies
 import Image from 'next/image';
 
-export default function Hero() {
+export default function Hero({ text }) {
   const backgroundImage = `/homepage-header-background.png`;
   const title = 'Rachel Wang Here';
 
@@ -14,7 +14,7 @@ export default function Hero() {
       <div className={`hero__text-container z-20 sm:w-3/4 lg:w-3/4 xl:w-1/2`}>
         <div className={`clear-background bg-clear-background p-10 relative h-full leading-10 transform translate-x-4 translate-y-4`}>
           <div className={`neutral-text-box bg-neutral-background p-10`}>
-            <h1 className={`font-rylan z-20 relative text-h1 text-text-color`}>Let's grow your movement and mindset capacity<br/>with intention.</h1>
+            <h1 className={`font-rylan z-20 relative text-h1 text-text-color`}>{text}</h1>
             <div className={`highlight bg-yellow-highlight z-10 relative h-8 w-3/4`}></div>
           </div>
         </div>

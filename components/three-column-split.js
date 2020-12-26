@@ -7,7 +7,7 @@ import Image from 'next/image';
 // Import components
 import Button from './button';
 
-export default function ThreeColumnSplit() {
+export default function ThreeColumnSplit({ heading, subtext, column1Content, column2Content, column3Content }) {
   const columnClasses = `flex-initial bg-white sm:mx-0 md:mx-8 my-16 px-8 py-10 sm:w-full lg:w-1/3` ;
   const columnHeadingClasses = `font-rylan text-text-color text-h3 text-center leading-tight mb-4`;
   const columnParagraphClasses = `font-barlow text-text-color text-paragraph text-left`;
@@ -17,8 +17,8 @@ export default function ThreeColumnSplit() {
       <div className={`bg-wavy-background bg-cover relative z-20 p-8 pt-32 md:p-32`}>   
         <div className={`flex`}>
           <div className={`three-column-split__heading-container text-left lg:mb-16 w-full lg:w-5/12`}>
-            <h1 className={`font-rylan text-h1 text-text-color`}>Take Action Now</h1>
-            <h4 className={`font-barlow text-h4 text-text-color`}>Choose a free workshop below.</h4>
+            <h1 className={`font-rylan text-h1 text-text-color`}>{heading}</h1>
+            <h4 className={`font-barlow text-h4 text-text-color`}>{subtext}</h4>
           </div>
           <div className={`three-column-split__yellow-dots-container hidden lg:inline lg:-mt-32 lg:w-7/12`}>
             <Image
@@ -42,12 +42,12 @@ export default function ThreeColumnSplit() {
                 alt={`Circle smudge`}
               />
             </div>
-            <h3 className={columnHeadingClasses}>Begin Your Yoga Practice</h3>
-            <p className={columnParagraphClasses}>“I’m a beginner and ready to start my yoga practice.”</p>
+            <h3 className={columnHeadingClasses}>{column1Content.heading}</h3>
+            <p className={columnParagraphClasses}>{column1Content.subtext}</p>
             <Button 
               color={`yellow`}
-              href={`/`}
-              text={`Register Now`}
+              href={column1Content.buttonLink}
+              text={column1Content.buttonText}
               className={`mt-12`}
             />
           </div>
@@ -62,12 +62,12 @@ export default function ThreeColumnSplit() {
                 alt={`Circle smudge`}
               />
             </div>
-            <h3 className={columnHeadingClasses}>Increase Your Strength</h3>
-            <p className={columnParagraphClasses}>“I’m a beginner and ready to start my yoga practice.”</p>
+            <h3 className={columnHeadingClasses}>{column2Content.heading}</h3>
+            <p className={columnParagraphClasses}>{column2Content.subtext}</p>
             <Button 
               color={`brown`}
-              href={`/`}
-              text={`Register Now`}
+              href={column2Content.buttonLink}
+              text={column2Content.buttonText}
               className={`mt-12`}
             />
           </div>
@@ -82,12 +82,12 @@ export default function ThreeColumnSplit() {
                 alt={`Circle smudge`}
               />
             </div>
-            <h3 className={columnHeadingClasses}>Meditate to Center</h3>
-            <p className={columnParagraphClasses}>“I’m a beginner and ready to start my yoga practice.”</p>
+            <h3 className={columnHeadingClasses}>{column3Content.heading}</h3>
+            <p className={columnParagraphClasses}>{column3Content.subtext}</p>
             <Button 
               color={`orange`}
-              href={`/`}
-              text={`Register Now`}
+              href={column3Content.buttonLink}
+              text={column3Content.buttonText}
               className={`mt-12`}
             />
           </div>

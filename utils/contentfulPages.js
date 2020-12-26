@@ -12,3 +12,10 @@ export async function fetchSidebar() {
   
   console.log(`Error getting Entry.`)
 }
+
+export async function fetchHomepage() {
+  const entry = await client.getEntry('6zWeHkoyyGIJGeijxexGAq')
+  if (entry.fields) return entry
+
+  console.log(`Error getting Entry.`)
+}
