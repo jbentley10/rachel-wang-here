@@ -36,19 +36,19 @@ export default function Blog({ posts: { edges }, preview, sidebarContent }) {
                   Categories
                 </h2>
                 <Button 
-                  href={`/`}
+                  onClick={`/`}
                   text={`Yoga and Movement`}
                   color={`purple`}
                   className={`mb-4 w-1/2`}
                 />
                 <Button 
-                  href={`/`}
+                  onClick={`/`}
                   text={`Mindset`}
                   color={`brown`}
                   className={`mb-4 w-1/2`}
                 />
                 <Button 
-                  href={`/`}
+                  onClick={`/`}
                   text={`Wellness`}
                   color={`yellow`}
                   className={`mb-4 w-1/2`}

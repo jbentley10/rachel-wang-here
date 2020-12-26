@@ -6,7 +6,7 @@
 // Import dependencies
 import Link from 'next/link';
 
-export default function Button({ text, color, href, className }) {
+export default function Button({ text, color, href, className, onClick }) {
   const backgroundColor = (color) => {
     switch(color) {
       case 'yellow': 
@@ -24,10 +24,17 @@ export default function Button({ text, color, href, className }) {
   }
 
   return (
-    <Link href={href}>
-      <div className={`text-center py-3 px-3 cursor-pointer transition duration-200 ${backgroundColor(color)} ${className}`}>
-        <h5 className="text-h5 font-barlow uppercase text-white">{text}</h5>
-      </div>
-    </Link>
+    href ? 
+      <Link href={href}>
+        <div className={`text-center py-3 px-3 cursor-pointer transition duration-200 ${backgroundColor(color)} ${className}`}>
+          <h5 className="text-h5 font-barlow uppercase text-white">{text}</h5>
+        </div>
+      </Link>
+    :
+      <button onClick={onClick}>
+        <div className={`text-center py-3 px-3 cursor-pointer transition duration-200 ${backgroundColor(color)} ${className}`}>
+          <h5 className="text-h5 font-barlow uppercase text-white">{text}</h5>
+        </div>
+      </button>
   )
 }

@@ -8,7 +8,7 @@ import Image from 'next/image';
 import PostPreview from '../components/post-preview'
 import Button from './button';
 
-export default function RecentArticles({ posts }) {
+export default function RecentArticles({ posts, buttonText }) {
   return (
     <section className={`md:px-32 lg:px-64 bg-wavy-background bg-cover bg-no-repeat pt-64 pb-12`}>
       <h2 className="text-h2 font-rylan text-center">
@@ -30,7 +30,7 @@ export default function RecentArticles({ posts }) {
       <Button
         color={`brown`}
         href={`/blog`}
-        text={`More Posts Here`}
+        text={buttonText}
         className={`w-1/2 m-auto`}
       />
     </section>

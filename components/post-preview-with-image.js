@@ -1,9 +1,6 @@
 /**
  * @file post-preview-with-image.js
  */
-// Import components
-import Avatar from './avatar'
-import Date from './date'
 
 // Import assets
 import CoverImage from './cover-image'

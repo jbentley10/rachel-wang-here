@@ -3,6 +3,7 @@
  */
 // Import dependencies
 import Head from "next/head";
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 // Import library variables
 import { getAllPostsForHome } from "../lib/api";
@@ -21,8 +22,9 @@ import PopoutBlade from "../components/popout-blade";
 import ThreeButtonBlade from "../components/three-button-blade";
 import ThreePhotoBackground from "../components/three-photo-background";
 import Button from "../components/button";
+import { fetchHomepage } from "../utils/contentfulPages";
 
-export default function Index({ allPosts: { edges }, preview }) {
+export default function Index({ allPosts: { edges }, preview, homepageContent }) {
   const recentPosts = edges.slice(0, 3);  
 
   return (
@@ -33,77 +35,100 @@ export default function Index({ allPosts: { edges }, preview }) {
         </Head>
         <Container>
           <Header />
-          <Hero />
-          <ThreeColumnSplit />
-          <ImageTextSplit />
+          <Hero text={homepageContent.fields.heroBoxSnippet} />
+          <ThreeColumnSplit 
+            heading={homepageContent.fields.threeColumnHeading}
+            subtext={homepageContent.fields.threeColumnSubtext}
+            column1Content={{
+              heading: homepageContent.fields.column1heading,
+              subtext: homepageContent.fields.column1subtext,
+              buttonText: homepageContent.fields.column1buttonText,
+              buttonLink: homepageContent.fields.column1buttonLink
+            }}
+            column2Content={{
+              heading: homepageContent.fields.column2heading,
+              subtext: homepageContent.fields.column2subtext,
+              buttonText: homepageContent.fields.column2buttonText,
+              buttonLink: homepageContent.fields.column2buttonLink
+            }}
+            column3Content={{
+              heading: homepageContent.fields.column3heading,
+              subtext: homepageContent.fields.column3subtext,
+              buttonText: homepageContent.fields.column3buttonText,
+              buttonLink: homepageContent.fields.column3buttonLink
+            }}
+          />
+          <ImageTextSplit 
+            leftHeading={homepageContent.fields.aboutHeading}
+            rightHeading={homepageContent.fields.aboutSideHeading} 
+            rightBody={documentToHtmlString(homepageContent.fields.aboutSideBody)} 
+            rightButtonText={homepageContent.fields.aboutSideButtonText} 
+            rightButtonLink={homepageContent.fields.aboutSideButtonLink}
+          />
           <ThreeButtonBlade
-            heading={`Learn online with me`}
+            heading={homepageContent.fields.popoutBladeHeading}
             buttons={[
               {
-                heading: `Body`,
-                description: `Lorem ipsum solor dut amet.`,
+                heading: homepageContent.fields.popoutBladeColumn1Heading,
+                description: homepageContent.fields.popoutBladeColumn1Subtext,
                 link: `/`
               },
               {
-                heading: `Mind`,
-                description: `Lorem ipsum solor dut amet.`,
+                heading: homepageContent.fields.popoutBladeColumn2Heading,
+                description: homepageContent.fields.popoutBladeColumn2Subtext,
                 link: `/`
               },
               {
-                heading: `Heart`,
-                description: `Lorem ipsum solor dut amet.`,
+                heading: homepageContent.fields.popoutBladeColumn3Heading,
+                description: homepageContent.fields.popoutBladeColumn3Subtext,
                 link: `/`
               }
             ]}
           />
           <ThreePhotoBackground 
-            heading={`Start Here. Start Now.`}
-            subheading={`Discover the Library`}
-            body={`With FREE full length classes, tutorials, and how-to’s to 
-            choose from, you will always find something to help 
-            improve your body, mind, and overall well-being.  
-            
-            I offer a variety of styles and pose breakdowns, 
-            ranging from beginner basics, to gentle sequences, 
-            to strong and dynamic flows, to functional mobility 
-            work, to mindset tools, and a little bit of 
-            everything in between.
-            
-            Let’s be human together.`}
+            heading={homepageContent.fields.discoverSectionHeading1}
+            subheading={homepageContent.fields.discoverSectionHeading2}
+            body={documentToHtmlString(homepageContent.fields.discoverSectionBody)}
             button={{
-              text: 'Subscribe on YouTube',
+              text: homepageContent.fields.discoverSectionButtonText,
               color: 'purple',
-              href: '/'
+              href: homepageContent.fields.discoverSectionButtonLink
             }} 
             images={[
               {
                 photo: '',
-                heading: 'Be Here Now',
-                subtext: 'Lorem ipsum solor dut amet.',
-                buttonText: 'Practice Now',
-                buttonLink: '/',
+                heading: homepageContent.fields.discoverSectionColumn1Heading,
+                subtext: homepageContent.fields.discoverSectionColumn1Subtext,
+                buttonText: homepageContent.fields.discoverSectionColumn1ButtonText,
+                buttonLink: homepageContent.fields.discoverSectionColumn1ButtonLink,
                 buttonColor: 'purple'
               },
               {
                 photo: '',
-                heading: 'YouTube',
-                subtext: 'Lorem ipsum solor dut amet.',
-                buttonText: 'Practice Now',
-                buttonLink: '/',
+                heading: homepageContent.fields.discoverSectionColumn2Heading,
+                subtext: homepageContent.fields.discoverSectionColumn2Subtext,
+                buttonText: homepageContent.fields.discoverSectionColumn2ButtonText,
+                buttonLink: homepageContent.fields.discoverSectionColumn2ButtonLink,
                 buttonColor: 'orange'
               },{
                 photo: '',
-                heading: 'Audio',
-                subtext: 'Lorem ipsum solor dut amet.',
-                buttonText: 'Practice Now',
-                buttonLink: '/',
+                heading: homepageContent.fields.discoverSectionColumn3Heading,
+                subtext: homepageContent.fields.discoverSectionColumn3Subtext,
+                buttonText: homepageContent.fields.discoverSectionColumn3ButtonText,
+                buttonLink: homepageContent.fields.discoverSectionColumn3ButtonLink,
                 buttonColor: 'yellow'
               }
             ]}
           />
 
           {/* Show Recent Articles (3 at a time) */}
-          {recentPosts.length > 0 && <RecentArticles posts={recentPosts} />}
+          {recentPosts.length > 0 && 
+            <RecentArticles 
+              heading={homepageContent.fields.recentArticlesHeading} 
+              posts={recentPosts} 
+              buttonText={homepageContent.fields.recentArticlesButtonText}
+            />
+          }
 
           {/* Testing Shopify */}
           <h3 className={`text-h3 text-text-color`}>Montlhy Membership</h3>
@@ -122,7 +147,17 @@ export default function Index({ allPosts: { edges }, preview }) {
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview);
+  const homepageContent = await fetchHomepage();
 
+  if (homepageContent.fields) {
+    return {
+      props: {
+        homepageContent,
+        allPosts,
+        preview
+      },
+    };
+  } else
   return {
     props: { allPosts, preview },
   };
