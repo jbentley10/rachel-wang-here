@@ -35,7 +35,7 @@ export default function Sidebar({ posts, content }) {
           width={200}
           height={100}
         />
-        <p className={`text-paragraph pt-8`}>{content.aboutSubtext}</p>
+        <p className={`text-paragraph text-link-color pt-8`}>{content.aboutSubtext}</p>
       </div>
       {/* TODO: Search Bar */}
       {/* Links to blog categories */}
