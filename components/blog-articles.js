@@ -10,7 +10,7 @@ import Button from './button';
 
 export default function BlogArticles({ posts }) {
   return (
-    <section className={`px-32`}>
+    <section className={``}>
       <div className="mr-4">
         {posts.map(({ node }) => (
           <PostPreviewWithImage
@@ -24,12 +24,6 @@ export default function BlogArticles({ posts }) {
           />
         ))}
       </div>
-      <Button
-        color={`brown`}
-        href={`/blog`}
-        text={`Load More Posts`}
-        className={`w-1/2 m-auto`}
-      />
     </section>
   )
 }
