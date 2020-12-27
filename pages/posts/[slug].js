@@ -66,10 +66,18 @@ export async function getStaticProps({ params, preview = false, previewData }) {
   const data = await getPostAndMorePosts(params.slug, preview, previewData);
   const footerContent = await fetchFooter();
 
-  return {
+  if (footerContent.fields) {
+    return {
+      props: {
+        preview,
+        footerContent,
+        post: data.post,
+        posts: data.posts,
+      }
+    }
+  } else return {
     props: {
       preview,
-      footerContent,
       post: data.post,
       posts: data.posts,
     },
