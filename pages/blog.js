@@ -16,6 +16,7 @@ import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import { fetchSidebar, fetchFooter } from '../utils/contentfulPages'
 import Button from '../components/button'
+import HeroSplitRight from '../components/hero-split-right'
 
 export default function Blog({ posts: { edges }, preview, sidebarContent, footerContent }) {
   const recentPosts = edges.slice(0, 3);
@@ -29,7 +30,10 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
         </Head>
         <Container>
           <Header />
-          <div className={`sidebar-body-split bg-side-blobs-combined bg-no-repeat bg-contain flex px-32`}>
+          <HeroSplitRight 
+            heading={`Blog`}
+          />
+          <div className={`sidebar-body-split bg-side-blobs-combined bg-no-repeat bg-contain flex px-32 mt-32`}>
             <div className={`all-articles-layout-container w-7/12`}>
               <div className={`blog-categories mb-24`}>
                 <h2 className="text-h2 font-rylan text-left mb-8">
