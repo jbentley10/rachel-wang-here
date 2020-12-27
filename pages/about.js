@@ -53,7 +53,11 @@ export default function About({ about, preview, sidebarContent, posts: { edges }
           />
           <div className={`page-body-content px-32 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>
-              <div className={`text-block-layout-container flex-initial md:w-7/12`}>hi!</div>
+              <div className={`text-block-layout-container flex-initial md:w-7/12`}>
+                <h1 className={`highlighted-text text-h1 font-rylan text-text-color`}>
+                  I believe the best way to heal is to move
+                </h1>
+              </div>
               <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
                 <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
               </div>
@@ -63,7 +67,10 @@ export default function About({ about, preview, sidebarContent, posts: { edges }
       </Layout>
       {/* Only style elements that aren't dangerously set */}
       <style jsx>{`        
-
+        .highlighted-text {
+          background: linear-gradient(180deg, rgba(255,255,255,0) 45%, #F4C06F 45%);
+          display: inline;
+        }
       `}</style>
     </div>
   )
