@@ -1,22 +1,28 @@
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
-import Container from '../../components/container'
-import PostBody from '../../components/post-body'
-import MoreStories from '../../components/more-stories'
-import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
-import SectionSeparator from '../../components/section-separator'
-import Layout from '../../components/layout'
-import { fetchFooter } from '../../utils/contentfulPages' 
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
-import PostTitle from '../../components/post-title'
-import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
-import Tags from '../../components/tags'
+/**
+ * @file [slug].js
+ */
+// Import dependencies
+import { useRouter } from 'next/router';
+import ErrorPage from 'next/error';
+import Head from 'next/head';
+import { CMS_NAME } from '../../lib/constants';
 
-export default function Post({ footerContent, post, posts, preview }) {
-  const router = useRouter()
-  const morePosts = posts?.edges
+// Import components;
+import Container from '../../components/container';
+import PostBody from '../../components/post-body';
+import Header from '../../components/header';
+import PostHeader from '../../components/post-header';
+import Layout from '../../components/layout';
+import PostTitle from '../../components/post-title';
+import Sidebar from '../../components/sidebar';
+
+// Import utility functions
+import { fetchFooter, fetchSidebar } from '../../utils/contentfulPages';
+import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
+
+export default function Post({ footerContent, sidebarContent, post, preview, posts: { edges } }) {
+  const recentPosts = edges.slice(0, 3);
+  const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -47,14 +53,15 @@ export default function Post({ footerContent, post, posts, preview }) {
                 author={post.author}
                 categories={post.categories}
               />
-              <PostBody content={post.content} />
-              <footer>
-                {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
-              </footer>
+              <div className={`sidebar-body-split bg-side-blobs-combined bg-no-repeat bg-contain flex px-32`}>
+                <div className={`post-body w-7/12`}>
+                  <PostBody content={post.content} />
+                </div>
+                <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
+                  <Sidebar posts={recentPosts} content={sidebarContent.fields} />
+                </div>
+              </div>
             </article>
-
-            <SectionSeparator />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           </>
         )}
       </Container>
@@ -65,11 +72,13 @@ export default function Post({ footerContent, post, posts, preview }) {
 export async function getStaticProps({ params, preview = false, previewData }) {
   const data = await getPostAndMorePosts(params.slug, preview, previewData);
   const footerContent = await fetchFooter();
+  const sidebarContent = await fetchSidebar();
 
-  if (footerContent.fields) {
+  if (footerContent.fields && sidebarContent.fields) {
     return {
       props: {
         preview,
+        sidebarContent,
         footerContent,
         post: data.post,
         posts: data.posts,
