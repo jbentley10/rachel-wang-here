@@ -7,13 +7,14 @@ import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
+import { fetchFooter } from '../../utils/contentfulPages' 
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import Tags from '../../components/tags'
 
-export default function Post({ post, posts, preview }) {
+export default function Post({ footerContent, post, posts, preview }) {
   const router = useRouter()
   const morePosts = posts?.edges
 
@@ -22,7 +23,7 @@ export default function Post({ post, posts, preview }) {
   }
 
   return (
-    <Layout preview={preview}>
+    <Layout footerContent={footerContent} preview={preview}>
       <Container>
         <Header />
         {router.isFallback ? (
@@ -74,9 +75,11 @@ export async function getStaticProps({ params, preview = false, previewData }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
+  const allPosts = await getAllPostsWithSlug();
+  const footerContent = await fetchFooter();
 
   return {
+    footerContent,
     paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
     fallback: true,
   }

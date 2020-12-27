@@ -14,16 +14,16 @@ import Container from '../components/container'
 import BlogArticles from '../components/blog-articles'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
-import { fetchSidebar } from '../utils/contentfulPages'
+import { fetchSidebar, fetchFooter } from '../utils/contentfulPages'
 import Button from '../components/button'
 
-export default function Blog({ posts: { edges }, preview, sidebarContent }) {
+export default function Blog({ posts: { edges }, preview, sidebarContent, footerContent }) {
   const recentPosts = edges.slice(0, 3);
   const allPosts = edges.slice(0, 20);
 
   return (
     <>
-      <Layout preview={preview}>
+      <Layout footerContent={footerContent} preview={preview}>
         <Head>
           <title>{ BLOG_NAME }</title>
         </Head>
@@ -76,11 +76,13 @@ export default function Blog({ posts: { edges }, preview, sidebarContent }) {
 export async function getStaticProps({ preview = false }) {
   const posts = await getAllPostsForHome(preview);
   const sidebarContent = await fetchSidebar();
+  const footerContent = await fetchFooter();
 
-  if (sidebarContent.fields) {
+  if (sidebarContent.fields && footerContent.fields) {
     return {
       props: {
         sidebarContent,
+        footerContent,
         posts,
         preview
       },
