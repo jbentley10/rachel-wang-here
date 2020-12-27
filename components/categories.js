@@ -1,3 +1,8 @@
+/**
+ * 
+ * @file categories.js
+ */
+
 export default function Categories({ categories, className }) {
   return (    
     categories.edges.length > 0 ? (

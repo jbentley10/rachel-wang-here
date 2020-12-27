@@ -4,7 +4,6 @@
  */
 // Import dependencies
 import Image from 'next/image';
-import PopoutBlade from './popout-blade';
 
 export default function HeroSplitRight({ heading }) {
   return (
