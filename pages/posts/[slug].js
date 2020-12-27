@@ -63,11 +63,13 @@ export default function Post({ footerContent, post, posts, preview }) {
 }
 
 export async function getStaticProps({ params, preview = false, previewData }) {
-  const data = await getPostAndMorePosts(params.slug, preview, previewData)
+  const data = await getPostAndMorePosts(params.slug, preview, previewData);
+  const footerContent = await fetchFooter();
 
   return {
     props: {
       preview,
+      footerContent,
       post: data.post,
       posts: data.posts,
     },
@@ -76,10 +78,8 @@ export async function getStaticProps({ params, preview = false, previewData }) {
 
 export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug();
-  const footerContent = await fetchFooter();
 
   return {
-    footerContent,
     paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
     fallback: true,
   }
