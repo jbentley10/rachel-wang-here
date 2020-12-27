@@ -30,11 +30,7 @@ export default function Sidebar({ posts, content }) {
       </div>
       <div className={`sidebar__free-resources-cta`}>
         <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.aboutHeading}</h2>
-        <Image
-          src={`/rachel-handstand.png`}
-          width={200}
-          height={100}
-        />
+        <img src={`https:` + content.aboutImage.fields.file.url} />
         <p className={`text-paragraph text-link-color pt-8`}>{content.aboutSubtext}</p>
       </div>
       {/* TODO: Search Bar */}
