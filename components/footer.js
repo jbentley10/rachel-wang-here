@@ -25,12 +25,8 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
       <div className={`bg-yellow w-full pt-12`}>
         <h2 className={`text-h2 font-rylan text-text-color text-center pb-8`}>{heading}</h2>
         {posts.map((post, index) => {
-          <Link href={post.link}>
-            <Image
-              src={post.image}
-              width={200}
-              height={200}
-            />
+          <Link key={index} href={post.link}>
+            <img src={`https:` + post.image} />
           </Link>
         })}
         <div className={`block md:flex px-16 pb-12`}>

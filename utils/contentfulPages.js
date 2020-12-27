@@ -26,3 +26,10 @@ export async function fetchAbout() {
 
   console.log(`Error getting Entry.`)
 }
+
+export async function fetchFooter() {
+  const entry = await client.getEntry('3WYiOFozmx5PQsZcsvSbqX')
+  if (entry.fields) return entry
+
+  console.log(`Error getting Entry.`)
+}
