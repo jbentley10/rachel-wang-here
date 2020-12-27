@@ -14,7 +14,9 @@ export default function PopoutBladeAlt({heading, body, button}) {
       <div className={`popout-blade__text-container w-7/12 mr-24 pr-24`}>
         <h3 className={`font-rylan text-h3 text-text-color`}>{heading}</h3>
         {body && 
-          <p className={`font-barlow text-paragraph text-text-color`}>{body}</p>
+          <p className={`font-barlow text-paragraph text-text-color`}>
+            <div dangerouslySetInnerHTML={{ __html: body }} />
+          </p>
         }
       </div>
       <div className={`popout-blade__button-container w-5/12 ml-24`}>
