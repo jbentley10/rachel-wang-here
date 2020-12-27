@@ -64,6 +64,7 @@ module.exports = {
         'wavy-background': "url('../public/backgrounds/wavy-bg.png')",
         'blob-background': "url('../public/backgrounds/blob-background.png')",
         'popout-pattern-background': "url('../public/backgrounds/popout-pattern-background.png')",
+        'popout-pattern-background-2': "url('../public/backgrounds/popout-pattern-background-2.png')",
         'orange-blob-background': "url('../public/backgrounds/orange-blob-background.png')",
         'tan-blob-background': "url('../public/backgrounds/wavy-tan-side-background.png')",
         'side-blobs-combined': "url('../public/backgrounds/side-blobs-combined.png')",

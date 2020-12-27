@@ -17,19 +17,21 @@ export default function PopoutBlade({heading, body, button1, button2}) {
           <p className={`font-barlow text-paragraph text-text-color`}>{body}</p>
         }
       </div>
-      <div className={`popout-blade__button-container w-5/12 ml-24`}>
-        <Button 
-          href={button1.href}
-          color={button1.color}
-          text={button1.text}
-          className={`mb-8`}
-        />
-        <Button 
-          href={button2.href}
-          color={button2.color}
-          text={button2.text}
-        />
-      </div>
+      {button1 || button2 && 
+        <div className={`popout-blade__button-container w-5/12 ml-24`}>
+          <Button 
+            href={button1.href}
+            color={button1.color}
+            text={button1.text}
+            className={`mb-8`}
+          />
+          <Button 
+            href={button2.href}
+            color={button2.color}
+            text={button2.text}
+          />
+        </div>
+      }
     </section>
   )
 }
