@@ -22,14 +22,14 @@ import PopoutBlade from "../components/popout-blade";
 import ThreeButtonBlade from "../components/three-button-blade";
 import ThreePhotoBackground from "../components/three-photo-background";
 import Button from "../components/button";
-import { fetchHomepage } from "../utils/contentfulPages";
+import { fetchHomepage, fetchFooter } from "../utils/contentfulPages";
 
-export default function Index({ allPosts: { edges }, preview, homepageContent }) {
+export default function Index({ allPosts: { edges }, preview, homepageContent, footerContent }) {
   const recentPosts = edges.slice(0, 3);  
 
   return (
     <>
-      <PageLayout preview={preview}>
+      <PageLayout footerContent={footerContent} preview={preview}>
         <Head>
           <title>{BLOG_NAME}</title>
         </Head>
@@ -148,11 +148,13 @@ export default function Index({ allPosts: { edges }, preview, homepageContent })
 export async function getStaticProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview);
   const homepageContent = await fetchHomepage();
+  const footerContent = await fetchFooter();
 
-  if (homepageContent.fields) {
+  if (homepageContent.fields && footerContent.fields) {
     return {
       props: {
         homepageContent,
+        footerContent,
         allPosts,
         preview
       },

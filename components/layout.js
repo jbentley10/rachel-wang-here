@@ -5,7 +5,7 @@
 import Footer from '../components/footer'
 import Meta from '../components/meta'
 
-export default function PageLayout({ preview, children, metaDescription }) {  
+export default function PageLayout({ footerContent, preview, children, metaDescription }) {  
   return (
     <>
       <Meta metaDescription={metaDescription} />
@@ -14,34 +14,31 @@ export default function PageLayout({ preview, children, metaDescription }) {
         <main>{children}</main>
       </div>
       <Footer 
-        heading={`Follow @RachelWangHere`}
+        heading={footerContent.fields.heading}
         posts={[
           {
-            image: '/instagram-1.png',
-            link: '/'
+            image: footerContent.fields.post1Image.fields.file.url,
+            link: footerContent.fields.post1Link
           },
           {
-            image: '/instagram-2.png',
-            link: '/'
+            image: footerContent.fields.post2Image.fields.file.url,
+            link: footerContent.fields.post2Link
           },
           {
-            image: '/instagram-3.png',
-            link: '/'
+            image: footerContent.fields.post3Image.fields.file.url,
+            link: footerContent.fields.post3Link
           },
           {
-            image: '/instagram-4.png',
-            link: '/'
+            image: footerContent.fields.post4Image.fields.file.url,
+            link: footerContent.fields.post4Link
           }
         ]}
-        subheading={`Ready to expand in the way you move?`}
-        subtext={`Join other curious movers + doers and get
-        access to my free library of resources,
-        guides, and worksheets for at-home
-        practitioners.`}
+        subheading={footerContent.fields.subHeading}
+        subtext={footerContent.fields.copy}
         button={{
           color: 'purple',
-          text: 'Give Me Access',
-          href: '/'
+          text: footerContent.fields.buttonText,
+          href: footerContent.fields.buttonLink
         }}
       />
     </>
