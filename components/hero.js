@@ -5,17 +5,19 @@
 // Import dependencies
 import Image from 'next/image';
 
-export default function Hero({ text }) {
+export default function Hero({ normalHeading, highlightedHeading }) {
   const backgroundImage = `/homepage-header-background.png`;
   const title = 'Rachel Wang Here';
 
   return (
     <section className="flex py-16 md:pr-16 lg:pr-64 lg:pl-32">
-      <div className={`hero__text-container z-20 sm:w-3/4 lg:w-3/4 xl:w-1/2`}>
+      <div className={`hero__text-container z-20 sm:w-3/4 lg:w-3/4 xl:w-7/12`}>
         <div className={`clear-background bg-clear-background p-10 relative h-full leading-10 transform translate-x-4 translate-y-4`}>
           <div className={`neutral-text-box bg-neutral-background p-10`}>
-            <h1 className={`font-rylan z-20 relative text-h1 text-text-color`}>{text}</h1>
-            <div className={`highlight bg-yellow-highlight z-10 relative h-8 w-3/4`}></div>
+            <h1 className={`font-rylan z-20 relative text-h1 text-text-color`}>
+              {normalHeading}
+              <span className={`highlighted-text`}>{highlightedHeading}</span>
+            </h1>
           </div>
         </div>
         
@@ -38,9 +40,11 @@ export default function Hero({ text }) {
           width: 100%;
         }
 
-        .highlight {
-          transform: translateY(-1rem);
+        .highlighted-text {
+          background: linear-gradient(180deg, rgba(255,255,255,0) 45%, #F4C06F 45%);
+          display: inline;
         }
+
       `}</style>
     </section>
   )

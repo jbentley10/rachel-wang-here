@@ -81,7 +81,7 @@ export default function Header() {
               className={`inline-grid`} 
               alt={`Rachel Wang Here logo`} 
               src={"/logo.png"} 
-              loading="lazy" 
+              loading="lazy"
             />
           </Link>
         </div>
@@ -90,15 +90,18 @@ export default function Header() {
       {/* Desktop Navigation */}
       <div className={`hidden md:flex px-32`}>
         <div className={`image-container w-3/12`}>
-          <Image 
-            quality={100} 
-            width={200} 
-            height={100} 
-            id="image-text-split__image" 
-            alt={`Rachel Wang Here logo`} 
-            src={"/logo.png"} 
-            loading="lazy" 
-          />
+          <Link to={`/`} href="/">
+            <Image 
+              quality={100} 
+              width={200} 
+              height={100} 
+              id="image-text-split__image" 
+              alt={`Rachel Wang Here logo`} 
+              src={"/logo.png"} 
+              loading="lazy" 
+              className={`cursor-pointer`}
+            />
+          </Link>
         </div>
         <div className={`navigation__links-container align-bottom w-9/12 md:py-8`}>
           <div className={`navigation__links md:inline-block`}>

@@ -8,7 +8,7 @@ import Image from 'next/image';
 // Import components
 import Button from './button';
 
-export default function ImageTextSplit({ leftHeading, rightHeading, rightBody, rightButtonText, rightButtonLink }) {
+export default function ImageTextSplit({ leftHeading, rightHeadingNormal, rightHeadingHighlighted, rightBody, rightButtonText, rightButtonLink }) {
   return (
     <section className="image-text-split align-center my-32 sm:block lg:flex">
       <div className={`image-text-split__left-container sm:w-full lg:w-1/2 text-left lg:flex-initial`}>
@@ -26,10 +26,9 @@ export default function ImageTextSplit({ leftHeading, rightHeading, rightBody, r
         </div>
       </div>
       <div className={`image-text-split__right-container sm:w-full lg:w-1/2 text-left lg:flex-initial p-12 md:py-0 md:pl-24 md:pr-32 sm:mt-10 lg:mt-0`}>
-        <h2 className={`image-text-split__heading text-h2 font-rylan text-left text-link-color leading-tight z-20 relative`}>
-          {rightHeading}  
+        <h2 className={`image-text-split__heading text-h2 font-rylan text-left text-link-color leading-tight`}>
+          {rightHeadingNormal}<span className={`highlighted-text`}>{rightHeadingHighlighted}</span>  
         </h2>
-        <div className={`highlight bg-yellow-highlight z-10 relative h-8 w-8/12 -mt-6`}></div>
         <br />
         <p className={`text-text-color font-barlow text-paragraph`}>
           <div dangerouslySetInnerHTML={{ __html: rightBody }} />
@@ -41,6 +40,12 @@ export default function ImageTextSplit({ leftHeading, rightHeading, rightBody, r
           className={`mt-12`}
         />
       </div>
+      <style jsx>{`        
+        .highlighted-text {
+          background: linear-gradient(180deg, rgba(255,255,255,0) 45%, #F4C06F 45%);
+          display: inline;
+        }
+      `}</style>
     </section>
   )
 }

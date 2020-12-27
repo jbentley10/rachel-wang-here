@@ -18,11 +18,12 @@ import Sidebar from '../../components/sidebar';
 
 // Import utility functions
 import { fetchFooter, fetchSidebar } from '../../utils/contentfulPages';
-import { getAllPostsWithSlug, getPostAndMorePosts, getAllPostsForHome } from '../../lib/api';
+import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
 
-export default function Post({ footerContent, sidebarContent, post, preview, allPostsForSidebar: { edges } }) {
-  const recentPosts = edges.slice(0, 3);
+export default function Post({ posts, footerContent, sidebarContent, post, preview }) {
   const router = useRouter();
+  const morePosts = posts?.edges;
+
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -58,7 +59,7 @@ export default function Post({ footerContent, sidebarContent, post, preview, all
                   <PostBody content={post.content} />
                 </div>
                 <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
-                  <Sidebar posts={recentPosts} content={sidebarContent.fields} />
+                  <Sidebar posts={morePosts} content={sidebarContent.fields} />
                 </div>
               </div>
             </article>
@@ -70,28 +71,17 @@ export default function Post({ footerContent, sidebarContent, post, preview, all
 }
 
 export async function getStaticProps({ params, preview = false, previewData }) {
-  const data = await getPostAndMorePosts(params.slug, preview, previewData);
-  const allPostsForSidebar = await getAllPostsForHome(preview);
+  const data = await getPostAndMorePosts(params.slug, preview, previewData)
   const footerContent = await fetchFooter();
   const sidebarContent = await fetchSidebar();
 
-  if (footerContent.fields && sidebarContent.fields) {
-    return {
-      props: {
-        preview,
-        sidebarContent,
-        footerContent,
-        post: data.post,
-        posts: data.posts,
-        allPostsForSidebar
-      }
-    }
-  } else return {
+  return {
     props: {
       preview,
       post: data.post,
       posts: data.posts,
-      allPosts
+      sidebarContent,
+      footerContent
     },
   }
 }

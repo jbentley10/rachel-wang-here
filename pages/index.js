@@ -35,7 +35,10 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
         </Head>
         <Container>
           <Header />
-          <Hero text={homepageContent.fields.heroBoxSnippet} />
+          <Hero 
+            normalHeading={homepageContent.fields.heroBoxSnippet} 
+            highlightedHeading={homepageContent.fields.heroBoxSnippetHighlighted}
+          />
           <ThreeColumnSplit 
             heading={homepageContent.fields.threeColumnHeading}
             subtext={homepageContent.fields.threeColumnSubtext}
@@ -60,7 +63,8 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
           />
           <ImageTextSplit 
             leftHeading={homepageContent.fields.aboutHeading}
-            rightHeading={homepageContent.fields.aboutSideHeading} 
+            rightHeadingNormal={homepageContent.fields.aboutSideHeading}
+            rightHeadingHighlighted={homepageContent.fields.aboutSideHeadingHighlighted}
             rightBody={documentToHtmlString(homepageContent.fields.aboutSideBody)} 
             rightButtonText={homepageContent.fields.aboutSideButtonText} 
             rightButtonLink={homepageContent.fields.aboutSideButtonLink}
