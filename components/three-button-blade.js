@@ -6,9 +6,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Import components
-import Button from './button';
-
 export default function ThreeButtonBlade({heading, buttons}) {
   return (
     <section className="popout-blade bg-popout-pattern-background bg-cover p-8 md:px-32 md:py-20">
@@ -18,7 +15,7 @@ export default function ThreeButtonBlade({heading, buttons}) {
       <div className={`popout-blade__button-container block lg:flex w-full`}>
         {buttons.map((button, index) => {
           return (
-            <Link className={``} href={button.link}>
+            <Link key={Math.random()} className={``} href={button.link}>
               <div className={`mr-8 p-10 cursor-pointer bg-white`}>
                 <Image 
                   src="/rachel-handstand.png"

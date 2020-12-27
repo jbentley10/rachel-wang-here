@@ -26,8 +26,8 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
         <h2 className={`text-h2 font-rylan text-text-color text-center pb-8`}>{heading}</h2>
         <div className={`instagram-posts-container flex mb-12`}>
           {posts.map(( post ) => (
-            <div className={`w-1/2 md:w-2/12 m-auto cursor-pointer`}>
-              <a key={Math.random()} href={`https:${post.link}`}>
+            <div key={Math.random()} className={`w-1/2 md:w-2/12 m-auto cursor-pointer`}>
+              <a href={`https:${post.link}`}>
                 <img src={`https:` + post.image} />
               </a>
             </div>
