@@ -41,6 +41,7 @@ module.exports = {
         tight: 1.2,
       },
       fontSize: {
+        'huge': '5rem',
         'h1': '2.75rem', // H1 
         'h2': '2.25rem', // H2
         'h3': '1.75rem', // H3
@@ -63,9 +64,11 @@ module.exports = {
         'wavy-background': "url('../public/backgrounds/wavy-bg.png')",
         'blob-background': "url('../public/backgrounds/blob-background.png')",
         'popout-pattern-background': "url('../public/backgrounds/popout-pattern-background.png')",
+        'popout-pattern-background-2': "url('../public/backgrounds/popout-pattern-background-2.png')",
         'orange-blob-background': "url('../public/backgrounds/orange-blob-background.png')",
         'tan-blob-background': "url('../public/backgrounds/wavy-tan-side-background.png')",
         'side-blobs-combined': "url('../public/backgrounds/side-blobs-combined.png')",
+        'side-blobs-combined--purple': "url('../public/backgrounds/side-blobs-combined--purple.png')",
         'image--0': "url('../public/image-1.png')",
         'image--1': "url('../public/image-2.png')",
         'image--2': "url('../public/image-3.png')",

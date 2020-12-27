@@ -3,71 +3,111 @@
  */
 // Import dependencies
 import Head from 'next/head'
-import axios from 'axios'
+import Image from 'next/image';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 // Import components
 import Layout from '../components/layout'
 import Container from '../components/container'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
-import { fetchSidebar } from '../utils/contentfulPages'
+import HeroSplitRight from '../components/hero-split-right'
+import OverlayTextBox from '../components/overlay-text-box'
+import { fetchSidebar, fetchAbout } from '../utils/contentfulPages'
 import { getAllPostsForHome } from '../lib/api'
+import PopoutBlade from '../components/popout-blade';
+import PopoutBladeAlt from '../components/popout-blade-alt';
 
-export default function About({ about, preview, sidebarContent, posts: { edges } }) {
+export default function About({ preview, aboutContent, sidebarContent, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
-
-  // Set up variables for the About page
-  let title = about.title.rendered;  
-  let content = about.content.rendered;
-  let excerpt = about.excerpt.rendered;
-
   return (
     <div>
       {/* Meta description for SEO */}
-      <Layout metaDescription={excerpt} preview={preview}>
+      <Layout metaDescription={`About page meta description`} preview={preview}>
         <Head>
           {/* Title tag for SEO */}
           <title>{ 'About Me | Rachel Wang Here' }</title>
         </Head>
         <Container>
           <Header />
-          <div className={`sidebar-body-split flex`}>
-            <div className={`text-block-layout-container flex-initial md:w-7/12`}>
-              <div className={`text-block__container items-center md:justify-between mt-16 mb-16 md:mb-12 px-10 md:px-12`}>
-                <h1 className={`text-block__heading text-6xl md:text-7xl pb-10`}>
-                  {title}
+          <HeroSplitRight 
+            heading={aboutContent.fields.pageHeading}
+          />
+          <OverlayTextBox 
+            text1={documentToHtmlString(aboutContent.fields.purpleBoxCopy1)}
+            text2={documentToHtmlString(aboutContent.fields.purpleBoxCopy2)}
+          />
+          <div className={`page-body-content px-32 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
+            <div className={`sidebar-body-split flex`}>
+              <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
+                <h1 className={`highlighted-text text-h1 font-rylan text-text-color`}>
+                  {aboutContent.fields.highlightedHeading}
                 </h1>
-                <div
-                  className="page__content text-base leading-relaxed mb-4"
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
-              </div>             
-            </div>
-            <div className={`sidebar-layout-container flex-initial md:w-2/12`}>
+                <div className={`copy-block my-24`}>
+                  <h2 className={`font-rylan text-h2 text-text-color`}>{aboutContent.fields.section1Heading}</h2>
+                  <p className={`text-text-color font-barlow text-paragraph`}>
+                    <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(aboutContent.fields.section1Copy) }} />
+                  </p>
+                </div>
+                <div className={`image-copy-block my-24`}>
+                  <div className={`clear-background bg-clear-background p-10 relative z-10 transform translate-x-8 translate-y-24 h-full`} />
+                  <div className={`transform -translate-y-32 relative z-30`}>
+                    <img src={`https:` + aboutContent.fields.section1Image.fields.file.url} />
+                  </div>
+                  <h2 className={`font-rylan text-h2 text-text-color`}>{aboutContent.fields.section2Heading}</h2>
+                  <p className={`text-text-color font-barlow text-paragraph`}>
+                    <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(aboutContent.fields.section2Copy) }} />
+                  </p>
+                </div>
+                <div className={`copy-block my-24`}>
+                  <h2 className={`font-rylan text-h2 text-text-color`}>{aboutContent.fields.section3Heading}</h2>
+                  <p className={`text-text-color font-barlow text-paragraph`}>
+                    <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(aboutContent.fields.section3Copy) }} />
+                  </p>
+                </div>
+              </div>
+              <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
                 <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
               </div>
+            </div>
           </div>
+          <PopoutBlade 
+            heading={aboutContent.fields.popoutBlade1Heading}
+            body={documentToHtmlString(aboutContent.fields.popoutBlade1Copy)}
+          />
+          <div className={`bg-wavy-background w-full h-64`} />
+          <PopoutBladeAlt
+            heading={aboutContent.fields.popoutBlade2Heading}
+            body={documentToHtmlString(aboutContent.fields.popoutBlade2Copy)}
+            button={{
+              href: aboutContent.fields.popoutBlade2ButtonLink,
+              text: aboutContent.fields.popoutBlade2ButtonText,
+              color: 'purple'
+            }}
+          />
         </Container>
       </Layout>
       {/* Only style elements that aren't dangerously set */}
       <style jsx>{`        
-
+        .highlighted-text {
+          background: linear-gradient(180deg, rgba(255,255,255,0) 45%, #F4C06F 45%);
+          display: inline;
+        }
       `}</style>
     </div>
   )
 }
 
 export async function getStaticProps({ preview = false }) {
-  const res = await fetch('https://rachelwanghere.com/wp-json/wp/v2/pages/3171')
-  const about = await res.json()
-  const sidebarContent = await fetchSidebar();
   const posts = await getAllPostsForHome(preview);
+  const sidebarContent = await fetchSidebar();  
+  const aboutContent = await fetchAbout();
 
-  if (sidebarContent.fields) {
+  if (sidebarContent.fields && aboutContent.fields) {
     return {
       props: {
         sidebarContent,
-        about,
+        aboutContent,
         posts,
         preview
       },
