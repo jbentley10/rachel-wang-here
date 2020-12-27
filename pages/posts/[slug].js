@@ -18,9 +18,9 @@ import Sidebar from '../../components/sidebar';
 
 // Import utility functions
 import { fetchFooter, fetchSidebar } from '../../utils/contentfulPages';
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
+import { getAllPostsWithSlug, getPostAndMorePosts, getAllPostsForHome } from '../../lib/api';
 
-export default function Post({ footerContent, sidebarContent, post, preview, posts: { edges } }) {
+export default function Post({ footerContent, sidebarContent, post, preview, allPostsForSidebar: { edges } }) {
   const recentPosts = edges.slice(0, 3);
   const router = useRouter();
 
@@ -71,6 +71,7 @@ export default function Post({ footerContent, sidebarContent, post, preview, pos
 
 export async function getStaticProps({ params, preview = false, previewData }) {
   const data = await getPostAndMorePosts(params.slug, preview, previewData);
+  const allPostsForSidebar = await getAllPostsForHome(preview);
   const footerContent = await fetchFooter();
   const sidebarContent = await fetchSidebar();
 
@@ -82,6 +83,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
         footerContent,
         post: data.post,
         posts: data.posts,
+        allPostsForSidebar
       }
     }
   } else return {
@@ -89,6 +91,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       preview,
       post: data.post,
       posts: data.posts,
+      allPosts
     },
   }
 }
