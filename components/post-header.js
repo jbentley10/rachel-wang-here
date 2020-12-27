@@ -1,28 +1,29 @@
-import Avatar from '../components/avatar'
-import Date from '../components/date'
-import CoverImage from '../components/cover-image'
-import PostTitle from '../components/post-title'
+/**
+ * @file post-header.js
+ */
+// Import components
 import Categories from '../components/categories'
 
 export default function PostHeader({
   title,
   coverImage,
-  date,
-  author,
   categories,
 }) {
   return (
-    <>
-      <PostTitle>{title}</PostTitle>
-      <div className="mb-8 md:mb-16 -mx-5 sm:mx-0">
-        <CoverImage title={title} coverImage={coverImage} />
-      </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-6 text-lg">
-          Posted <Date dateString={date} />
+    <div className={`post-header mb-12`}>
+      <div className={`flex bg-neutral-background pt-16 pb-48`}>
+        <div className={`image-container w-5/12 -mt-32 mr-24`}>
+          <div className={`clear-background bg-clear-background p-10 relative z-10 transform translate-x-16 translate-y-24 h-full`} />
+          <div className={`transform -translate-y-64 translate-x-32 relative z-30`}>
+            <img src={coverImage.node.sourceUrl} />
+          </div>
+        </div>
+        <div className={`heading-container w-7/12`}>
           <Categories categories={categories} />
+          <h1 className={`text-huge text-text-color font-rylan leading-tight py-4`}>{title}</h1>
+          <h2 className={`text-h2 text-text-color font-rylan`}>Time to read: <span className={`font-barlow text-h4 text-text-color`}></span></h2>
         </div>
       </div>
-    </>
+    </div>
   )
 }

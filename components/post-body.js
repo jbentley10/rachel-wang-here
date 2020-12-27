@@ -2,9 +2,9 @@ import styles from './post-body.module.css'
 
 export default function PostBody({ content }) {
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="">
       <div
-        className={styles.content}
+        className={`${styles.content} text-text-color font-barlow`}
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </div>

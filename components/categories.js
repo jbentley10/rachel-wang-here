@@ -1,16 +1,13 @@
-export default function Categories({ categories }) {
-  return (
-    <span className="ml-1">
-      under
-      {categories.edges.length > 0 ? (
-        categories.edges.map((category, index) => (
-          <span key={index} className="ml-1">
-            {category.node.name}
-          </span>
-        ))
-      ) : (
-        <span className="ml-1">{categories.edges.node.name}</span>
-      )}
-    </span>
+export default function Categories({ categories, className }) {
+  return (    
+    categories.edges.length > 0 ? (
+      categories.edges.map((category, index) => (
+        <span key={index} className={`text-h1 font-semibold font-barlow uppercase text-text-color ${className}`}>
+          {category.node.name}
+        </span>
+      ))
+    ) : (
+      <span className={`text-h1 font-semibold font-barlow uppercase text-text-color ${className}`}>{categories.edges.node.name}</span>
+    )
   )
 }
