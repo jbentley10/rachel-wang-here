@@ -24,11 +24,15 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
     <footer className={`footer`}>
       <div className={`bg-yellow w-full pt-12`}>
         <h2 className={`text-h2 font-rylan text-text-color text-center pb-8`}>{heading}</h2>
-        {posts.map((post, index) => {
-          <Link key={index} href={post.link}>
-            <img src={`https:` + post.image} />
-          </Link>
-        })}
+        <div className={`instagram-posts-container flex mb-12`}>
+          {posts.map(( post ) => (
+            <div className={`w-1/2 md:w-2/12 m-auto cursor-pointer`}>
+              <a key={Math.random()} href={`https:${post.link}`}>
+                <img src={`https:` + post.image} />
+              </a>
+            </div>
+          ))}
+        </div>
         <div className={`block md:flex px-16 pb-12`}>
           <h2 className={`text-h3 font-rylan text-text-color pb-4 md:pb-0`}>{subheading}</h2>
           <p className={`text-paragraph font-barlow text-text-color pb-12 md:pb-0`}>{subtext}</p>
