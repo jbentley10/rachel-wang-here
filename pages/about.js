@@ -13,17 +13,17 @@ import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import HeroSplitRight from '../components/hero-split-right'
 import OverlayTextBox from '../components/overlay-text-box'
-import { fetchSidebar, fetchAbout } from '../utils/contentfulPages'
+import { fetchSidebar, fetchAbout, fetchFooter } from '../utils/contentfulPages'
 import { getAllPostsForHome } from '../lib/api'
 import PopoutBlade from '../components/popout-blade';
 import PopoutBladeAlt from '../components/popout-blade-alt';
 
-export default function About({ preview, aboutContent, sidebarContent, posts: { edges } }) {
+export default function About({ preview, aboutContent, sidebarContent, footerContent, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
   return (
     <div>
       {/* Meta description for SEO */}
-      <Layout metaDescription={`About page meta description`} preview={preview}>
+      <Layout footerContent={footerContent} metaDescription={`About page meta description`} preview={preview}>
         <Head>
           {/* Title tag for SEO */}
           <title>{ 'About Me | Rachel Wang Here' }</title>
@@ -102,12 +102,14 @@ export async function getStaticProps({ preview = false }) {
   const posts = await getAllPostsForHome(preview);
   const sidebarContent = await fetchSidebar();  
   const aboutContent = await fetchAbout();
+  const footerContent = await fetchFooter();
 
-  if (sidebarContent.fields && aboutContent.fields) {
+  if (sidebarContent.fields && aboutContent.fields && footerContent.fields) {
     return {
       props: {
         sidebarContent,
         aboutContent,
+        footerContent,
         posts,
         preview
       },

@@ -13,9 +13,9 @@ import Layout from '../components/layout'
 import Container from '../components/container'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
-import { fetchSidebar } from '../utils/contentfulPages'
+import { fetchSidebar, fetchFooter } from '../utils/contentfulPages'
 
-export default function Contact({ contact, preview, sidebarContent, posts: { edges } }) {
+export default function Contact({ contact, preview, sidebarContent, footerContent, posts: { edges } }) {
   // Set up variables for the Contact page
   let title = contact.title.rendered;  
   let content = contact.content.rendered;
@@ -24,7 +24,7 @@ export default function Contact({ contact, preview, sidebarContent, posts: { edg
 
   return (
     <>
-      <Layout preview={preview}>
+      <Layout footerContent={footerContent} preview={preview}>
         <Head>
           <title>{ BLOG_NAME }</title>
         </Head>
@@ -70,12 +70,14 @@ export async function getStaticProps({ preview = false }) {
   const res = await fetch('https://rachelwanghere.com/wp-json/wp/v2/pages/5')
   const contact = await res.json()
   const sidebarContent = await fetchSidebar();
+  const footerContent = await fetchFooter();
   const posts = await getAllPostsForHome(preview);
 
-  if (sidebarContent.fields) {
+  if (sidebarContent.fields && footerContent.fields) {
     return {
       props: {
         sidebarContent,
+        footerContent,
         contact,
         preview,
         posts
