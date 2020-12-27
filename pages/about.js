@@ -51,12 +51,12 @@ export default function About({ about, preview, sidebarContent, posts: { edges }
             reflective of the moment, all from 
             a mindful place.`}
           />
-          <div className={`page-body-content px-32`}>
+          <div className={`page-body-content px-32 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>
               <div className={`text-block-layout-container flex-initial md:w-7/12`}>hi!</div>
-              <div className={`sidebar-layout-container flex-initial md:w-2/12`}>
-                  <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
-                </div>
+              <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
+                <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
+              </div>
             </div>
           </div>
         </Container>
