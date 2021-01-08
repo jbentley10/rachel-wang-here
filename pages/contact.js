@@ -3,6 +3,7 @@
  */
 // Import dependencies
 import Head from 'next/head';
+import Image from 'next/image';
 
 // Import library variables
 import { getAllPostsForHome } from '../lib/api';
@@ -14,6 +15,7 @@ import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import HeroSplitRight from '../components/hero-split-right';
 import { fetchSidebar, fetchFooter } from '../utils/contentfulPages';
+import Button from '../components/button';
 
 export default function Contact({ preview, sidebarContent, footerContent, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
@@ -35,14 +37,31 @@ export default function Contact({ preview, sidebarContent, footerContent, posts:
             <div className={`sidebar-body-split flex`}>
               <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>                
                 <div className="page__content text-base leading-relaxed mb-4">
-                  <p>Content goes here...</p>
+                  <div className={`image-container w-4/12`}>
+                    <div className={`clear-background bg-clear-background p-10 relative z-10 transform translate-x-8 translate-y-24 h-full`} />
+                    <div className={`relative z-30`}>
+                      <Image 
+                        src={`/rachel-handstand.png`}
+                        width={`400`}
+                        height={`400`}
+                      />
+                    </div>
+                  </div>
+                  <h2 className={`text-h2 font-rylan`}>Say Hello</h2>
                 </div>                
                 <div className={`contact__form-container md:px-12`}>
                   <form>
                     <input className={`footer__name-input my-3 pl-10 w-11/12 md:w-9/12 py-4 border text-text ml-4`} placeholder="Name"></input><br />
-                    <input className={`footer__name-input my-3 pl-10 w-11/12 md:w-9/12 py-4 border text-text ml-4`} placeholder="Email"></input><br />
+                    <input className={`footer__name-input my-3 pl-10 w-11/12 md:w-9/12 py-4 border text-text ml-4`} placeholder="Email Address"></input><br />
+                    <input className={`footer__name-input my-3 pl-10 w-11/12 md:w-9/12 py-4 border text-text ml-4`} placeholder="Subject"></input><br />
                     <input className={`footer__name-input my-3 pl-10 w-11/12 md:w-9/12 py-4 border text-text ml-4`} placeholder="Message"></input><br />
-                    <button className={`contact__form-submit-button uppercase bg-gray-400 px-24 py-4 ml-4 mt-8`} type="submit">Submit</button>
+                    <Button 
+                      className={`w-1/2`}
+                      color={`purple`}
+                      href={`https://www.google.com`}
+                      onClick
+                      text={`Send Message`}
+                    />
                   </form>
                 </div>
               </div>
