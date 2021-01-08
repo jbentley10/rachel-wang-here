@@ -40,3 +40,17 @@ export async function fetchResources() {
 
   console.log(`Error getting Entry.`)
 }
+
+export async function fetchPrivateResources() {
+  const entry = await client.getEntry('2Eff8wDa3UJGkousW59PCt')
+  if (entry.fields) return entry
+
+  console.log(`Error getting Entry.`)
+}
+
+export async function fetchElevateHereMembership() {
+  const entry = await client.getEntry('nupzxDJx0ChUlbcGkUGZu')
+  if (entry.fields) return entry
+
+  console.log(`Error getting Entry.`)
+}

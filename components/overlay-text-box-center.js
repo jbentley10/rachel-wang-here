@@ -1,11 +1,11 @@
 /**
  * 
- * @file overlay-text-box.js
+ * @file overlay-text-box-center.js
  */
 
-export default function OverlayTextBox({ text1, text2 }) {
+export default function OverlayTextBoxCenter({ text }) {
   return (
-    <section className={`overlay-text-box bg-purple w-3/4 md:w-5/12 p-12 m-auto md:ml-64 md:-mt-48 text-white font-barlow`}>
+    <section className={`overlay-text-box-center bg-purple w-3/4 md:w-5/12 p-12 m-auto md:ml-64 md:-mt-48 text-white font-barlow`}>
       <p>
         <div dangerouslySetInnerHTML={{ __html: text1 }} />  
       </p>      

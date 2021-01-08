@@ -23,10 +23,10 @@ export default function About({ preview, aboutContent, sidebarContent, footerCon
   return (
     <div>
       {/* Meta description for SEO */}
-      <Layout footerContent={footerContent} metaDescription={`About page meta description`} preview={preview}>
+      <Layout footerContent={footerContent} metaDescription={aboutContent.fields.metaDescription} preview={preview}>
         <Head>
           {/* Title tag for SEO */}
-          <title>{ 'About Me | Rachel Wang Here' }</title>
+          <title>{ aboutContent.fields.pageTitle }</title>
         </Head>
         <Container>
           <Header />
