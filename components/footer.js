@@ -3,7 +3,6 @@
  */
 // Import dependencies
 import Link from 'next/link';
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
@@ -22,7 +21,7 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
 
   return (
     <footer className={`footer`}>
-      <div className={`bg-yellow w-full pt-12`}>
+      <div className={`bg-yellow w-full pt-12 md:px-64`}>
         <h2 className={`text-h2 font-rylan text-text-color text-center pb-8`}>{heading}</h2>
         <div className={`instagram-posts-container flex mb-12`}>
           {posts.map(( post ) => (
@@ -43,7 +42,7 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
           />
         </div>
       </div>
-      <div className={`footer-credits block md:flex bg-yellow-transparent px-16 py-12`}>
+      <div className={`footer-credits block md:flex bg-yellow-transparent md:px-64 py-12`}>
         <p className={`text-text-color font-barlow text-footer font-light text-center md:text-left pb-4 md:pb-0`}>Copyright 2020 Rachel Wang Here</p>
         <ul className={`block lg:flex text-footer m-auto text-text-color font-barlow font-normal`}>
           <Link href={`/`}><li className={linkClasses}>Home</li></Link>

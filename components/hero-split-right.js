@@ -8,7 +8,7 @@ import Image from 'next/image';
 export default function HeroSplitRight({ heading }) {
   return (
     <section className={`hero-split-right`}>
-      <div className={`flex bg-neutral-background px-32 pt-16 pb-48`}>
+      <div className={`flex bg-neutral-background md:px-64 pt-16 pb-48`}>
         <div className={`heading-container w-8/12 pt-32`}>
           <h1 className={`text-huge text-text-color font-rylan`}>{heading}</h1>
         </div>
@@ -17,8 +17,8 @@ export default function HeroSplitRight({ heading }) {
           <div className={`transform -translate-y-64 relative z-30`}>
             <Image 
               src={`/rachel-handstand.png`}
-              width={`500`}
-              height={`600`}
+              width={`400`}
+              height={`400`}
             />
           </div>
         </div>
