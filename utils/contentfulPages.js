@@ -33,3 +33,10 @@ export async function fetchFooter() {
 
   console.log(`Error getting Entry.`)
 }
+
+export async function fetchResources() {
+  const entry = await client.getEntry('4zvUdIOo57x6HmzHmhdd7K')
+  if (entry.fields) return entry
+
+  console.log(`Error getting Entry.`)
+}
