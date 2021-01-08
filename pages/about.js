@@ -3,8 +3,10 @@
  */
 // Import dependencies
 import Head from 'next/head'
-import Image from 'next/image';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+// Import library variables
+import { htmlRenderingOptions } from '../lib/constants';
 
 // Import components
 import Layout from '../components/layout'

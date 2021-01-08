@@ -3,8 +3,10 @@
  */
 // Import dependencies
 import Head from 'next/head'
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+// Import library variables
+import { htmlRenderingOptions } from '../lib/constants';
 
 // Import components
 import Layout from '../components/layout'
@@ -14,19 +16,6 @@ import Sidebar from '../components/sidebar'
 import HeroSplitRight from '../components/hero-split-right'
 import { fetchSidebar, fetchResources, fetchFooter } from '../utils/contentfulPages'
 import { getAllPostsForHome } from '../lib/api';
-
-const htmlRenderingOptions = {
-  renderMark: {
-    [MARKS.BOLD]: text => `<strong class='font-bold'>${text}</strong>`
-  },
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, next) => `<custom-paragraph>${next(node.content)}</custom-paragraph>`,
-    [BLOCKS.HEADING_2]: (node, next) => `<h2 class='text-h2 font-rylan'>${next(node.content)}</h2>`,
-    [BLOCKS.HEADING_3]: (node, next) => `<h3 class='text-h3 font-rylan'>${next(node.content)}</h3>`,
-    [BLOCKS.UL_LIST]: (node, next) => `<ul>${next(node.content)}</ul>`,
-    [BLOCKS.EMBEDDED_ENTRY]: (node, next) => `<li>${next(node.content)}</li>`
-  }
-}
 
 export default function Resources({ preview, resourcesContent, sidebarContent, footerContent, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);

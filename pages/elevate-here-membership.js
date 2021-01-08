@@ -3,8 +3,10 @@
  */
 // Import dependencies
 import Head from 'next/head'
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+// Import library variables
+import { htmlRenderingOptions } from '../lib/constants';
 
 // Import components
 import Layout from '../components/layout'
@@ -14,21 +16,6 @@ import Sidebar from '../components/sidebar'
 import HeroSplitRight from '../components/hero-split-right'
 import { fetchSidebar, fetchElevateHereMembership, fetchFooter } from '../utils/contentfulPages'
 import { getAllPostsForHome } from '../lib/api';
-
-const htmlRenderingOptions = {
-  renderMark: {
-    [MARKS.BOLD]: text => `<strong class='font-bold'>${text}</strong>`
-  },
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, next) => `<br/><p class='text-paragraph'>${next(node.content)}</p>`,
-    [BLOCKS.HEADING_2]: (node, next) => `<br/> <h2 class='text-h2 font-rylan'>${next(node.content)}</h2>`,
-    [BLOCKS.HEADING_3]: (node, next) => `<br/> <h3 class='text-h3 font-rylan'>${next(node.content)}</h3>`,
-    [BLOCKS.HEADING_4]: (node, next) => `<br/> <h4 class='text-h4 font-rylan'>${next(node.content)}</h4>`,
-    [BLOCKS.UL_LIST]: (node, next) => `<br/> <ul>${next(node.content)}</ul>`,
-    [BLOCKS.EMBEDDED_ENTRY]: (node, next) => `<br/> <li>${next(node.content)}</li>`,
-    [INLINES.HYPERLINK]: (node, next) => `<br/> <div class="text-center py-3 px-3 cursor-pointer transition duration-200 bg-yellow hover:bg-yellow-darkened mb-4"><h5 class="text-h5 font-barlow uppercase text-white">${next(node.content)}</h5></div>`
-  }
-}
 
 export default function ElevateHereMembership({ preview, elevateHereMembershipContent, sidebarContent, footerContent, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
