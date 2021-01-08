@@ -54,3 +54,10 @@ export async function fetchElevateHereMembership() {
 
   console.log(`Error getting Entry.`)
 }
+
+export async function fetchPractice() {
+  const entry = await client.getEntry('2wKgTEnUWO7YnyGXKkyp1m')
+  if (entry.fields) return entry
+
+  console.log(`Error getting Entry.`)
+}
