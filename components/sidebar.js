@@ -28,14 +28,14 @@ export default function Sidebar({ posts, content }) {
         </ul>
       </div>
       <div className={`sidebar__free-resources-cta`}>
-        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.aboutHeading}</h2>
+        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan text-text-color`}>{content.aboutHeading}</h2>
         <img className={``} src={`https:` + content.aboutImage.fields.file.url} />
-        <p className={`text-paragraph text-link-color pt-8`}>{content.aboutSubtext}</p>
+        <p className={`text-paragraph leading-normal font-barlow pt-8`}>{content.aboutSubtext}</p>
       </div>
       {/* TODO: Search Bar */}
       {/* Links to blog categories */}
       <div className={`mt-16`}>
-        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.blogCategoriesHeading}</h2>
+        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan text-text-color`}>{content.blogCategoriesHeading}</h2>
         <Button 
           href={`/`}
           text={`Yoga and Movement`}
@@ -58,7 +58,7 @@ export default function Sidebar({ posts, content }) {
 
       {/* MailChimp sign up */}
       <div className={`my-16`}>
-        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.subscribeHeading}</h2>
+        <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan text-text-color`}>{content.subscribeHeading}</h2>
         {/* TODO: MailChimp sign-up */}
         <input type={`text`} placeholder={`First Name`} className={`border-black border-solid mb-4 py-4 px-4`} />
         <input type={`text`} placeholder={`Email Address`} className={`border-black border-solid mb-4 py-4 px-4`} />
@@ -73,7 +73,7 @@ export default function Sidebar({ posts, content }) {
       {/* Latest Blog Posts */}
       {posts && 
         <div className={`my-16`}>
-          <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan`}>{content.recentPostsHeading}</h2>
+          <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan text-text-color`}>{content.recentPostsHeading}</h2>
           {posts.map(({ node }) => (
             <SidebarPostPreview
               key={node.slug}

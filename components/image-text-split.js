@@ -26,11 +26,11 @@ export default function ImageTextSplit({ leftHeading, rightHeadingNormal, rightH
         </div>
       </div>
       <div className={`image-text-split__right-container sm:w-full lg:w-1/2 text-left lg:flex-initial p-12 md:py-0 md:pl-24 md:pr-32 sm:mt-10 lg:mt-0`}>
-        <h2 className={`image-text-split__heading text-h2 font-rylan text-left text-link-color leading-tight`}>
+        <h2 className={`image-text-split__heading text-h2 font-rylan text-left text-link-color leading-none`}>
           {rightHeadingNormal}<span className={`highlighted-text`}>{rightHeadingHighlighted}</span>  
         </h2>
         <br />
-        <p className={`text-text-color font-barlow text-paragraph`}>
+        <p className={`text-paragraph leading-normal font-barlow text-text-color`}>
           <div dangerouslySetInnerHTML={{ __html: rightBody }} />
         </p>
         <Button 

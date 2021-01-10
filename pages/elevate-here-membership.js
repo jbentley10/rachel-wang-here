@@ -38,7 +38,14 @@ export default function ElevateHereMembership({ preview, elevateHereMembershipCo
           <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>
               <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
-                <p>Content goes here...</p>
+                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(elevateHereMembershipContent.fields.whatsIncluded, htmlRenderingOptions) }} />
+                <br />
+                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(elevateHereMembershipContent.fields.meetYourTeacher, htmlRenderingOptions) }} />
+                <br />
+                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(elevateHereMembershipContent.fields.whatStudentsSay, htmlRenderingOptions) }} />
+                <br />
+                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(elevateHereMembershipContent.fields.yourInvestment, htmlRenderingOptions) }} />
+                <br />
               </div>
               <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
                 <Sidebar posts={recentPosts} content={sidebarContent.fields}/>

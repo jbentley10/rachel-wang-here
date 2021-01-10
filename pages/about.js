@@ -42,12 +42,12 @@ export default function About({ preview, aboutContent, sidebarContent, footerCon
           <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>
               <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
-                <h1 className={`highlighted-text text-h1 font-rylan text-text-color`}>
+                <h1 className={`highlighted-text text-h1 font-rylan text-text-color leading-none`}>
                   {aboutContent.fields.highlightedHeading}
                 </h1>
                 <div className={`copy-block my-24`}>
-                  <h2 className={`font-rylan text-h2 text-text-color`}>{aboutContent.fields.section1Heading}</h2>
-                  <p className={`text-text-color font-barlow text-paragraph`}>
+                  <h2 className={`font-rylan text-h2 text-text-color leading-none`}>{aboutContent.fields.section1Heading}</h2>
+                  <p className={`text-paragraph leading-normal font-barlow text-text-color`}>
                     <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(aboutContent.fields.section1Copy) }} />
                   </p>
                 </div>
@@ -57,13 +57,13 @@ export default function About({ preview, aboutContent, sidebarContent, footerCon
                     <img src={`https:` + aboutContent.fields.section1Image.fields.file.url} />
                   </div>
                   <h2 className={`font-rylan text-h2 text-text-color`}>{aboutContent.fields.section2Heading}</h2>
-                  <p className={`text-text-color font-barlow text-paragraph`}>
+                  <p className={`text-paragraph leading-normal font-barlow text-text-color`}>
                     <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(aboutContent.fields.section2Copy) }} />
                   </p>
                 </div>
                 <div className={`copy-block my-24`}>
                   <h2 className={`font-rylan text-h2 text-text-color`}>{aboutContent.fields.section3Heading}</h2>
-                  <p className={`text-text-color font-barlow text-paragraph`}>
+                  <p className={`text-paragraph leading-normal font-barlow text-text-color`}>
                     <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(aboutContent.fields.section3Copy) }} />
                   </p>
                 </div>
