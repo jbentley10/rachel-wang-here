@@ -72,6 +72,7 @@ module.exports = {
         'image--0': "url('../public/image-1.png')",
         'image--1': "url('../public/image-2.png')",
         'image--2': "url('../public/image-3.png')",
+        'flower-background': "url('../public/backgrounds/background-flower-image.svg')",
       })
     },
   },
