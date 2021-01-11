@@ -9,7 +9,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { htmlRenderingOptions } from '../../lib/constants';
 
 // Import functions
-import { fetchHeresWhereToBegin, fetchFooter } from '../../../utils/contentfulPages';
+import { fetchHeresWhereToBegin, fetchFooter } from '../../utils/contentfulPages';
 
 // Import components
 import Layout from '../../components/layout';
