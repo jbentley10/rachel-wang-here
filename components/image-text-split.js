@@ -30,9 +30,9 @@ export default function ImageTextSplit({ leftHeading, rightHeadingNormal, rightH
           {rightHeadingNormal}<span className={`highlighted-text`}>{rightHeadingHighlighted}</span>  
         </h2>
         <br />
-        <p className={`text-paragraph leading-normal font-barlow text-text-color`}>
+        <div className={`text-paragraph leading-normal font-barlow text-text-color`}>
           <div dangerouslySetInnerHTML={{ __html: rightBody }} />
-        </p>
+        </div>
         <Button 
           color={`brown`}
           href={rightButtonLink}

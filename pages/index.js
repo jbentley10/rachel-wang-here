@@ -64,12 +64,24 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
            isOpen={isModalOpen}
            contentLabel="Minimal Modal Example"
            style={modalStyle}
+           shouldCloseOnOverlayClick={true}
+           onRequestClose={handleCloseModal}
           >
-            <Button 
-              onClick={handleCloseModal}
-              color={`purple`}
-              text={`Close modal`}
-            />
+            <div className={`block`}>
+              {/* TODO: MailChimp sign-up */}
+              <input type={`text`} placeholder={`First Name`} className={`block border-gray-400 border-solid border-2 mb-4 py-4 px-4`} />
+              <input type={`text`} placeholder={`Email Address`} className={`block border-gray-400 border-solid border-2 mb-4 py-4 px-4`} />
+              <div className={`block`}>
+                <input type={`checkbox`} className={`border-black border-solid mb-4 py-4 px-4`} />
+                <label className={`text-text-color font-barlow pl-4`}>By checking this box...</label>
+              </div>
+              <Button 
+                href={`/`}
+                text={`Send It`}
+                color={`purple`}
+                className={`my-4`}
+              />
+            </div>
           </Modal>
           <Hero 
             normalHeading={homepageContent.fields.heroBoxSnippet} 

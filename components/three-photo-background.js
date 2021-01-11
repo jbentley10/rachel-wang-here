@@ -11,9 +11,9 @@ export default function ThreePhotoBackground({heading, subheading, body, button,
       <h3 className={`text-h3 font-rylan text-center text-text-color`}>{heading}</h3>
       <div className={`p-8 md:p-12`}>
         <h2 className={`text-h2 font-rylan text-center leading-none text-text-color pb-6`}>{subheading}</h2>
-        <p className={`text-paragraph leading-normal font-barlow text-text-color w-full md:w-9/12 text-left m-auto mb-16`}>
+        <div className={`text-paragraph leading-normal font-barlow text-text-color w-full md:w-9/12 text-left m-auto mb-16`}>
           <div dangerouslySetInnerHTML={{ __html: body }} />
-        </p>
+        </div>
         <Button
           className={`w-full md:w-4/12 m-auto`}
           color={button.color}

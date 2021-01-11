@@ -60,8 +60,8 @@ export default function Sidebar({ posts, content }) {
       <div className={`my-16`}>
         <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan text-text-color`}>{content.subscribeHeading}</h2>
         {/* TODO: MailChimp sign-up */}
-        <input type={`text`} placeholder={`First Name`} className={`border-black border-solid mb-4 py-4 px-4`} />
-        <input type={`text`} placeholder={`Email Address`} className={`border-black border-solid mb-4 py-4 px-4`} />
+        <input type={`text`} placeholder={`First Name`} className={`border-gray-400 border-solid border-2 mb-4 py-4 px-4`} />
+        <input type={`text`} placeholder={`Email Address`} className={`border-gray-400 border-solid border-2 mb-4 py-4 px-4`} />
         <Button 
           href={`/`}
           text={`Send It`}
