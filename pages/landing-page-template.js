@@ -12,12 +12,24 @@ import { htmlRenderingOptions } from '../lib/constants';
 import Layout from '../components/layout';
 import Container from '../components/container';
 import Header from '../components/header';
-import { fetchSidebar, fetchAbout, fetchFooter } from '../utils/contentfulPages';
-import { getAllPostsForHome } from '../lib/api';
+import { fetchFooter } from '../utils/contentfulPages';
 import HeroSplitCenter from '../components/hero-split-center';
-import ImageText5050Split from '../components/image-text-5050-split';
+import ImageText5050SplitLeft from '../components/image-text-5050-split-left';
+import ArticlesPanel from '../components/articles-panel';
+import ImageText5050SplitRight from '../components/image-text-5050-split-right';
 
 export default function About({ preview, footerContent }) {
+  const posts = [
+    {
+      key: `test-post`,
+      title: `Lorem Ipsum`,
+      coverImage: `/rachel-handstand.png`,
+      date: ``,
+      author: `Rachel Wang`,
+      slug: `test-post`,
+      excerpt: `This is just a test. Don't panic`
+    }
+  ]
   return (
     <div>
       {/* Meta description for SEO */}
@@ -53,7 +65,7 @@ export default function About({ preview, footerContent }) {
                 Let’s begin, right here and right now.
               </h2>
             </div>
-            <ImageText5050Split 
+            <ImageText5050SplitLeft 
               heading={`Hi! I’m your teacher, Rachel`}
               text={`Welcome and I’m glad you are here, looking 
               to start and cultivate your yoga practice.  I 
@@ -76,6 +88,83 @@ export default function About({ preview, footerContent }) {
               image={`/rachel-handstand.png`}
             />
           </div>
+          <ArticlesPanel 
+            heading={`Articles for beginners to the yoga practice`}
+            posts={posts}
+          />
+          <div className={`page-body-content px-12 md:px-32 lg:px-64 block`}>
+            <h1 className={`text-h1 text-text-color font-rylan text-center m-auto`}>Guides</h1>
+            <ImageText5050SplitLeft 
+              heading={`A Guide On Using Yoga Props`}
+              text={`Show me the props!  Here’s a guide I created 
+              demonstrating different ways of using 
+              common props found in a yoga class 
+              setting - all with common objects that you 
+              can use from around your home.  
+              
+              Why use props?  
+              
+              Because of the support they provide you 
+              with by personalizing your practice so 
+              you can get the most out of it.
+              `}
+              image={`/rachel-handstand.png`}
+              buttonText={`Download the Guide`}
+              buttonLink={`https://www.google.com`}
+              buttonColor={`purple`}
+            />
+            <ImageText5050SplitRight
+              heading={`Ways to Modify For Common Yoga Poses`}
+              text={`The key to a sustainable, lifelong yoga 
+              practice is figuring out what works best 
+              for your body.  Because every human 
+              body is different.  One of the best ways is 
+              to modify postures to fit your individual needs.  
+              
+              Modifications make the practice more 
+              accessible for everyone to join.              
+              `}
+              image={`/rachel-handstand.png`}
+              buttonText={`Download the Guide`}
+              buttonLink={`https://www.google.com`}
+              buttonColor={`purple`}
+            />
+            <div className={`youtube-videos`}>
+              <h2 className={`text-h2 font-rylan text-text-color leading-none text-center pb-4`}>Here's where I begin</h2>
+              <p className={`text-paragraph leading-normal font-barlow px-24`}>
+                My curated list of classes and tutorials on getting started with your yoga practice.  
+                An introduction to a variety of foundational yoga poses, commonly used terms, 
+                and sequences.  I’ll see you on the mat! 
+              </p>
+              <div className={`video-quadrant block`}>
+                <div className={`video-quadrant__row flex`}>
+                  <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
+                    <div className={`iframe-container w-full p-8 text-center m-auto`}>
+                      <iframe src="https://www.youtube.com/embed/28W7OaOWAYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                  <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
+                    <div className={`iframe-container w-full p-8 text-center m-auto`}>
+                      <iframe src="https://www.youtube.com/embed/28W7OaOWAYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+                <div className={`video-quadrant__row flex`}>
+                  <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
+                    <div className={`iframe-container w-full p-8 text-center m-auto`}>
+                      <iframe src="https://www.youtube.com/embed/28W7OaOWAYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                  <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
+                    <div className={`iframe-container w-full p-8 text-center m-auto`}>
+                      <iframe src="https://www.youtube.com/embed/28W7OaOWAYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>            
+          </div>
+          <div className={`wavy-bottom w-full h-64 bg-wavy-background bg-cover bg-no-repeat -my-28`} />
         </Container>
       </Layout>
       {/* Only style elements that aren't dangerously set */}
