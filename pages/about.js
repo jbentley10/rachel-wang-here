@@ -57,15 +57,15 @@ export default function About({ preview, aboutContent, sidebarContent, footerCon
                     <img src={`https:` + aboutContent.fields.section1Image.fields.file.url} />
                   </div>
                   <h2 className={`font-rylan text-h2 text-text-color`}>{aboutContent.fields.section2Heading}</h2>
-                  <p className={`text-paragraph leading-normal font-barlow text-text-color`}>
+                  <div className={`text-paragraph leading-normal font-barlow text-text-color`}>
                     <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(aboutContent.fields.section2Copy) }} />
-                  </p>
+                  </div>
                 </div>
                 <div className={`copy-block my-24`}>
                   <h2 className={`font-rylan text-h2 text-text-color`}>{aboutContent.fields.section3Heading}</h2>
-                  <p className={`text-paragraph leading-normal font-barlow text-text-color`}>
+                  <div className={`text-paragraph leading-normal font-barlow text-text-color`}>
                     <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(aboutContent.fields.section3Copy) }} />
-                  </p>
+                  </div>
                 </div>
               </div>
               <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>

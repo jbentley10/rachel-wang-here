@@ -5,13 +5,13 @@
 // Import dependencies
 import Image from 'next/image';
 
-export default function HeroSplitCenter({ heading }) {
+export default function HeroSplitCenter({ heading, category }) {
   return (
     <section className={`hero-split-center`}>
       <div className={`bg-neutral-background md:px-64 pt-16 pb-0`}>
         <div className={`heading-container w-7/12 m-auto text-center`}>
           <span className={`text-h1 font-semibold font-barlow uppercase text-text-color`}>
-            Yoga
+            {category}
           </span>
           <h1 className={`leading-tight text-huge text-text-color font-rylan pt-8`}>{heading}</h1>
         </div>

@@ -61,3 +61,10 @@ export async function fetchPractice() {
 
   console.log(`Error getting Entry.`)
 }
+
+export async function fetchHeresWhereToBegin() {
+  const entry = await client.getEntry('5tmz9lSwMyaOOKRbnS4ctz')
+  if (entry.fields) return entry
+
+  console.log(`Error getting Entry.`)
+}

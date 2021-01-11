@@ -3,157 +3,122 @@
  */
 // Import dependencies
 import Head from 'next/head'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+// Import library variables
+import { htmlRenderingOptions } from '../../lib/constants';
+
+// Import functions
+import { fetchHeresWhereToBegin, fetchFooter } from '../../../utils/contentfulPages';
 
 // Import components
 import Layout from '../../components/layout';
 import Container from '../../components/container';
 import Header from '../../components/header';
-import { fetchFooter } from '../../utils/contentfulPages';
 import HeroSplitCenter from '../../components/hero-split-center';
 import ImageText5050SplitLeft from '../../components/image-text-5050-split-left';
 import ArticlesPanel from '../../components/articles-panel';
 import ImageText5050SplitRight from '../../components/image-text-5050-split-right';
 
-export default function About({ preview, footerContent }) {
-  const posts = [
-    {
-      key: `test-post`,
-      title: `Lorem Ipsum`,
-      coverImage: `/rachel-handstand.png`,
-      date: ``,
-      author: `Rachel Wang`,
-      slug: `test-post`,
-      excerpt: `This is just a test. Don't panic`
-    }
-  ]
+export default function About({ preview, pageContent, footerContent }) {
+
   return (
     <div>
       {/* Meta description for SEO */}
-      <Layout footerContent={footerContent} metaDescription={`Beginner yoga track for Rachel Wang Here.`} preview={preview}>
+      <Layout footerContent={footerContent} metaDescription={pageContent.fields.metaDescription} preview={preview}>
         <Head>
           {/* Title tag for SEO */}
-          <title>{ `Here's Where to Begin | Yoga | Rachel Wang Here` }</title>
+          <title>{pageContent.fields.pageTitle}</title>
         </Head>
         <Container>
           <Header />
           <HeroSplitCenter 
-            heading={`Here's Where to Begin`}
+            heading={pageContent.fields.pageHeading}
+            category={pageContent.fields.pageCategory}
           />
           <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat block`}>
             <div className={`left-right-text-split pt-32`}>
               <div className={`float-left w-1/2 mt-8 mb-16`}>
                 <h4 className={`text-h4 text-text-color leading-none font-rylan`}>
-                  We all started somewhere as beginners, even for those who 
-                  can easily balance on their 
-                  hands or squat on one leg
+                  {pageContent.fields.introLine1}
                 </h4>
               </div>
               <div className={`float-right w-1/2 mt-32 mb-8 bg-flower-background bg-contain bg-no-repeat py-24`}>
                 <h4 className={`text-h4 text-text-color leading-none font-rylan`}>
-                  And guess what?  The secret is that we still are.<br/><br/>
-                  There is always something new to learn.  
-                  Always something new to discover.
+                  {pageContent.fields.introLine2}
                 </h4>
               </div>
             </div>
             <div className={`w-full text-center m-auto my-8 clear-both`}>
               <h2 className={`text-h2 text-text-color leading-none font-rylan`}>
-                Let’s begin, right here and right now.
+                {pageContent.fields.introLine3}
               </h2>
             </div>
             <ImageText5050SplitLeft 
-              heading={`Hi! I’m your teacher, Rachel`}
-              text={`Welcome and I’m glad you are here, looking 
-              to start and cultivate your yoga practice.  I 
-              haven’t always been strong or flexible, I 
-              couldn’t even touch my toes just a few years 
-              ago!  I’m very familiar with how it feels to 
-              be a beginner when learning a new skill: 
-              intimidating, awkward, uncomfortable, 
-              strange - a struggle!  And because of this, 
-              I fully understand what a beginner’s needs 
-              are.  
-              
-              I almost gave up because of my frustrations.  
-              I didn’t have anyone meet me at my level and 
-              demonstrate properly the how-to’s for a 
-              beginner.  I get it.  And this is why I created 
-              this to facilitate your experience and make 
-              things a little more attainable.
-              `}
+              heading={pageContent.fields.aboutBlockHeading}
+              text={documentToHtmlString(pageContent.fields.aboutBlockRichText)}
               image={`/rachel-handstand.png`}
             />
           </div>
           <ArticlesPanel 
-            heading={`Articles for beginners to the yoga practice`}
-            posts={posts}
+            heading={pageContent.fields.articlesHeading}
+            posts={[
+              {
+                key: Math.random(),
+                title: pageContent.fields.article1Title,
+                // coverImage: pageContent.fields.article1
+                // date: pageContent.fields.article1
+                // author: pageContent.fields.article1
+                slug: pageContent.fields.article1ButtonLink,
+                excerpt: pageContent.fields.article1Description
+              }
+            ]}
           />
           <div className={`page-body-content px-12 pt-24 md:px-32 lg:px-64 block`}>
-            <h1 className={`text-h1 text-text-color font-rylan text-center m-auto`}>Guides</h1>
+            <h1 className={`text-h1 text-text-color font-rylan text-center m-auto`}>{pageContent.fields.guidesHeading}</h1>
             <ImageText5050SplitLeft 
-              heading={`A Guide On Using Yoga Props`}
-              text={`Show me the props!  Here’s a guide I created 
-              demonstrating different ways of using 
-              common props found in a yoga class 
-              setting - all with common objects that you 
-              can use from around your home.  
-              
-              Why use props?  
-              
-              Because of the support they provide you 
-              with by personalizing your practice so 
-              you can get the most out of it.
-              `}
+              heading={pageContent.fields.guidesCopyHeading1}
+              text={documentToHtmlString(pageContent.fields.guidesCopyRichText1)}
               image={`/rachel-handstand.png`}
-              buttonText={`Download the Guide`}
-              buttonLink={`https://www.google.com`}
+              buttonText={pageContent.fields.guidesCopyButtonText1}
+              buttonLink={pageContent.fields.guidesCopyButtonLink1}
               buttonColor={`purple`}
             />
             <ImageText5050SplitRight
-              heading={`Ways to Modify For Common Yoga Poses`}
-              text={`The key to a sustainable, lifelong yoga 
-              practice is figuring out what works best 
-              for your body.  Because every human 
-              body is different.  One of the best ways is 
-              to modify postures to fit your individual needs.  
-              
-              Modifications make the practice more 
-              accessible for everyone to join.              
-              `}
+              heading={pageContent.fields.guidesCopyHeading2}
+              text={documentToHtmlString(pageContent.fields.guidesCopyRichText2)}
               image={`/rachel-handstand.png`}
-              buttonText={`Download the Guide`}
-              buttonLink={`https://www.google.com`}
+              buttonText={pageContent.fields.guidesCopyButtonText2}
+              buttonLink={pageContent.fields.guidesCopyButtonLink2}
               buttonColor={`purple`}
             />
             <div className={`youtube-videos`}>
-              <h2 className={`text-h2 font-rylan text-text-color leading-none text-center pb-4`}>Here's where I begin</h2>
-              <p className={`text-paragraph leading-normal font-barlow px-24`}>
-                My curated list of classes and tutorials on getting started with your yoga practice.  
-                An introduction to a variety of foundational yoga poses, commonly used terms, 
-                and sequences.  I’ll see you on the mat! 
-              </p>
+              <h2 className={`text-h2 font-rylan text-text-color leading-none text-center pb-4`}>{pageContent.fields.youTubeVideosHeading}</h2>
+              <div className={`text-paragraph leading-normal font-barlow px-24`}>
+                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.youTubeVideosSubtext, htmlRenderingOptions) }} />
+              </div>
               <div className={`video-quadrant block`}>
                 <div className={`video-quadrant__row flex`}>
                   <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
                     <div className={`iframe-container w-full p-8 text-center m-auto`}>
-                      <iframe src="https://www.youtube.com/embed/28W7OaOWAYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <iframe src={pageContent.fields.youTubeVideo1} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
                     </div>
                   </div>
                   <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
                     <div className={`iframe-container w-full p-8 text-center m-auto`}>
-                      <iframe src="https://www.youtube.com/embed/28W7OaOWAYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <iframe src={pageContent.fields.youTubeVideo2} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
                     </div>
                   </div>
                 </div>
                 <div className={`video-quadrant__row flex`}>
                   <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
                     <div className={`iframe-container w-full p-8 text-center m-auto`}>
-                      <iframe src="https://www.youtube.com/embed/28W7OaOWAYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <iframe src={pageContent.fields.youTubeVideo3} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
                     </div>
                   </div>
                   <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
                     <div className={`iframe-container w-full p-8 text-center m-auto`}>
-                      <iframe src="https://www.youtube.com/embed/28W7OaOWAYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <iframe src={pageContent.fields.youTubeVideo4} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
                     </div>
                   </div>
                 </div>
@@ -175,12 +140,14 @@ export default function About({ preview, footerContent }) {
 }
 
 export async function getStaticProps() {
+  const pageContent = await fetchHeresWhereToBegin();
   const footerContent = await fetchFooter();
 
-  if (footerContent.fields) {
+  if (footerContent.fields && pageContent.fields) {
     return {
       props: {
-        footerContent
+        footerContent,
+        pageContent
       },
     };
   } else return;
