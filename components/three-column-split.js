@@ -47,6 +47,7 @@ export default function ThreeColumnSplit({ heading, subtext, column1Content, col
             <Button 
               color={`yellow`}
               href={column1Content.buttonLink}
+              onClick={column1Content.onClick}
               text={column1Content.buttonText}
               className={`mt-12`}
             />
@@ -67,6 +68,7 @@ export default function ThreeColumnSplit({ heading, subtext, column1Content, col
             <Button 
               color={`brown`}
               href={column2Content.buttonLink}
+              onClick={column2Content.onClick}
               text={column2Content.buttonText}
               className={`mt-12`}
             />
@@ -87,6 +89,7 @@ export default function ThreeColumnSplit({ heading, subtext, column1Content, col
             <Button 
               color={`orange`}
               href={column3Content.buttonLink}
+              onClick={column3Content.onClick}
               text={column3Content.buttonText}
               className={`mt-12`}
             />

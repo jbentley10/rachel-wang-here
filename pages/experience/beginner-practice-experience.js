@@ -3,20 +3,16 @@
  */
 // Import dependencies
 import Head from 'next/head'
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-
-// Import library variables
-import { htmlRenderingOptions } from '../lib/constants';
 
 // Import components
-import Layout from '../components/layout';
-import Container from '../components/container';
-import Header from '../components/header';
-import { fetchFooter } from '../utils/contentfulPages';
-import HeroSplitCenter from '../components/hero-split-center';
-import ImageText5050SplitLeft from '../components/image-text-5050-split-left';
-import ArticlesPanel from '../components/articles-panel';
-import ImageText5050SplitRight from '../components/image-text-5050-split-right';
+import Layout from '../../components/layout';
+import Container from '../../components/container';
+import Header from '../../components/header';
+import { fetchFooter } from '../../utils/contentfulPages';
+import HeroSplitCenter from '../../components/hero-split-center';
+import ImageText5050SplitLeft from '../../components/image-text-5050-split-left';
+import ArticlesPanel from '../../components/articles-panel';
+import ImageText5050SplitRight from '../../components/image-text-5050-split-right';
 
 export default function About({ preview, footerContent }) {
   const posts = [

@@ -2,8 +2,10 @@
  * @file index.js
  */
 // Import dependencies
+import React, { useState } from 'react';
 import Head from "next/head";
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import Modal from 'react-modal';
 
 // Import library variables
 import { getAllPostsForHome } from "../lib/api";
@@ -16,9 +18,7 @@ import Header from "../components/header";
 import Hero from "../components/hero";
 import ThreeColumnSplit from "../components/three-column-split";
 import ImageTextSplit from "../components/image-text-split";
-import SimpleCTA from "../components/simple-cta";
 import PageLayout from "../components/layout";
-import PopoutBlade from "../components/popout-blade";
 import ThreeButtonBlade from "../components/three-button-blade";
 import ThreePhotoBackground from "../components/three-photo-background";
 import Button from "../components/button";
@@ -26,6 +26,31 @@ import { fetchHomepage, fetchFooter } from "../utils/contentfulPages";
 
 export default function Index({ allPosts: { edges }, preview, homepageContent, footerContent }) {
   const recentPosts = edges.slice(0, 3);  
+
+  const [isModalOpen, setIsModalOpen] = useState();
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  }
+  
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  }
+
+  const modalStyle = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    },
+    overlay : {
+      zIndex                : 90
+    }
+  };
+  
 
   return (
     <>
@@ -35,6 +60,17 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
         </Head>
         <Container>
           <Header />
+          <Modal 
+           isOpen={isModalOpen}
+           contentLabel="Minimal Modal Example"
+           style={modalStyle}
+          >
+            <Button 
+              onClick={handleCloseModal}
+              color={`purple`}
+              text={`Close modal`}
+            />
+          </Modal>
           <Hero 
             normalHeading={homepageContent.fields.heroBoxSnippet} 
             highlightedHeading={homepageContent.fields.heroBoxSnippetHighlighted}
@@ -46,19 +82,19 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
               heading: homepageContent.fields.column1heading,
               subtext: homepageContent.fields.column1subtext,
               buttonText: homepageContent.fields.column1buttonText,
-              buttonLink: homepageContent.fields.column1buttonLink
+              onClick: handleOpenModal
             }}
             column2Content={{
               heading: homepageContent.fields.column2heading,
               subtext: homepageContent.fields.column2subtext,
               buttonText: homepageContent.fields.column2buttonText,
-              buttonLink: homepageContent.fields.column2buttonLink
+              onClick: handleOpenModal
             }}
             column3Content={{
               heading: homepageContent.fields.column3heading,
               subtext: homepageContent.fields.column3subtext,
               buttonText: homepageContent.fields.column3buttonText,
-              buttonLink: homepageContent.fields.column3buttonLink
+              onClick: handleOpenModal
             }}
           />
           <ImageTextSplit 
