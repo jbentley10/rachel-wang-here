@@ -92,7 +92,7 @@ export default function About({ preview, footerContent }) {
             heading={`Articles for beginners to the yoga practice`}
             posts={posts}
           />
-          <div className={`page-body-content px-12 md:px-32 lg:px-64 block`}>
+          <div className={`page-body-content px-12 pt-24 md:px-32 lg:px-64 block`}>
             <h1 className={`text-h1 text-text-color font-rylan text-center m-auto`}>Guides</h1>
             <ImageText5050SplitLeft 
               heading={`A Guide On Using Yoga Props`}
