@@ -58,7 +58,7 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
 
   return (
     <>
-      <PageLayout footerContent={footerContent} preview={preview}>
+      <PageLayout ctaButtonOnClick={handleOpenModal} footerContent={footerContent} preview={preview}>
         <Head>
           <title>{BLOG_NAME}</title>
         </Head>
@@ -96,7 +96,9 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
                               })
                             }}
                           >
-                            <input type="email" ref={emailRef} /><input type="submit" value="subscribe" /></form>
+                            <input type="email" ref={emailRef} />
+                            <input type="submit" value="subscribe" />\
+                          </form>
                         )
                     }
                   }}
@@ -144,17 +146,17 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
               {
                 heading: homepageContent.fields.popoutBladeColumn1Heading,
                 description: homepageContent.fields.popoutBladeColumn1Subtext,
-                link: `/`
+                link: `/blog`
               },
               {
                 heading: homepageContent.fields.popoutBladeColumn2Heading,
                 description: homepageContent.fields.popoutBladeColumn2Subtext,
-                link: `/`
+                link: `/blog`
               },
               {
                 heading: homepageContent.fields.popoutBladeColumn3Heading,
                 description: homepageContent.fields.popoutBladeColumn3Subtext,
-                link: `/`
+                link: `/blog`
               }
             ]}
           />

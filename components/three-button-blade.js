@@ -22,7 +22,7 @@ export default function ThreeButtonBlade({heading, buttons}) {
                   height={100}
                   width={150}
                 />
-                <h3 className={`text-h3 font-rylan`}>{button.heading}</h3>
+                <h3 className={`text-h3 font-rylan text-text-color`}>{button.heading}</h3>
                 <p className={`text-paragraph`}>{button.description}</p>
               </div>
             </Link>

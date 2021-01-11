@@ -5,7 +5,7 @@
 import Footer from '../components/footer'
 import Meta from '../components/meta'
 
-export default function PageLayout({ footerContent, preview, children, metaDescription }) {  
+export default function PageLayout({ ctaButtonOnClick, footerContent, preview, children, metaDescription }) {  
   return (
     <>
       <Meta metaDescription={metaDescription} />
@@ -39,7 +39,7 @@ export default function PageLayout({ footerContent, preview, children, metaDescr
           button={{
             color: 'purple',
             text: footerContent.fields.buttonText,
-            href: footerContent.fields.buttonLink
+            onClick: ctaButtonOnClick
           }}
         />
       }

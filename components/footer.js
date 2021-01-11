@@ -39,6 +39,7 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
             color={button.color}
             text={button.text}
             href={button.href}
+            onClick={button.onClick}
           />
         </div>
       </div>
