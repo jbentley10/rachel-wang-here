@@ -2,10 +2,11 @@
  * @file index.js
  */
 // Import dependencies
-import React, { useState } from 'react';
+import React, { useState, createRef } from 'react';
 import Head from "next/head";
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Modal from 'react-modal';
+import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 // Import library variables
 import { getAllPostsForHome } from "../lib/api";
@@ -27,6 +28,9 @@ import { fetchHomepage, fetchFooter } from "../utils/contentfulPages";
 export default function Index({ allPosts: { edges }, preview, homepageContent, footerContent }) {
   const recentPosts = edges.slice(0, 3);  
 
+  // For the subscribe modal
+  const mailChimpURL = "https://rachelwanghere.us20.list-manage.com/subscribe/post?u=6f3b45340606635b68f91ec8b&amp;id=0d280962fa";
+  const emailRef = createRef(undefined)
   const [isModalOpen, setIsModalOpen] = useState();
 
   const handleOpenModal = () => {
@@ -68,19 +72,36 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
            onRequestClose={handleCloseModal}
           >
             <div className={`block`}>
-              {/* TODO: MailChimp sign-up */}
-              <input type={`text`} placeholder={`First Name`} className={`block border-gray-400 border-solid border-2 mb-4 py-4 px-4`} />
-              <input type={`text`} placeholder={`Email Address`} className={`block border-gray-400 border-solid border-2 mb-4 py-4 px-4`} />
-              <div className={`block`}>
-                <input type={`checkbox`} className={`border-black border-solid mb-4 py-4 px-4`} />
-                <label className={`text-text-color font-barlow pl-4`}>By checking this box...</label>
+              <div>
+                <h2>Would you like me to keep you in the loop?</h2>
+                <p>...</p>
+                <MailchimpSubscribe
+                  url={mailChimpURL}
+                  render={({ subscribe, status, message }) => {
+                    switch (status) {
+                      case "sending":
+                        return <div>Sending...</div>
+                      case "success":
+                        return <div>Subscribed.</div>
+                      case "error":
+                        return <div dangerouslySetInnerHTML={{ __html: message }} />
+                      default:
+                        return (
+                          <form
+                            onSubmit={() => {
+                              event.preventDefault()
+
+                              subscribe({
+                                EMAIL: emailRef.current.value,
+                              })
+                            }}
+                          >
+                            <input type="email" ref={emailRef} /><input type="submit" value="subscribe" /></form>
+                        )
+                    }
+                  }}
+                />
               </div>
-              <Button 
-                href={`/`}
-                text={`Send It`}
-                color={`purple`}
-                className={`my-4`}
-              />
             </div>
           </Modal>
           <Hero 
