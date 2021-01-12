@@ -68,3 +68,10 @@ export async function fetchHeresWhereToBegin() {
 
   console.log(`Error getting Entry.`)
 }
+
+export async function fetchProgramOfferings() {
+  const entry = await client.getEntry('6PPhQ8w3DU8Kz1voQ6cqZL')
+  if (entry.fields) return entry
+
+  console.log(`Error getting Entry.`)
+}
