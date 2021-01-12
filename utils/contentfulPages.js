@@ -48,7 +48,7 @@ export async function fetchPrivateResources() {
   console.log(`Error getting Entry.`)
 }
 
-export async function fetchElevateHereMembership() {
+export async function fetchBeHereNowMembership() {
   const entry = await client.getEntry('nupzxDJx0ChUlbcGkUGZu')
   if (entry.fields) return entry
 
