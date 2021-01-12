@@ -1,12 +1,12 @@
 /**
- * @file login.js
+ * @file login-field.js
  */
 // Import dependencies
-import { useState } from "react"
-import Cookies from "universal-cookie"
-import consts from "../utils/consts"
+import { useState } from 'react'
+import Cookies from 'universal-cookie'
+import consts from '../utils/consts'
 
-const Login = ({ redirectPath }) => {
+const LoginField = ({ redirectPath }) => {
   const [password, setPassword] = useState("")
 
   return (
@@ -41,4 +41,4 @@ const Login = ({ redirectPath }) => {
   )
 }
 
-export default Login
+export default LoginField

@@ -6,7 +6,7 @@ import Head from 'next/head'
 import Cookies from 'universal-cookie'
 
 // Import components
-import Login from '../components/login'
+import LoginField from '../components/login-field'
 
 // Import variables
 import consts from '../utils/consts'
@@ -25,7 +25,7 @@ export default function LoginPage({ hasReadPermission }) {
               e.preventDefault()
               const cookies = new Cookies()
               cookies.remove(consts.SiteReadCookie, { path: "/" })
-              window.location.href = "/login"
+              window.location.href = "/login-page"
             }}
           >
             Logout
@@ -40,7 +40,7 @@ export default function LoginPage({ hasReadPermission }) {
       <Head>
         <title>Login</title>
       </Head>
-      <Login redirectPath="/" />
+      <LoginField redirectPath="/" />
     </>
   )
 }

@@ -19,7 +19,7 @@ import Container from '../components/container'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import HeroSplitRight from '../components/hero-split-right'
-import Login from "../components/Login"
+import LoginField from '../components/login-field';
 
 export default function PrivateResources({ hasReadPermission, preview, privateResourcesContent, sidebarContent, footerContent, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
@@ -27,7 +27,7 @@ export default function PrivateResources({ hasReadPermission, preview, privateRe
   const router = useRouter()
 
   if (!hasReadPermission) {
-    return <Login redirectPath={router.asPath} />
+    return <LoginField redirectPath={router.asPath} />
   }
 
   return (
