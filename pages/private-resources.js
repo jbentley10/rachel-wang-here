@@ -4,9 +4,14 @@
 // Import dependencies
 import Head from 'next/head'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { useRouter } from "next/router"
 
 // Import library variables
 import { htmlRenderingOptions } from '../lib/constants';
+
+// Import functions
+import { fetchSidebar, fetchPrivateResources, fetchFooter } from '../utils/contentfulPages'
+import { getAllPostsForHome } from '../lib/api';
 
 // Import components
 import Layout from '../components/layout'
@@ -14,11 +19,17 @@ import Container from '../components/container'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import HeroSplitRight from '../components/hero-split-right'
-import { fetchSidebar, fetchPrivateResources, fetchFooter } from '../utils/contentfulPages'
-import { getAllPostsForHome } from '../lib/api';
+import Login from "../components/Login"
 
-export default function PrivateResources({ preview, privateResourcesContent, sidebarContent, footerContent, posts: { edges } }) {
+export default function PrivateResources({ hasReadPermission, preview, privateResourcesContent, sidebarContent, footerContent, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
+
+  const router = useRouter()
+
+  if (!hasReadPermission) {
+    return <Login redirectPath={router.asPath} />
+  }
+
   return (
     <div>
       {/* Meta description for SEO */}
