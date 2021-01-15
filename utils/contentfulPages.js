@@ -75,3 +75,10 @@ export async function fetchProgramOfferings() {
 
   console.log(`Error getting Entry.`)
 }
+
+export async function fetchFreeMeditations() {
+  const entry = await client.getEntry('461RsUfaqhtUnROz8KvEEo')
+  if (entry.fields) return entry
+
+  console.log(`Error getting Entry.`)
+}

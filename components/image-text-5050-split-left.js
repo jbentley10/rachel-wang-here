@@ -26,15 +26,17 @@ export default function ImageText5050SplitLeft({ heading, text, image, buttonTex
         />
       </div>
       <div className={`image-text-split__right-container sm:w-full lg:w-1/2 text-left lg:flex-initial p-12 md:py-0 md:pl-24 md:pr-32 sm:mt-10 lg:mt-0`}>
-        <div className={`image-text-split__image-container text-center m-auto md:m-0`}>
-          <Image
-            layout="intrinsic"
-            width={450}
-            height={450}
-            src={image}
-            alt={`Rachel doing a handstand`}
-          />
-        </div>
+        {image && 
+          <div className={`image-text-split__image-container text-center m-auto md:m-0`}>
+            <Image
+              layout="intrinsic"
+              width={450}
+              height={450}
+              src={image}
+              alt={`Rachel doing a handstand`}
+            />
+          </div>
+        }
       </div>
       <style jsx>{`        
         .highlighted-text {
