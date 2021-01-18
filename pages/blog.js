@@ -3,9 +3,10 @@
  */
 // Import dependencies
 import Head from 'next/head'
+import { useState } from 'react'
 
 // Import library variables
-import { getAllPostsForHome } from '../lib/api'
+import { getAllPostsForHome, getPostsByCategory } from '../lib/api'
 import { BLOG_NAME } from '../lib/constants'
 
 // Import components
@@ -19,8 +20,15 @@ import Button from '../components/button'
 import HeroSplitRight from '../components/hero-split-right'
 
 export default function Blog({ posts: { edges }, preview, sidebarContent, footerContent }) {
-  const recentPosts = edges.slice(0, 3);
-  const allPosts = edges.slice(0, 20);
+  let recentPosts = edges.slice(0, 3);
+  const [allPosts, setAllPosts] = useState(edges.slice(0, 20));
+
+  async function categoryPostsHandler(category) {
+    let categoryPosts = await getPostsByCategory(preview, category).then(() => {
+      console.log(categoryPosts);
+      setAllPosts(categoryPosts);
+    });
+  }
 
   return (
     <>
@@ -40,19 +48,19 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
                   Categories
                 </h2>
                 <Button 
-                  onClick={`/`}
+                  onClick={() => categoryPostsHandler(`Yoga`)}
                   text={`Yoga and Movement`}
                   color={`purple`}
                   className={`mb-4 w-1/2`}
                 />
                 <Button 
-                  onClick={`/`}
+                  onClick={() => categoryPostsHandler(`Mindset`)}
                   text={`Mindset`}
                   color={`brown`}
                   className={`mb-4 w-1/2`}
                 />
                 <Button 
-                  onClick={`/`}
+                  onClick={() => categoryPostsHandler(`Wellness`)}
                   text={`Wellness`}
                   color={`yellow`}
                   className={`mb-4 w-1/2`}

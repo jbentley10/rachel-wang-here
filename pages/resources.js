@@ -31,6 +31,7 @@ export default function Resources({ preview, resourcesContent, sidebarContent, f
           <Header />
           <HeroSplitRight 
             heading={resourcesContent.fields.pageHeading}
+            image={resourcesContent.fields.pageHeadingImage.fields.file.url}
           />
           <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>

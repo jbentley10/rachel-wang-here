@@ -32,6 +32,7 @@ export default function Contact({ preview, sidebarContent, footerContent, posts:
           <Header />
           <HeroSplitRight 
             heading={`Contact`}
+            image={`/rachel-handstand.png`}
           />
           <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>

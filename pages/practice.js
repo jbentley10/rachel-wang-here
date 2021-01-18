@@ -17,25 +17,26 @@ import HeroSplitRight from '../components/hero-split-right'
 import { fetchSidebar, fetchPractice, fetchFooter } from '../utils/contentfulPages'
 import { getAllPostsForHome } from '../lib/api';
 
-export default function Practice({ preview, practiceContent, sidebarContent, footerContent, posts: { edges } }) {
+export default function Practice({ preview, pageContent, sidebarContent, footerContent, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
   return (
     <div>
       {/* Meta description for SEO */}
-      <Layout footerContent={footerContent} metaDescription={practiceContent.fields.metaDescription} preview={preview}>
+      <Layout footerContent={footerContent} metaDescription={pageContent.fields.metaDescription} preview={preview}>
         <Head>
           {/* Title tag for SEO */}
-          <title>{ practiceContent.fields.pageTitle }</title>
+          <title>{ pageContent.fields.pageTitle }</title>
         </Head>
         <Container>
           <Header />
           <HeroSplitRight 
-            heading={practiceContent.fields.pageHeading}
+            heading={pageContent.fields.pageHeading}
+            image={pageContent.fields.pageHeadingImage.fields.file.url}
           />
           <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>
               <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
-                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(practiceContent.fields.introText, htmlRenderingOptions) }} />
+                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.introText, htmlRenderingOptions) }} />
               </div>
               <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
                 <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
@@ -58,14 +59,14 @@ export default function Practice({ preview, practiceContent, sidebarContent, foo
 export async function getStaticProps({ preview = false }) {
   const posts = await getAllPostsForHome(preview);
   const sidebarContent = await fetchSidebar();  
-  const practiceContent = await fetchPractice();
+  const pageContent = await fetchPractice();
   const footerContent = await fetchFooter();
 
-  if (sidebarContent.fields && practiceContent.fields && footerContent.fields) {
+  if (sidebarContent.fields && pageContent.fields && footerContent.fields) {
     return {
       props: {
         sidebarContent,
-        practiceContent,
+        pageContent,
         footerContent,
         posts,
         preview

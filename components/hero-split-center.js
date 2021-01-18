@@ -5,7 +5,7 @@
 // Import dependencies
 import Image from 'next/image';
 
-export default function HeroSplitCenter({ heading, category }) {
+export default function HeroSplitCenter({ heading, category, image }) {
   return (
     <section className={`hero-split-center`}>
       <div className={`bg-neutral-background md:px-64 pt-16 pb-0`}>
@@ -18,11 +18,7 @@ export default function HeroSplitCenter({ heading, category }) {
         <div className={`image-container w-4/12 text-center m-auto`}>
           <div className={`clear-background bg-clear-background p-10 relative z-10 transform translate-x-8 translate-y-24 h-full`} />
           <div className={`relative z-30`}>
-            <Image 
-              src={`/rachel-handstand.png`}
-              width={`400`}
-              height={`400`}
-            />
+            <img src={image} />
           </div>
         </div>
       </div>
