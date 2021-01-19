@@ -49,19 +49,19 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
                 </h2>
                 <Button 
                   onClick={() => categoryPostsHandler(`Yoga`)}
-                  text={`Yoga and Movement`}
+                  text={`Body`}
                   color={`purple`}
                   className={`mb-4 w-1/2`}
                 />
                 <Button 
                   onClick={() => categoryPostsHandler(`Mindset`)}
-                  text={`Mindset`}
+                  text={`Mind`}
                   color={`brown`}
                   className={`mb-4 w-1/2`}
                 />
                 <Button 
                   onClick={() => categoryPostsHandler(`Wellness`)}
-                  text={`Wellness`}
+                  text={`Heart`}
                   color={`yellow`}
                   className={`mb-4 w-1/2`}
                 />

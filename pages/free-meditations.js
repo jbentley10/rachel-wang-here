@@ -4,6 +4,7 @@
 // Import dependencies
 import Head from 'next/head'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import ReactPlayer from 'react-player';
 
 // Import library variables
 import { htmlRenderingOptions } from '../lib/constants';
@@ -47,9 +48,14 @@ export default function FreeMeditations({ preview, pageContent, footerContent })
               <div className={`left-text-block flex-initial w-1/2 mr-16`}>
                 <h4 className={`text-h4 font-rylan text-text-color leading-none`}>{pageContent.fields.meditation1Title}</h4>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.meditation1Copy) }} />
-                <div dangerouslySetInnerHTML={{ __html: `
-                  <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${pageContent.fields.meditation1ID}&color=0066cc"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/the-bugle" title="The Bugle" target="_blank" style="color: #cccccc; text-decoration: none;">The Bugle</a> · <a href="https://soundcloud.com/the-bugle/bugle-179-playas-gon-play" title="Bugle 179 - Playas gon play" target="_blank" style="color: #cccccc; text-decoration: none;">Bugle 179 - Playas gon play</a></div>
-                `}} />
+              </div>
+              <div className={`right-text-block flex-initial w-1/2 ml-16 align-top`}>
+                <ReactPlayer 
+                  url='http://rachel-wang-here.local/wp-content/uploads/2021/01/01-01-Greetings-from-Inner-Space.mp3' 
+                  controls={true}
+                  width={500}
+                  height={50}
+                />
               </div>
             </div>
           </div>
