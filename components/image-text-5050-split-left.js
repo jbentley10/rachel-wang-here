@@ -15,9 +15,9 @@ export default function ImageText5050SplitLeft({ heading, text, image, useImgTag
         <h2 className={`image-text-split__heading text-h2 font-rylan text-left text-text-color leading-tight pb-8`}>
           {heading}
         </h2>
-        <p className={`text-paragraph leading-normal font-barlow w-3/4`}>
-          {text}
-        </p>
+        <div className={`text-paragraph leading-normal font-barlow w-3/4`}>
+          <div dangerouslySetInnerHTML={{ __html: text }} />
+        </div>
         <Button 
           color={buttonColor}
           href={buttonLink}
@@ -28,10 +28,7 @@ export default function ImageText5050SplitLeft({ heading, text, image, useImgTag
       <div className={`image-text-split__right-container sm:w-full lg:w-1/2 text-left lg:flex-initial p-12 md:py-0 md:pl-24 md:pr-32 sm:mt-10 lg:mt-0`}>
         {(image && !useImgTag) ? 
           <div className={`image-text-split__image-container text-center m-auto md:m-0`}>
-            <Image
-              layout="intrinsic"
-              width={450}
-              height={450}
+            <img
               src={`https:${image}`}
               alt={`Rachel doing a handstand`}
             />

@@ -21,8 +21,10 @@ import ImageText5050SplitLeft from '../components/image-text-5050-split-left';
 import ArticlesPanel from '../components/articles-panel';
 import ImageText5050SplitRight from '../components/image-text-5050-split-right';
 import Button from '../components/button';
+import { getMeditations } from '../lib/api';
 
-export default function FreeMeditations({ preview, pageContent, footerContent }) {
+export default function FreeMeditations({ preview, pageContent, footerContent, meditations: { edges } }) {
+  console.log(edges);
 
   return (
     <div>
@@ -36,28 +38,36 @@ export default function FreeMeditations({ preview, pageContent, footerContent })
           <Header />
           <HeroSplitCenter 
             heading={pageContent.fields.pageHeading}
+            image={pageContent.fields.pageHeadingImage.fields.file.url}
           />
           <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat block`}>
             <ImageText5050SplitLeft 
               heading={pageContent.fields.oneOnOneHeading}
               text={documentToHtmlString(pageContent.fields.oneOnOneCopy)}
+              image={pageContent.fields.oneOnOneImage.fields.file.url}
             />
           </div>
-          <div className={`page-body-content px-12 pt-24 pb-48 md:px-32 lg:px-64 block`}>
-            <div className={`text-blocks flex`}>
-              <div className={`left-text-block flex-initial w-1/2 mr-16`}>
-                <h4 className={`text-h4 font-rylan text-text-color leading-none`}>{pageContent.fields.meditation1Title}</h4>
-                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.meditation1Copy) }} />
-              </div>
-              <div className={`right-text-block flex-initial w-1/2 ml-16 align-top`}>
-                <ReactPlayer 
-                  url='http://rachel-wang-here.local/wp-content/uploads/2021/01/01-01-Greetings-from-Inner-Space.mp3' 
-                  controls={true}
-                  width={500}
-                  height={50}
-                />
-              </div>
-            </div>
+          <div className={`page-body-content px-12 pb-48 md:px-32 lg:px-64 block`}>
+            {edges.map((meditation, index) => {
+              return (
+                <div key={index} className={`text-blocks flex py-8`}>
+                  <div className={`left-text-block flex-initial w-1/2 mr-16`}>
+                    <h4 className={`text-h4 font-rylan text-text-color leading-none`}>{meditation.node.title}</h4>
+                    <div className={`text-paragraph font-barlow text-text-color`}>
+                      <div dangerouslySetInnerHTML={{ __html: meditation.node.description }} />
+                    </div>
+                  </div>
+                  <div className={`right-text-block flex-initial w-1/2 ml-16 align-top`}>
+                    <ReactPlayer 
+                      url={meditation.node.mediaItemUrl} 
+                      controls={true}
+                      width={500}
+                      height={50}
+                    />
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </Container>
       </Layout>
@@ -75,12 +85,14 @@ export default function FreeMeditations({ preview, pageContent, footerContent })
 export async function getStaticProps() {
   const pageContent = await fetchFreeMeditations();
   const footerContent = await fetchFooter();
+  const meditations = await getMeditations();
 
   if (footerContent.fields && pageContent.fields) {
     return {
       props: {
         footerContent,
-        pageContent
+        pageContent,
+        meditations
       },
     };
   } else return;
