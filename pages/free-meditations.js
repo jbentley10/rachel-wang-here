@@ -18,9 +18,6 @@ import Container from '../components/container';
 import Header from '../components/header';
 import HeroSplitCenter from '../components/hero-split-center';
 import ImageText5050SplitLeft from '../components/image-text-5050-split-left';
-import ArticlesPanel from '../components/articles-panel';
-import ImageText5050SplitRight from '../components/image-text-5050-split-right';
-import Button from '../components/button';
 import { getMeditations } from '../lib/api';
 
 export default function FreeMeditations({ preview, pageContent, footerContent, meditations: { edges } }) {
