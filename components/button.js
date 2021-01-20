@@ -31,8 +31,8 @@ export default function Button({ text, color, href, className, onClick }) {
         </div>
       </Link>
     :
-      <button className={`outline-none`} onClick={onClick}>
-        <div className={`outline-none text-center py-3 px-3 cursor-pointer transition duration-200 ${backgroundColor(color)} ${className}`}>
+      <button className={`outline-none ${className}`} onClick={onClick}>
+        <div className={`outline-none text-center py-3 px-3 cursor-pointer transition duration-200 ${backgroundColor(color)}`}>
           <h5 className="text-h5 font-barlow uppercase text-white">{text}</h5>
         </div>
       </button>

@@ -25,22 +25,29 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
         <h2 className={`text-h2 font-rylan text-text-color text-center pb-8`}>{heading}</h2>
         <div className={`instagram-posts-container flex mb-12`}>
           {posts.map(( post ) => (
-            <div key={Math.random()} className={`w-1/2 md:w-2/12 m-auto cursor-pointer`}>
+            <div key={Math.random()} className={`w-1/2 m-auto cursor-pointer pr-16 mx-0`}>
               <a href={`https:${post.link}`}>
                 <img src={`https:` + post.image} />
               </a>
             </div>
           ))}
         </div>
-        <div className={`block md:flex px-16 pb-12`}>
-          <h2 className={`text-h3 font-rylan text-text-color pb-4 md:pb-0`}>{subheading}</h2>
-          <p className={`text-paragraph font-barlow text-text-color pb-12 md:pb-0`}>{subtext}</p>
-          <Button 
-            color={button.color}
-            text={button.text}
-            href={button.href}
-            onClick={button.onClick}
-          />
+        <div className={`block md:flex pb-12`}>
+          <div className={`w-4/12 pr-12`}>
+            <h2 className={`text-h3 font-rylan text-text-color pb-4 md:pb-0`}>{subheading}</h2>
+          </div>
+          <div className={`w-5/12`}>
+            <p className={`w-1/2 text-paragraph font-barlow text-text-color pb-12 md:pb-0`}>{subtext}</p>
+          </div>
+          <div className={`w-3/12`}>
+            <Button 
+              color={button.color}
+              text={button.text}
+              href={button.href}
+              onClick={button.onClick}
+              className={`w-full`}
+            />
+          </div>
         </div>
       </div>
       <div className={`footer-credits block md:flex bg-yellow-transparent md:px-64 py-12`}>
@@ -54,11 +61,11 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
           <Link href={`/site-credits`}><li className={linkClasses}>Site Credits</li></Link>
         </ul>
         <ul className={`flex align-middle text-center md:text-left mt-8 md:mt-0`}>
-          <Link href={`https://www.facebook.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon icon={faFacebook} /></li></Link>
-          <Link href={`https://www.instagram.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon icon={faInstagram} /></li></Link>
-          <Link href={`https://www.pinterest.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon icon={faPinterest} /></li></Link>
-          <Link href={`https://www.youtube.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon icon={faYoutube} /></li></Link>
-          <Link href={`https://www.twitter.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon icon={faTwitter} /></li></Link>
+          <Link href={`https://www.facebook.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faFacebook} /></li></Link>
+          <Link href={`https://www.instagram.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faInstagram} /></li></Link>
+          <Link href={`https://www.pinterest.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faPinterest} /></li></Link>
+          <Link href={`https://www.youtube.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faYoutube} /></li></Link>
+          <Link href={`https://www.twitter.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faTwitter} /></li></Link>
         </ul>
       </div>
     </footer>

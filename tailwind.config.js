@@ -49,7 +49,7 @@ module.exports = {
         'h5': '1.25rem', // H4
         'link': '1.25rem', // nav links
         'paragraph': '1rem', // Paragraph / Body
-        'footer': '1.25rem',
+        'footer': '1rem',
         '7xl': '4.5rem',
         '8xl': '6.25rem',
       },
