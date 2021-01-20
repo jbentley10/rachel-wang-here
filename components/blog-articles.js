@@ -6,7 +6,6 @@ import Image from 'next/image';
 
 // Import components
 import PostPreviewWithImage from '../components/post-preview-with-image'
-import Button from './button';
 
 export default function BlogArticles({ posts }) {
   return (

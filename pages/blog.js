@@ -21,13 +21,15 @@ import HeroSplitRight from '../components/hero-split-right'
 
 export default function Blog({ posts: { edges }, preview, sidebarContent, footerContent }) {
   let recentPosts = edges.slice(0, 3);
-  const [allPosts, setAllPosts] = useState(edges.slice(0, 20));
+  const [allPosts, setAllPosts] = useState(edges);
 
   async function categoryPostsHandler(category) {
-    let categoryPosts = await getPostsByCategory(preview, category).then(() => {
-      console.log(categoryPosts);
-      setAllPosts(categoryPosts);
-    });
+    console.log(category)
+    // let categoryPosts = await getPostsByCategory(preview, category).then(() => {
+    //   console.log(categoryPosts.edges);
+    //   console.log(category);
+    //   setAllPosts(categoryPosts.posts.edges);
+    // });
   }
 
   return (
@@ -48,19 +50,19 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
                   Categories
                 </h2>
                 <Button 
-                  onClick={() => categoryPostsHandler(`Yoga`)}
+                  onClick={() => categoryPostsHandler('Body')}
                   text={`Body`}
                   color={`purple`}
                   className={`mb-4 w-1/2`}
                 />
                 <Button 
-                  onClick={() => categoryPostsHandler(`Mindset`)}
+                  onClick={() => categoryPostsHandler('Mind')}
                   text={`Mind`}
                   color={`brown`}
                   className={`mb-4 w-1/2`}
                 />
                 <Button 
-                  onClick={() => categoryPostsHandler(`Wellness`)}
+                  onClick={() => categoryPostsHandler('Heart')}
                   text={`Heart`}
                   color={`yellow`}
                   className={`mb-4 w-1/2`}
