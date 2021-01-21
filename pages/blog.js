@@ -25,11 +25,12 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
 
   async function categoryPostsHandler(category) {
     console.log(category)
-    // let categoryPosts = await getPostsByCategory(preview, category).then(() => {
-    //   console.log(categoryPosts.edges);
-    //   console.log(category);
-    //   setAllPosts(categoryPosts.posts.edges);
-    // });
+
+    let categoryPosts = await getPostsByCategory(category).then(() => {
+      console.log(categoryPosts.edges);
+      console.log(category);
+      setAllPosts(categoryPosts.posts.edges);
+    });
   }
 
   return (
