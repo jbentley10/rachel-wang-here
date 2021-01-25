@@ -2,11 +2,12 @@
  * @file blog.js
  */
 // Import dependencies
-import Head from 'next/head'
+import Head from 'next/head';
 import { useState } from 'react'
+import { InMemoryCache, gql, ApolloClient, useQuery, ApolloProvider } from '@apollo/client';
 
 // Import library variables
-import { getAllPostsForHome, getPostsByCategory } from '../lib/api'
+import { getAllPostsForHome } from '../lib/api'
 import { BLOG_NAME } from '../lib/constants'
 
 // Import components
@@ -19,9 +20,47 @@ import { fetchSidebar, fetchFooter } from '../utils/contentfulPages'
 import Button from '../components/button'
 import HeroSplitRight from '../components/hero-split-right'
 
+const client = new ApolloClient({
+  uri: 'http://rachel-wang-here.local/graphql',
+  cache: new InMemoryCache()
+})
+
+const GET_POSTS_BY_CATEGORY = gql`
+  query PostsByCategory($categoryName: String) {
+    posts(where: {categoryName: $categoryName}) {
+      edges {
+        node {
+          title
+          excerpt(format: RENDERED)
+          slug
+          featuredImage {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+          categories {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export default function Blog({ posts: { edges }, preview, sidebarContent, footerContent }) {
   let recentPosts = edges.slice(0, 3);
   const [allPosts, setAllPosts] = useState(edges);
+
+  const getPostsByCategory = (categoryName) => {  
+    const { data } = useQuery(GET_POSTS_BY_CATEGORY, {
+      variables: { categoryName },
+    })
+
+    return data.posts.edges;
+  }
 
   async function categoryPostsHandler(category) {
     console.log(category)
@@ -29,12 +68,12 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
     let categoryPosts = await getPostsByCategory(category).then(() => {
       console.log(categoryPosts.edges);
       console.log(category);
-      setAllPosts(categoryPosts.posts.edges);
+      setAllPosts(categoryPosts);
     });
   }
 
   return (
-    <>
+    <ApolloProvider client={client}>
       <Layout footerContent={footerContent} preview={preview}>
         <Head>
           <title>{ BLOG_NAME }</title>
@@ -84,7 +123,7 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
           </div>
         </Container>
       </Layout>
-    </>
+    </ApolloProvider>
   )
 }
 
