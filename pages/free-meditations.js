@@ -6,9 +6,6 @@ import Head from 'next/head'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import ReactPlayer from 'react-player';
 
-// Import library variables
-import { htmlRenderingOptions } from '../lib/constants';
-
 // Import functions
 import { fetchFreeMeditations, fetchFooter } from '../utils/contentfulPages';
 
