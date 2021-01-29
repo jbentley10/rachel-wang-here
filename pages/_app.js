@@ -9,9 +9,9 @@ import App from 'next/app';
 import { ApolloClient, InMemoryCache, gql, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: process.env.WORDPRESS_API_URL,
+  uri: 'http://rachel-wang-here.local/graphql',
   cache: new InMemoryCache()
-});
+})
 
 // For the password-protected pages
 import Cookies from "universal-cookie"
