@@ -26,8 +26,8 @@ const client = new ApolloClient({
 })
 
 const GET_POSTS_BY_CATEGORY = gql`
-  query PostsByCategory($categoryName: String) {
-    posts(where: {categoryName: $categoryName}) {
+  query PostsByCategory($categoryName: String!) {
+    posts( categoryName: $categoryName ) {
       edges {
         node {
           title
@@ -54,11 +54,14 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
   let recentPosts = edges.slice(0, 3);
   const [allPosts, setAllPosts] = useState(edges);
 
-  const getPostsByCategory = (categoryName) => {  
-    const { data } = useQuery(GET_POSTS_BY_CATEGORY, {
-      variables: { categoryName },
-    })
+  const { data } = useQuery(GET_POSTS_BY_CATEGORY, {
+    variables: {
+      categoryName: 'Mind'
+    },
+  })
 
+  const getPostsByCategory = (categoryName) => {  
+    console.log(data);
     return data.posts.edges;
   }
 
@@ -67,7 +70,7 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
 
     let categoryPosts = await getPostsByCategory(category).then(() => {
       console.log(categoryPosts.edges);
-      console.log(category);
+      console.log(category); // Body
       setAllPosts(categoryPosts);
     });
   }
