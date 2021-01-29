@@ -3,7 +3,7 @@
  */
 // Import dependencies
 import Head from 'next/head';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { gql, useQuery } from '@apollo/client';
 
 // Import library variables
@@ -45,6 +45,31 @@ const GET_POSTS_BY_CATEGORY = gql`
   }
 `;
 
+const GET_POSTS = gql`
+  query Posts {
+    posts {
+      edges {
+        node {
+          title
+          excerpt(format: RENDERED)
+          slug
+          featuredImage {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+          categories {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export default function Blog({ posts: { edges }, preview, sidebarContent, footerContent }) {
   let recentPosts = edges.slice(0, 3);
   const [allPosts, setAllPosts] = useState(edges);
@@ -52,13 +77,13 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
 
   const [chosenCategory, setChosenCategory] = useState();
 
+  const { posts } = useQuery(GET_POSTS);
+
   const { categoryPostData } = useQuery(GET_POSTS_BY_CATEGORY, {
     variables: {
       categoryName: chosenCategory
     },
   })
-
-
 
   const categoryPostsHandler = (categoryName) => {
     console.log(categoryName);
@@ -67,6 +92,10 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
     console.log(categoryPostData);
     setCategoryPosts(categoryPostData.posts.edges);
   }
+
+  useEffect(() => {
+    console.log(posts);
+  }, []);
 
   return (
     <Layout footerContent={footerContent} preview={preview}>
