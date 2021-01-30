@@ -11,7 +11,7 @@ import { htmlRenderingOptions } from '../lib/constants';
 
 // Import functions
 import { fetchSidebar, fetchPrivateResources, fetchFooter } from '../utils/contentfulPages'
-import { getAllPostsForHome } from '../lib/api';
+import { getAllPostsForHome, getPrivateGuides } from '../lib/api';
 
 // Import components
 import Layout from '../components/layout'
@@ -20,38 +20,16 @@ import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import HeroSplitRight from '../components/hero-split-right'
 import LoginField from '../components/login-field';
-import { gql, useQuery } from '@apollo/client';
-import { useEffect } from 'react';
+import ResourcePreview from '../components/resource-preview';
 
-const GET_PRIVATE_GUIDES = gql`
-  query PrivateGuides {
-    mediaItems(where: {mimeType: APPLICATION_PDF}) {
-      edges {
-        node {
-          description(format: RENDERED)
-          title
-          mimeType
-          mediaItemUrl
-        }
-      }
-    }
-  }
-`;
-
-export default function PrivateResources({ hasReadPermission, preview, pageContent, sidebarContent, footerContent, resources, posts: { edges } }) {
+export default function PrivateResources({ hasReadPermission, preview, pageContent, sidebarContent, footerContent, privateGuides, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
 
   const router = useRouter()
 
-  const { data: privateGuidesData, loading: privateGuidesLoading, error: privateGuidesError } = useQuery(GET_PRIVATE_GUIDES);
-
   if (!hasReadPermission) {
     return <LoginField redirectPath={router.asPath} />
   }
-
-  useEffect(() => {
-    console.log(privateGuidesData);  
-  })
 
   return (
     <div>
@@ -71,9 +49,8 @@ export default function PrivateResources({ hasReadPermission, preview, pageConte
             <div className={`sidebar-body-split flex`}>
               <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.richTextContent, htmlRenderingOptions)}} />
-                { privateGuidesLoading && <p>Loading...</p> }
-                { privateGuidesData && 
-                  privateGuidesData.mediaItems.edges.map(({ node, index }) => (
+                { privateGuides && 
+                  privateGuides.edges.map(({ node, index }) => (
                     <ResourcePreview
                       key={index}
                       title={node.title}
@@ -104,18 +81,20 @@ export default function PrivateResources({ hasReadPermission, preview, pageConte
 
 export async function getStaticProps({ preview = false }) {
   const posts = await getAllPostsForHome(preview);
+  const privateGuides = await getPrivateGuides();
   const sidebarContent = await fetchSidebar();  
   const pageContent = await fetchPrivateResources();
   const footerContent = await fetchFooter();
 
-  if (sidebarContent.fields && pageContent.fields && footerContent.fields) {
+  if (sidebarContent.fields && pageContent.fields && footerContent.fields && privateGuides) {
     return {
       props: {
         sidebarContent,
         pageContent,
         footerContent,
         posts,
-        preview
+        preview,
+        privateGuides
       }
     };
   } else
