@@ -5,7 +5,6 @@
 import Head from 'next/head';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { useRouter } from "next/router";
-import { ApolloClient, gql, InMemoryCache } from '@apollo/client';
 
 // Import library variables
 import { htmlRenderingOptions } from '../lib/constants';
@@ -21,16 +20,38 @@ import Header from '../components/header'
 import Sidebar from '../components/sidebar'
 import HeroSplitRight from '../components/hero-split-right'
 import LoginField from '../components/login-field';
-import ResourcesGrid from '../components/resources-grid';
+import { gql, useQuery } from '@apollo/client';
+import { useEffect } from 'react';
+
+const GET_PRIVATE_GUIDES = gql`
+  query PrivateGuides {
+    mediaItems(where: {mimeType: APPLICATION_PDF}) {
+      edges {
+        node {
+          description(format: RENDERED)
+          title
+          mimeType
+          mediaItemUrl
+        }
+      }
+    }
+  }
+`;
 
 export default function PrivateResources({ hasReadPermission, preview, pageContent, sidebarContent, footerContent, resources, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
 
   const router = useRouter()
 
+  const { data: privateGuidesData, loading: privateGuidesLoading, error: privateGuidesError } = useQuery(GET_PRIVATE_GUIDES);
+
   if (!hasReadPermission) {
     return <LoginField redirectPath={router.asPath} />
   }
+
+  useEffect(() => {
+    console.log(privateGuidesData);  
+  })
 
   return (
     <div>
@@ -50,10 +71,18 @@ export default function PrivateResources({ hasReadPermission, preview, pageConte
             <div className={`sidebar-body-split flex`}>
               <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.richTextContent, htmlRenderingOptions)}} />
-                <ResourcesGrid
-                  header={`Resources`}
-                  resources={resources}
-                />
+                { privateGuidesLoading && <p>Loading...</p> }
+                { privateGuidesData && 
+                  privateGuidesData.mediaItems.edges.map(({ node, index }) => (
+                    <ResourcePreview
+                      key={index}
+                      title={node.title}
+                      description={node.description}
+                      coverImage={node.featuredImage}
+                      slug={node.mediaItemUrl}
+                    />
+                  ))
+                }
               </div>
               <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
                 <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
@@ -79,23 +108,6 @@ export async function getStaticProps({ preview = false }) {
   const pageContent = await fetchPrivateResources();
   const footerContent = await fetchFooter();
 
-  const { data } = await client.query({
-    query: gql`
-      query PrivateGuides {
-        mediaItems(where: {mimeType: APPLICATION_PDF}) {
-          edges {
-            node {
-              description(format: RENDERED)
-              title
-              mimeType
-              mediaItemUrl
-            }
-          }
-        }
-      }
-    `
-  });
-
   if (sidebarContent.fields && pageContent.fields && footerContent.fields) {
     return {
       props: {
@@ -103,8 +115,7 @@ export async function getStaticProps({ preview = false }) {
         pageContent,
         footerContent,
         posts,
-        preview,
-        resources: data.mediaItems.edges 
+        preview
       }
     };
   } else
