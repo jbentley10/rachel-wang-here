@@ -60,7 +60,7 @@ const GET_POSTS = gql`
 // });
 
 const client = new ApolloClient({
-  uri: 'http://rachel-wang-here.local/graphql',
+  uri: process.env.WORDPRESS_API_URL,
   cache: new InMemoryCache()
 })
 
