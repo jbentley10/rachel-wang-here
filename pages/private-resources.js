@@ -79,11 +79,6 @@ export async function getStaticProps({ preview = false }) {
   const pageContent = await fetchPrivateResources();
   const footerContent = await fetchFooter();
 
-  const client = new ApolloClient({
-    uri: 'http://rachel-wang-here.local/graphql',
-    cache: new InMemoryCache()
-  })
-
   const { data } = await client.query({
     query: gql`
       query PrivateGuides {
