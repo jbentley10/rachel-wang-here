@@ -4,21 +4,22 @@
 // Import dependencies
 import Head from 'next/head';
 import { useEffect, useState } from 'react'
-import { gql, useQuery } from '@apollo/client';
+import { gql, useLazyQuery, useQuery } from '@apollo/client';
 
 // Import library variables
 import { getAllPostsForHome } from '../lib/api'
-import { BLOG_NAME } from '../lib/constants'
+import { BLOG_AUTHOR, BLOG_NAME } from '../lib/constants'
 
 // Import components
 import Layout from '../components/layout'
 import Container from '../components/container'
-import BlogArticles from '../components/blog-articles'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
+import BlogArticles from '../components/blog-articles'
 import { fetchSidebar, fetchFooter } from '../utils/contentfulPages'
 import Button from '../components/button'
 import HeroSplitRight from '../components/hero-split-right'
+import PostPreviewWithImage from '../components/post-preview-with-image';
 
 const GET_POSTS_BY_CATEGORY = gql`
   query PostsByCategory($categoryName: String) {
@@ -73,29 +74,12 @@ const GET_POSTS = gql`
 export default function Blog({ posts: { edges }, preview, sidebarContent, footerContent }) {
   let recentPosts = edges.slice(0, 3);
   const [allPosts, setAllPosts] = useState(edges);
-  const [categoryPosts, setCategoryPosts] = useState();
 
-  const [chosenCategory, setChosenCategory] = useState();
+  const { loading: allPostsLoading, error: allPostsError, data: allPostsData } = useQuery(GET_POSTS);
 
-  const { posts } = useQuery(GET_POSTS);
-
-  const { categoryPostData } = useQuery(GET_POSTS_BY_CATEGORY, {
-    variables: {
-      categoryName: chosenCategory
-    },
-  })
-
-  const categoryPostsHandler = (categoryName) => {
-    console.log(categoryName);
-    setChosenCategory(categoryName);
-
-    console.log(categoryPostData);
-    setCategoryPosts(categoryPostData.posts.edges);
-  }
-
-  useEffect(() => {
-    console.log(posts);
-  }, []);
+  const [getCategoryPosts, { loading: categoryPostsLoading, data: categoryPostsData }] = useLazyQuery(GET_POSTS_BY_CATEGORY, {
+    fetchPolicy: 'network-only',
+  });
 
   return (
     <Layout footerContent={footerContent} preview={preview}>
@@ -114,19 +98,19 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
                 Categories
               </h2>
               <Button 
-                onClick={() => categoryPostsHandler('Body')}
+                onClick={() => getCategoryPosts({ variables: { categoryName: 'Body' } }) }
                 text={`Body`}
                 color={`purple`}
                 className={`mb-4 w-1/2`}
               />
               <Button 
-                onClick={() => categoryPostsHandler('Mind')}
+                onClick={() => getCategoryPosts({ variables: { categoryName: 'Mind' } }) }
                 text={`Mind`}
                 color={`brown`}
                 className={`mb-4 w-1/2`}
               />
               <Button 
-                onClick={() => categoryPostsHandler('Heart')}
+                onClick={() => getCategoryPosts({ variables: { categoryName: 'Heart' } }) }
                 text={`Heart`}
                 color={`yellow`}
                 className={`mb-4 w-1/2`}
@@ -138,9 +122,18 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
                 Latest Posts
               </h2>
               {/* Show All Articles (20 at a time) */}
-              { categoryPosts
-                ?
-                categoryPosts.length > 0 && <BlogArticles posts={categoryPosts} />
+              { categoryPostsData ? 
+                categoryPostsData.posts.edges.map(({ node, index }) => (
+                  <PostPreviewWithImage
+                    key={node.slug}
+                    title={node.title}
+                    coverImage={node.featuredImage}
+                    date={node.date}
+                    author={node.author}
+                    slug={node.slug}
+                    excerpt={node.excerpt}
+                  />
+                ))
                 :
                 allPosts.length > 0 && <BlogArticles posts={allPosts} />
               }
