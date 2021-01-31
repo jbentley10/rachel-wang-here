@@ -27,7 +27,7 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
           {posts.map(( post ) => (
             <div key={Math.random()} className={`w-full md:w-1/2 m-auto cursor-pointer pr-4 md:pr-16 mx-0`}>
               <a href={`https:${post.link}`}>
-                <img src={`https:` + post.image} />
+                <img src={`https:` + post.image} alt={post.alt} />
               </a>
             </div>
           ))}

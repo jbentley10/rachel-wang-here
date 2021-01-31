@@ -19,19 +19,23 @@ export default function PageLayout({ ctaButtonOnClick, footerContent, preview, c
           posts={[
             {
               image: footerContent.fields.post1Image.fields.file.url,
-              link: footerContent.fields.post1Link
+              link: footerContent.fields.post1Link,
+              alt: footerContent.fields.post1Image.fields.description
             },
             {
               image: footerContent.fields.post2Image.fields.file.url,
-              link: footerContent.fields.post2Link
+              link: footerContent.fields.post2Link,
+              alt: footerContent.fields.post2Image.fields.description
             },
             {
               image: footerContent.fields.post3Image.fields.file.url,
-              link: footerContent.fields.post3Link
+              link: footerContent.fields.post3Link,
+              alt: footerContent.fields.post3Image.fields.description
             },
             {
               image: footerContent.fields.post4Image.fields.file.url,
-              link: footerContent.fields.post4Link
+              link: footerContent.fields.post4Link,
+              alt: footerContent.fields.post4Image.fields.description
             }
           ]}
           subheading={footerContent.fields.subHeading}
