@@ -3,7 +3,7 @@
  * @file hero-split-right.js
  */
 
-export default function HeroSplitRight({ heading, image }) {
+export default function HeroSplitRight({ heading, image, alt }) {
   return (
     <section className={`hero-split-right`}>
       <div className={`flex bg-neutral-background md:px-24 lg:px-32 xl:px-64 pt-16 pb-48`}>
@@ -12,7 +12,7 @@ export default function HeroSplitRight({ heading, image }) {
         </div>
         <div className={`image-container w-4/12 -mt-32`}>
           <div className={`clear-background bg-clear-background z-10`} />
-          <img className={`image z-30`} src={image} />
+          <img className={`image z-30`} src={image} alt={alt} />
         </div>
       </div>
       <style jsx={true}>{`

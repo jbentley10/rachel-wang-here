@@ -32,6 +32,7 @@ export default function beHereNowMembership({ preview, pageContent, sidebarConte
           <HeroSplitRight 
             heading={pageContent.fields.pageHeading}
             image={pageContent.fields.pageHeadingImage.fields.file.url}
+            alt={pageContent.fields.pageHeadingImage.fields.description}
           />
           <section className={`overlay-text-box-center bg-purple w-3/4 md:w-5/12 px-32 py-12 m-auto md:-mt-8 text-white font-barlow`}>            
             <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.purpleTextBox, htmlRenderingOptions) }} />

@@ -33,12 +33,14 @@ export default function FreeMeditations({ preview, pageContent, footerContent, m
           <HeroSplitCenter 
             heading={pageContent.fields.pageHeading}
             image={pageContent.fields.pageHeadingImage.fields.file.url}
+            alt={pageContent.fields.pageHeadingImage.fields.description}
           />
           <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat block`}>
             <ImageText5050SplitLeft 
               heading={pageContent.fields.oneOnOneHeading}
               text={documentToHtmlString(pageContent.fields.oneOnOneCopy)}
               image={pageContent.fields.oneOnOneImage.fields.file.url}
+              alt={pageContent.fields.pageHeadingImage.fields.description}
             />
           </div>
           <div className={`page-body-content px-12 pb-48 md:px-32 lg:px-64 block`}>

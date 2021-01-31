@@ -32,6 +32,7 @@ export default function Practice({ preview, pageContent, sidebarContent, footerC
           <HeroSplitRight 
             heading={pageContent.fields.pageHeading}
             image={pageContent.fields.pageHeadingImage.fields.file.url}
+            alt={pageContent.fields.pageHeadingImage.fields.description}
           />
           <div className={`page-body-content md:px-24 lg:px-32 xl:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>

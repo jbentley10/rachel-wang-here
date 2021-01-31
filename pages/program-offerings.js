@@ -36,12 +36,14 @@ export default function ProgramOfferings({ preview, pageContent, footerContent }
           <HeroSplitCenter 
             heading={pageContent.fields.pageHeading}
             image={pageContent.fields.pageHeadingImage.fields.file.url}
+            alt={pageContent.fields.pageHeadingImage.fields.description}
           />
           <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat block`}>
             <ImageText5050SplitLeft 
               heading={pageContent.fields.oneOnOneHeading}
               text={documentToHtmlString(pageContent.fields.oneOnOneCopy)}
               image={pageContent.fields.headerImage.fields.file.url}
+              alt={pageContent.fields.pageHeadingImage.fields.description}
               useImgTag={true}
             />
           </div>

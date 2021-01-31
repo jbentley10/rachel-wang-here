@@ -35,6 +35,7 @@ export default function About({ preview, pageContent, sidebarContent, footerCont
           <HeroSplitRight 
             heading={pageContent.fields.pageHeading}
             image={pageContent.fields.pageHeadingImage.fields.file.url}
+            alt={pageContent.fields.pageHeadingImage.fields.description}
           />
           <OverlayTextBox 
             text1={documentToHtmlString(pageContent.fields.purpleBoxCopy1)}

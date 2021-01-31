@@ -29,7 +29,7 @@ export default function Sidebar({ posts, content }) {
       </div>
       <div className={`sidebar__free-resources-cta`}>
         <h2 className={`sidebar__free-resources-cta-heading text-h2 mb-10 font-rylan text-text-color`}>{content.aboutHeading}</h2>
-        <img className={``} src={`https:` + content.aboutImage.fields.file.url} />
+        <img className={``} src={`https:` + content.aboutImage.fields.file.url} alt={content.aboutImage.fields.description}/>
         <p className={`text-paragraph leading-normal font-barlow pt-8`}>{content.aboutSubtext}</p>
       </div>
       {/* TODO: Search Bar */}
