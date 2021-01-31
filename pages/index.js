@@ -58,9 +58,9 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
 
   return (
     <>
-      <PageLayout ctaButtonOnClick={handleOpenModal} footerContent={footerContent} preview={preview}>
+      <PageLayout ctaButtonOnClick={handleOpenModal} footerContent={footerContent} preview={preview} metaDescription={homepageContent.fields.metaDescription}>
         <Head>
-          <title>{BLOG_NAME}</title>
+          <title>{homepageContent.fields.pageTitle}</title>
         </Head>
         <Container>
           <Header />
