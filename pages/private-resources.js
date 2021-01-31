@@ -52,7 +52,7 @@ export default function PrivateResources({ hasReadPermission, preview, pageConte
                 { privateGuides && 
                   privateGuides.edges.map(({ node, index }) => (
                     <ResourcePreview
-                      key={index}
+                      key={node.title}
                       title={node.title}
                       description={node.description}
                       coverImage={node.featuredImage}

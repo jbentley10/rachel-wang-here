@@ -11,12 +11,26 @@ export default function HeroSplitRight({ heading, image }) {
           <h1 className={`leading-tight text-huge text-text-color font-rylan w-6/12`}>{heading}</h1>
         </div>
         <div className={`image-container w-4/12 -mt-32`}>
-          <div className={`clear-background bg-clear-background p-10 relative z-10 transform translate-x-8 translate-y-24 h-full`} />
-          <div className={`relative z-30`}>
-            <img src={image} />
-          </div>
+          <div className={`clear-background bg-clear-background z-10`} />
+          <img className={`image z-30`} src={image} />
         </div>
       </div>
+      <style jsx={true}>{`
+        .image-container {
+          height: 2rem;
+          margin-top: 0rem;
+        }
+        .image-container .clear-background {
+          display: block;          
+          height: 20rem;
+          width: 18rem;
+        }
+        .image-container .image {
+          position: relative;
+          bottom: 17rem;
+          right: 1rem;
+        }
+      `}</style>
     </section>
   )
 }
