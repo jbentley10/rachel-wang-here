@@ -3,12 +3,12 @@
  */
 // Import dependencies
 import Head from 'next/head';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { gql, useLazyQuery, useQuery } from '@apollo/client';
 
 // Import library variables
 import { getAllPostsForHome } from '../lib/api'
-import { BLOG_AUTHOR, BLOG_NAME } from '../lib/constants'
+import { BLOG_NAME } from '../lib/constants'
 
 // Import components
 import Layout from '../components/layout'
@@ -75,9 +75,9 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
   let recentPosts = edges.slice(0, 3);
   const [allPosts, setAllPosts] = useState(edges);
 
-  const { loading: allPostsLoading, error: allPostsError, data: allPostsData } = useQuery(GET_POSTS);
+  const { error: postsError, loading: postsLoading, data: postsData } = useQuery(GET_POSTS);
 
-  const [getCategoryPosts, { loading: categoryPostsLoading, data: categoryPostsData }] = useLazyQuery(GET_POSTS_BY_CATEGORY, {
+  const [getCategoryPosts, { error: categoryPostsError, loading: categoryPostsLoading, data: categoryPostsData }] = useLazyQuery(GET_POSTS_BY_CATEGORY, {
     fetchPolicy: 'network-only',
   });
 
@@ -115,6 +115,12 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
                 color={`yellow`}
                 className={`mb-4 w-1/2`}
               />
+              <Button 
+                onClick={() => getCategoryPosts() }
+                text={`See All Posts`}
+                color={`orange`}
+                className={`mb-4 w-1/2`}
+              />
             </div>
 
             <div className={`latest-posts`}>
@@ -122,7 +128,7 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
                 Latest Posts
               </h2>
               {/* Show All Articles (20 at a time) */}
-              { categoryPostsData ? 
+              { categoryPostsData && 
                 categoryPostsData.posts.edges.map(({ node, index }) => (
                   <PostPreviewWithImage
                     key={node.slug}
@@ -134,7 +140,12 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
                     excerpt={node.excerpt}
                   />
                 ))
-                :
+              }
+              {
+                categoryPostsLoading &&
+                <p>Loading...</p>
+              }
+              { categoryPostsError && 
                 allPosts.length > 0 && <BlogArticles posts={allPosts} />
               }
             </div>
@@ -153,7 +164,7 @@ export async function getStaticProps({ preview = false }) {
   const sidebarContent = await fetchSidebar();
   const footerContent = await fetchFooter();
 
-  if (sidebarContent.fields && footerContent.fields) {
+  if (sidebarContent.fields && footerContent.fields && posts) {
     return {
       props: {
         sidebarContent,

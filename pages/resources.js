@@ -33,7 +33,7 @@ export default function Resources({ preview, resourcesContent, sidebarContent, f
             heading={resourcesContent.fields.pageHeading}
             image={resourcesContent.fields.pageHeadingImage.fields.file.url}
           />
-          <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
+          <div className={`page-body-content md:px-24 lg:px-32 xl:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>
               <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(resourcesContent.fields.richText, htmlRenderingOptions)}} />

@@ -6,23 +6,17 @@ import '../styles/index.css'
 import { AppProvider } from "@shopify/polaris"
 import translations from '@shopify/polaris/locales/en.json';
 import App from 'next/app';
-import { ApolloClient, InMemoryCache, gql, ApolloProvider } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
+import { useApollo } from "../lib/apolloClient";
 // For the password-protected pages
 import Cookies from "universal-cookie"
 import consts from "../utils/consts"
 
-/**
- * APOLLO CLIENT
- */
-
-const client = new ApolloClient({
-  uri: process.env.WORDPRESS_API_URL,
-  cache: new InMemoryCache()
-})
-
 function MyApp({ Component, pageProps }) {
+  const apolloClient = useApollo(pageProps.initialApolloState);
+
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={apolloClient}>
       <AppProvider i18n={translations}>
         <Component {...pageProps} />
       </AppProvider>

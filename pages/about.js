@@ -40,7 +40,7 @@ export default function About({ preview, pageContent, sidebarContent, footerCont
             text1={documentToHtmlString(pageContent.fields.purpleBoxCopy1)}
             text2={documentToHtmlString(pageContent.fields.purpleBoxCopy2)}
           />
-          <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
+          <div className={`page-body-content md:px-24 lg:px-32 xl:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>
               <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
                 <h1 className={`highlighted-text text-h1 font-rylan text-text-color leading-none`}>
