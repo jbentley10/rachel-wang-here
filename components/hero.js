@@ -13,7 +13,7 @@ export default function Hero({ normalHeading, highlightedHeading }) {
     <section className="flex py-16 md:pr-16 lg:pr-64 lg:pl-32">
       <div className={`hero__text-container z-20 sm:w-3/4 lg:w-3/4 xl:w-7/12`}>
         <div className={`clear-background bg-clear-background p-10 relative h-full leading-10 transform translate-x-4 translate-y-4`}>
-          <div className={`neutral-text-box bg-neutral-background p-10`}>
+          <div className={`neutral-text-box bg-neutral-background p-10 animate`}>
             <h1 className={`font-rylan z-20 relative text-h1 text-text-color`}>
               {normalHeading}
               <span className={`highlighted-text`}>{highlightedHeading}</span>

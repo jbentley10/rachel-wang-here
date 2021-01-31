@@ -64,7 +64,7 @@ export default function Footer({heading, posts, subheading, subtext, button}) {
           <Link href={`https://www.facebook.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faFacebook} /></li></Link>
           <Link href={`https://www.instagram.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faInstagram} /></li></Link>
           <Link href={`https://www.pinterest.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faPinterest} /></li></Link>
-          <Link href={`https://www.youtube.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faYoutube} /></li></Link>
+          <Link href={`https://www.youtube.com/channel/UC8uFq5kz1h4OaiJUhwb8ijQ/about`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faYoutube} /></li></Link>
           <Link href={`https://www.twitter.com/rachelwanghere`}><li className={iconClasses}><FontAwesomeIcon className={`h-6`} icon={faTwitter} /></li></Link>
         </ul>
       </div>

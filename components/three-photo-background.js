@@ -1,9 +1,11 @@
 /**
  * @file three-button-bade.js
  */
+// Import dependencies
+import Link from 'next/link';
 
 // Import components
-import Button from './button';
+import Button from './button'; 
 
 export default function ThreePhotoBackground({heading, subheading, body, button, images}) {
   return (
@@ -15,7 +17,7 @@ export default function ThreePhotoBackground({heading, subheading, body, button,
           <div dangerouslySetInnerHTML={{ __html: body }} />
         </div>
         <Button
-          className={`w-full md:w-4/12 m-auto`}
+          className={`w-full md:w-8/12 m-auto`}
           color={button.color}
           href={button.href}
           text={button.text}
@@ -25,17 +27,15 @@ export default function ThreePhotoBackground({heading, subheading, body, button,
       <div className={`block lg:flex`}>
         {images.map((image, index) => {
           return (
-            <div key={index} className={`mr-8 m-auto mb-12 lg:mb-0`}>
-              <div className={`image--${index} bg-image--${index} h-24 w-full bg-cover`}>
-                <h5 className={`text-h5 font-barlow text-center`}>{image.heading}</h5>
-              </div>
-              <p className={`text-paragraph font-barlow`}>{image.subtext}</p>
-              <Button
-                text={image.buttonText}
-                href={image.buttonLink}
-                color={image.buttonColor}
-              />
-            </div>
+            <li key={index} className={`image--${index} mt-8 mr-24 list-none`}>
+              <Link href={image.link}>
+                <div className={`relative bg-popout-pattern-background h-32 w-48 bg-cover cursor-pointer`}>
+                  <div className={`bg-white align-bottom h-8 bottom-0 absolute w-full`}>
+                    <p className={`text-paragraph font-rylan text-left pl-8 align-middle`}>{image.text}</p>
+                  </div>
+                </div>
+              </Link>
+            </li>
           )
         })}
       </div>

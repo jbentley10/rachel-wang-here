@@ -24,6 +24,7 @@ import ThreeButtonBlade from "../components/three-button-blade";
 import ThreePhotoBackground from "../components/three-photo-background";
 import Button from "../components/button";
 import { fetchHomepage, fetchFooter } from "../utils/contentfulPages";
+import BackgroundPhotoBox from '../components/background-photo-box';
 
 export default function Index({ allPosts: { edges }, preview, homepageContent, footerContent }) {
   const recentPosts = edges.slice(0, 3);  
@@ -75,36 +76,34 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
               <div>
               <h2 className="font-rylan text-text-color text-h2 leading-tight mb-8">Subscribe to gain access to exclusive content!</h2>
               <p className="font-barlow text-text-color text-paragraph leading-snug mb-8">By submitting your email below, I assume you're okay with getting some occassional emails from me that I promise you'll love!</p>
-                <MailchimpSubscribe
-                  url={mailChimpURL}
-                  render={({ subscribe, status, message }) => {
-                    switch (status) {
-                      case "sending":
-                        return <div>Sending...</div>
-                      case "success":
-                        return (
-                          <div>You're all signed up! Check your email.</div>
-                        )
-                      case "error":
-                        return <div dangerouslySetInnerHTML={{ __html: message }} />
-                      default:
-                        return (
-                          <form
-                            onSubmit={() => {
-                              event.preventDefault()
-
-                              subscribe({
-                                EMAIL: emailRef.current.value,
-                              })
-                            }}
-                          >
-                            <input placeholder={`Email address`} className={`w-full font-barlow form-input mt-1 block border-gray-400 border-solid border-2 mb-4 py-4 px-4`} type="email" ref={emailRef} />
-                            <input className={`w-full mt-3 outline-none text-center font-barlow uppercase py-3 px-3 cursor-pointer transition duration-200 bg-purple text-white`} type="submit" value="subscribe" />
-                          </form>
-                        )
-                    }
-                  }}
-                />
+                <div dangerouslySetInnerHTML={{ __html: `
+                  <!-- Begin Mailchimp Signup Form -->
+                  <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+                  <style type="text/css">
+                    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+                    /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+                       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                  </style>
+                  <style type="text/css">
+                    #mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;margin-right: 10px;}
+                    #mergeRow-gdpr {margin-top: 20px;}
+                    #mergeRow-gdpr fieldset label {font-weight: normal;}
+                    #mc-embedded-subscribe-form .mc_fieldset{border:none;min-height: 0px;padding-bottom:0px;}
+                  </style>
+                  <div id="mc_embed_signup">
+                  <form action="https://rachelwanghere.us20.list-manage.com/subscribe/post?u=6f3b45340606635b68f91ec8b&amp;id=0d280962fa" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                      <div id="mc_embed_signup_scroll">
+                    
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6f3b45340606635b68f91ec8b_0d280962fa" tabindex="-1" value=""></div>
+                      <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                      </div>
+                  </form>
+                  </div>
+                  
+                  <!--End mc_embed_signup-->
+                `}} />
               </div>
             </div>
           </Modal>
@@ -142,25 +141,22 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
             rightButtonText={homepageContent.fields.aboutSideButtonText} 
             rightButtonLink={homepageContent.fields.aboutSideButtonLink}
           />
-          <ThreeButtonBlade
-            heading={homepageContent.fields.popoutBladeHeading}
-            buttons={[
+          <BackgroundPhotoBox 
+            heading={'Be Here Now'}
+            images={[
               {
-                heading: homepageContent.fields.popoutBladeColumn1Heading,
-                description: homepageContent.fields.popoutBladeColumn1Subtext,
-                link: `/blog`
+                text: homepageContent.fields.discoverSectionColumn1Heading,
+                link: '/be-here-now-membership',
+                buttonColor: 'purple'
               },
               {
-                heading: homepageContent.fields.popoutBladeColumn2Heading,
-                description: homepageContent.fields.popoutBladeColumn2Subtext,
-                link: `/blog`
-              },
-              {
-                heading: homepageContent.fields.popoutBladeColumn3Heading,
-                description: homepageContent.fields.popoutBladeColumn3Subtext,
-                link: `/blog`
+                text: homepageContent.fields.discoverSectionColumn2Heading,
+                link: '/',
+                buttonColor: 'orange'
               }
             ]}
+            backgroundImage={'/homepage-header-background.png'}
+            backgroundImageAlt={'Alt text'}
           />
           <ThreePhotoBackground 
             heading={homepageContent.fields.discoverSectionHeading1}
@@ -169,31 +165,23 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
             button={{
               text: homepageContent.fields.discoverSectionButtonText,
               color: 'purple',
-              href: homepageContent.fields.discoverSectionButtonLink
+              href: 'https://www.youtube.com/channel/UC8uFq5kz1h4OaiJUhwb8ijQ/about'
             }} 
             images={[
               {
                 photo: '',
-                heading: homepageContent.fields.discoverSectionColumn1Heading,
-                subtext: homepageContent.fields.discoverSectionColumn1Subtext,
-                buttonText: homepageContent.fields.discoverSectionColumn1ButtonText,
-                buttonLink: homepageContent.fields.discoverSectionColumn1ButtonLink,
-                buttonColor: 'purple'
+                text: homepageContent.fields.discoverSectionColumn1Heading,
+                link: '/be-here-now-membership',
               },
               {
                 photo: '',
-                heading: homepageContent.fields.discoverSectionColumn2Heading,
-                subtext: homepageContent.fields.discoverSectionColumn2Subtext,
-                buttonText: homepageContent.fields.discoverSectionColumn2ButtonText,
-                buttonLink: homepageContent.fields.discoverSectionColumn2ButtonLink,
-                buttonColor: 'orange'
-              },{
+                text: homepageContent.fields.discoverSectionColumn2Heading,
+                link: 'https://www.youtube.com/channel/UC8uFq5kz1h4OaiJUhwb8ijQ/about',
+              },
+              {
                 photo: '',
-                heading: homepageContent.fields.discoverSectionColumn3Heading,
-                subtext: homepageContent.fields.discoverSectionColumn3Subtext,
-                buttonText: homepageContent.fields.discoverSectionColumn3ButtonText,
-                buttonLink: homepageContent.fields.discoverSectionColumn3ButtonLink,
-                buttonColor: 'yellow'
+                text: homepageContent.fields.discoverSectionColumn3Heading,
+                link: '/free-meditations',
               }
             ]}
           />
@@ -206,15 +194,6 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
               buttonText={homepageContent.fields.recentArticlesButtonText}
             />
           }
-
-          {/* Testing Shopify */}
-          <h3 className={`text-h3 text-text-color`}>Montlhy Membership</h3>
-          <span className={`text-text-color text-paragraph`}>$50 / month</span>
-          <Button
-            color={`purple`}
-            href={`https://john-bentley-partner-test.myshopify.com/products/monthly-membership`}
-            text={`Buy Now`}
-          />
 
         </Container>
       </PageLayout>
