@@ -20,6 +20,8 @@ import Button from '../components/button';
 export default function Contact({ preview, sidebarContent, footerContent, posts: { edges } }) {
   const recentPosts = edges.slice(0, 3);
 
+  const inputClasses = 'footer__name-input my-3 pl-10 w-11/12 md:w-9/12 py-4 border text-text-color font-barlow ml-4';
+
   return (
     <>
       {/* Meta description for SEO */}
@@ -34,7 +36,7 @@ export default function Contact({ preview, sidebarContent, footerContent, posts:
             heading={`Contact`}
             image={`/rachel-handstand.png`}
           />
-          <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
+          <div className={`page-body-content md:px-24 lg:px-32 xl:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>
               <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>                
                 <div className="page__content text-base leading-relaxed mb-4">
@@ -48,14 +50,14 @@ export default function Contact({ preview, sidebarContent, footerContent, posts:
                       />
                     </div>
                   </div>
-                  <h2 className={`text-h2 font-rylan`}>Say Hello</h2>
+                  <h2 className={`text-h2 text-text-color font-rylan`}>Say Hello</h2>
                 </div>                
-                <div className={`contact__form-container md:px-12`}>
+                <div className={`contact__form-container`}>
                   <form>
-                    <input className={`footer__name-input my-3 pl-10 w-11/12 md:w-9/12 py-4 border text-text ml-4`} placeholder="Name"></input><br />
-                    <input className={`footer__name-input my-3 pl-10 w-11/12 md:w-9/12 py-4 border text-text ml-4`} placeholder="Email Address"></input><br />
-                    <input className={`footer__name-input my-3 pl-10 w-11/12 md:w-9/12 py-4 border text-text ml-4`} placeholder="Subject"></input><br />
-                    <input className={`footer__name-input my-3 pl-10 w-11/12 md:w-9/12 py-4 border text-text ml-4`} placeholder="Message"></input><br />
+                    <input className={inputClasses} placeholder="Name"></input><br />
+                    <input className={inputClasses} placeholder="Email Address"></input><br />
+                    <input className={inputClasses} placeholder="Subject"></input><br />
+                    <input className={inputClasses} placeholder="Message"></input><br />
                     <Button 
                       className={`w-1/2`}
                       color={`purple`}

@@ -71,10 +71,10 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
            shouldCloseOnOverlayClick={true}
            onRequestClose={handleCloseModal}
           >
-            <div className={`block`}>
+            <div className={`w-full max-w-sm mx-auto border-4 border-gray m-auto align-middle mt-8 py-8 px-10`}>
               <div>
-                <h2>Would you like me to keep you in the loop?</h2>
-                <p>...</p>
+              <h2 className="font-rylan text-text-color text-h2 leading-tight mb-8">Subscribe to gain access to exclusive content!</h2>
+              <p className="font-barlow text-text-color text-paragraph leading-snug mb-8">By submitting your email below, I assume you're okay with getting some occassional emails from me that I promise you'll love!</p>
                 <MailchimpSubscribe
                   url={mailChimpURL}
                   render={({ subscribe, status, message }) => {
@@ -82,7 +82,9 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
                       case "sending":
                         return <div>Sending...</div>
                       case "success":
-                        return <div>Subscribed.</div>
+                        return (
+                          <div>You're all signed up! Check your email.</div>
+                        )
                       case "error":
                         return <div dangerouslySetInnerHTML={{ __html: message }} />
                       default:
@@ -96,8 +98,8 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
                               })
                             }}
                           >
-                            <input type="email" ref={emailRef} />
-                            <input type="submit" value="subscribe" />\
+                            <input placeholder={`Email address`} className={`w-full font-barlow form-input mt-1 block border-gray-400 border-solid border-2 mb-4 py-4 px-4`} type="email" ref={emailRef} />
+                            <input className={`w-full mt-3 outline-none text-center font-barlow uppercase py-3 px-3 cursor-pointer transition duration-200 bg-purple text-white`} type="submit" value="subscribe" />
                           </form>
                         )
                     }

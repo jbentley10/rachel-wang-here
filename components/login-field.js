@@ -17,7 +17,7 @@ const LoginField = ({ redirectPath }) => {
           <p className="font-barlow text-text-color text-paragraph leading-snug mb-8">Please enter the password you received in your subscriber email.</p>
           <input
             type="text"
-            className=" w-full font-barlow form-input mt-1 block border-gray-400 border-solid border-2 mb-4 py-4 px-4"
+            className="w-full font-barlow form-input mt-1 block border-gray-400 border-solid border-2 mb-4 py-4 px-4"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -25,7 +25,7 @@ const LoginField = ({ redirectPath }) => {
         </label>
         <button
           type="submit"
-          className=" w-full mt-3 outline-none text-center font-barlow uppercase py-3 px-3 cursor-pointer transition duration-200 bg-purple text-white"
+          className="w-full mt-3 outline-none text-center font-barlow uppercase py-3 px-3 cursor-pointer transition duration-200 bg-purple text-white"
           onClick={(e) => {
             e.preventDefault()
             const cookies = new Cookies()

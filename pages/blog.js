@@ -90,8 +90,9 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
         <Header />
         <HeroSplitRight 
           heading={`Blog`}
+          image={`../static/PNG/rachel.png`}
         />
-        <div className={`sidebar-body-split bg-side-blobs-combined bg-no-repeat bg-contain flex px-32 mt-32`}>
+        <div className={`sidebar-body-split bg-side-blobs-combined bg-no-repeat bg-contain flex md:px-24 lg:px-32 xl:px-64 mt-32`}>
           <div className={`all-articles-layout-container w-7/12`}>
             <div className={`blog-categories mb-24`}>
               <h2 className="text-h2 text-text-color font-rylan text-left mb-8">
