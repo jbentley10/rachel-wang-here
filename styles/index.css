@@ -4,8 +4,6 @@
 
 @import './header.css';
 
-@import '../public/fonts.css';
-
 .has-text-align-left {
   @apply text-left;
 }
