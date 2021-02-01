@@ -5,17 +5,17 @@
 @import './header.css';
 
 @font-face {
-  font-family: 'Raleway';
-  src: url('/static/fonts/Raleway-Bold.ttf');
-  src: url('/static/fonts/Raleway-Light.ttf');
-  src: url('/static/fonts/Raleway-Medium.ttf');
-  src: url('/static/fonts/Raleway-MediumItalic.ttf');
-  src: url('/static/fonts/Raleway-Regular.ttf');
-  src: url('/static/fonts/Raleway-SemiBold.ttf');
-  src: url('/static/fonts/Raleway-Thin.ttf');
+  font-family: 'Barlow';
+  src: url('../public/fonts/Barlow/Barlow-Black.ttf');
+  src: url('../public/fonts/Barlow/Barlow-Light.ttf');
+  src: url('../public/fonts/Barlow/Barlow-Medium.ttf');
+  src: url('../public/fonts/Barlow/Barlow-Bold.ttf');
+  src: url('../public/fonts/Barlow/Barlow-Regular.ttf');
+  src: url('../public/fonts/Barlow/Barlow-SemiBold.ttf');
+  src: url('../public/fonts/Barlow/Barlow-Thin.ttf');
 
-  font-family: 'Sophillia';
-  src: url('/static/fonts/sophillia-webfont.ttf');
+  font-family: 'Rylan';
+  src: url('../public/fonts/Rylan/Rylan-Regular.ttf');
 }
 
 .has-text-align-left {

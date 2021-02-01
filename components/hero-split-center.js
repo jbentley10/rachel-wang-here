@@ -16,7 +16,7 @@ export default function HeroSplitCenter({ heading, category, image, alt }) {
           <h1 className={`leading-tight text-h1 md:text-huge text-text-color font-rylan pt-8`}>{heading}</h1>
         </div>
         <div className={`image-container w-full px-12 md:px-0 py-24`}>
-          <div className={`relative z-30`}>
+          <div className={`relative z-20`}>
             <img className={`m-auto`} src={`https:${image}`} alt={alt} />
           </div>
         </div>
