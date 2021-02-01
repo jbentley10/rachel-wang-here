@@ -11,7 +11,7 @@ import Button from './button';
 export default function ImageText5050SplitLeft({ heading, text, image, alt, useImgTag, buttonText, buttonLink, buttonColor }) {
   return (
     <section className="image-text-split align-center my-32 sm:block lg:flex">
-      <div className={`image-text-split__left-container sm:w-full lg:w-1/2 mr-32 text-left lg:flex-initial`}>
+      <div className={`image-text-split__left-container sm:w-full lg:w-10/12 md:mr-2 text-left lg:flex-initial`}>
         <h2 className={`image-text-split__heading text-h2 font-rylan text-left text-text-color leading-tight pb-8`}>
           {heading}
         </h2>
@@ -25,11 +25,11 @@ export default function ImageText5050SplitLeft({ heading, text, image, alt, useI
           className={`mt-12`}
         />
       </div>
-      <div className={`image-text-split__right-container sm:w-full lg:w-1/2 text-left lg:flex-initial p-12 md:py-0 md:pl-24 md:pr-32 sm:mt-10 lg:mt-0`}>
+      <div className={`image-text-split__right-container sm:w-full lg:w-10/12 text-left lg:flex-initial p-12 md:py-0 md:pl-24 md:pr-32 sm:mt-10 lg:mt-0`}>
         {(image && !useImgTag) ? 
           <div className={`image-text-split__image-container text-center m-auto md:m-0`}>
             <img
-              src={`https:${image}`}
+              src={`${image}`}
               alt={alt}
             />
           </div>

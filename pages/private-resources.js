@@ -62,7 +62,7 @@ export default function PrivateResources({ hasReadPermission, preview, pageConte
                   ))
                 }
               </div>
-              <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
+              <div className={`sidebar-layout-container md:bg-clear-background w-5/12 px-12`}>
                 <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
               </div>
             </div>

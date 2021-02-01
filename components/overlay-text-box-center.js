@@ -5,7 +5,7 @@
 
 export default function OverlayTextBoxCenter({ text }) {
   return (
-    <section className={`overlay-text-box-center bg-purple w-3/4 md:w-5/12 p-12 m-auto md:ml-64 md:-mt-48 text-white font-barlow`}>
+    <section className={`overlay-text-box-center bg-purple w-full md:w-3/4 md:p-12 m-auto ml-0 md:ml-64 md:-mt-48 text-white font-barlow`}>
       <p>
         <div dangerouslySetInnerHTML={{ __html: text1 }} />  
       </p>      

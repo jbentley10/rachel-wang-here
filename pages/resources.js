@@ -33,12 +33,12 @@ export default function Resources({ preview, resourcesContent, sidebarContent, f
             heading={resourcesContent.fields.pageHeading}
             image={resourcesContent.fields.pageHeadingImage.fields.file.url}
           />
-          <div className={`page-body-content md:px-24 lg:px-32 xl:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
+          <div className={`page-body-content pb-16 md:px-24 lg:px-32 xl:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>
-              <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
+              <div className={`text-block-layout-container flex-initial md:w-7/12 px-8 mt-24`}>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(resourcesContent.fields.richText, htmlRenderingOptions)}} />
               </div>
-              <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
+              <div className={`sidebar-layout-container hidden md:inline md:bg-clear-background w-5/12 px-12`}>
                 <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
               </div>
             </div>

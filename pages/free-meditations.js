@@ -43,22 +43,22 @@ export default function FreeMeditations({ preview, pageContent, footerContent, m
               alt={pageContent.fields.pageHeadingImage.fields.description}
             />
           </div>
-          <div className={`page-body-content px-12 pb-48 md:px-32 lg:px-64 block`}>
+          <div className={`page-body-content px-16 md:px-24 lg:px-32 xl:px-64 block`}>
             {edges.map((meditation, index) => {
               return (
-                <div key={index} className={`text-blocks flex py-8`}>
-                  <div className={`left-text-block flex-initial w-1/2 mr-16`}>
+                <div key={index} className={`text-blocks block md:flex py-8`}>
+                  <div className={`left-text-block md:flex-initial w-full md:w-1/2 md:mr-16`}>
                     <h4 className={`text-h4 font-rylan text-text-color leading-none`}>{meditation.node.title}</h4>
                     <div className={`text-paragraph font-barlow text-text-color`}>
                       <div dangerouslySetInnerHTML={{ __html: meditation.node.description }} />
                     </div>
                   </div>
-                  <div className={`right-text-block flex-initial w-1/2 ml-16 align-top`}>
+                  <div className={`right-text-block md:flex-initial w-full md:w-1/2 mt-8 md:ml-16 align-top`}>
                     <ReactPlayer 
                       url={meditation.node.mediaItemUrl} 
                       controls={true}
-                      width={500}
-                      height={50}
+                      width={'100%'}
+                      height={'100%'}
                     />
                   </div>
                 </div>

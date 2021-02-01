@@ -58,7 +58,7 @@ export default function Post({ posts, footerContent, sidebarContent, post, previ
                 <div className={`post-body w-7/12`}>
                   <PostBody content={post.content} />
                 </div>
-                <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
+                <div className={`sidebar-layout-container md:bg-clear-background w-5/12 px-12`}>
                   <Sidebar posts={morePosts} content={sidebarContent.fields} />
                 </div>
               </div>

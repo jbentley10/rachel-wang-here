@@ -92,7 +92,7 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
           heading={`Blog`}
           image={`../static/PNG/rachel.png`}
         />
-        <div className={`sidebar-body-split bg-side-blobs-combined bg-no-repeat bg-contain flex md:px-24 lg:px-32 xl:px-64 mt-32`}>
+        <div className={`sidebar-body-split bg-side-blobs-combined bg-no-repeat bg-contain flex pl-12 py-12 md:px-24 lg:px-32 xl:px-64 mt-32`}>
           <div className={`all-articles-layout-container w-7/12`}>
             <div className={`blog-categories mb-24`}>
               <h2 className="text-h2 text-text-color font-rylan text-left mb-8">
@@ -151,7 +151,7 @@ export default function Blog({ posts: { edges }, preview, sidebarContent, footer
               }
             </div>
           </div>
-          <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
+          <div className={`sidebar-layout-container hidden md:inline md:bg-clear-background w-5/12 px-12`}>
             <Sidebar posts={recentPosts} content={sidebarContent.fields} />
           </div> 
         </div>

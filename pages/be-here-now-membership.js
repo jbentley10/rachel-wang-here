@@ -12,7 +12,6 @@ import { htmlRenderingOptions } from '../lib/constants';
 import Layout from '../components/layout'
 import Container from '../components/container'
 import Header from '../components/header'
-import Sidebar from '../components/sidebar'
 import HeroSplitRight from '../components/hero-split-right'
 import { fetchSidebar, fetchBeHereNowMembership, fetchFooter } from '../utils/contentfulPages'
 import { getAllPostsForHome } from '../lib/api';
@@ -34,10 +33,10 @@ export default function beHereNowMembership({ preview, pageContent, sidebarConte
             image={pageContent.fields.pageHeadingImage.fields.file.url}
             alt={pageContent.fields.pageHeadingImage.fields.description}
           />
-          <section className={`overlay-text-box-center bg-purple w-3/4 md:w-5/12 px-32 py-12 m-auto md:-mt-8 text-white font-barlow`}>            
+          <section className={`overlay-text-box-center bg-purple w-full md:w-8/12 px-12 lg:px-24 py-12 m-auto md:-mt-8 text-white font-barlow`}>
             <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.purpleTextBox, htmlRenderingOptions) }} />
           </section>
-          <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
+          <div className={`page-body-content px-12 md:px-24 lg:pl-48 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
               <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.whatsIncluded, htmlRenderingOptions) }} />
               <br />

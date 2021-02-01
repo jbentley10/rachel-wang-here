@@ -35,8 +35,9 @@ export default function About({ preview, pageContent, footerContent }) {
           <HeroSplitCenter 
             heading={pageContent.fields.pageHeading}
             category={pageContent.fields.pageCategory}
+            image={pageContent.fields.headingImage.fields.file.url}
           />
-          <div className={`page-body-content px-12 md:px-32 lg:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat block`}>
+          <div className={`page-body-content px-16 md:px-24 lg:px-32 xl:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat block`}>
             <div className={`left-right-text-split pt-32`}>
               <div className={`float-left w-1/2 mt-8 mb-16`}>
                 <h4 className={`text-h4 text-text-color leading-none font-rylan`}>
@@ -57,7 +58,8 @@ export default function About({ preview, pageContent, footerContent }) {
             <ImageText5050SplitLeft 
               heading={pageContent.fields.aboutBlockHeading}
               text={documentToHtmlString(pageContent.fields.aboutBlockRichText)}
-              image={`/rachel-handstand.png`}
+              image={pageContent.fields.aboutBlockHeadingImage.fields.file.url}
+              alt={pageContent.fields.aboutBlockHeadingImage.fields.description}
             />
           </div>
           <ArticlesPanel 
@@ -74,12 +76,13 @@ export default function About({ preview, pageContent, footerContent }) {
               }
             ]}
           />
-          <div className={`page-body-content px-12 pt-24 md:px-32 lg:px-64 block`}>
+          <div className={`page-body-content py-16 px-16 md:px-24 lg:px-32 xl:px-64 block`}>
             <h1 className={`text-h1 text-text-color font-rylan text-center m-auto`}>{pageContent.fields.guidesHeading}</h1>
             <ImageText5050SplitLeft 
               heading={pageContent.fields.guidesCopyHeading1}
               text={documentToHtmlString(pageContent.fields.guidesCopyRichText1)}
-              image={`/rachel-handstand.png`}
+              image={pageContent.fields.guidesCopyImage1.fields.file.url}
+              alt={pageContent.fields.guidesCopyImage1.fields.description}
               buttonText={pageContent.fields.guidesCopyButtonText1}
               buttonLink={pageContent.fields.guidesCopyButtonLink1}
               buttonColor={`purple`}
@@ -87,37 +90,38 @@ export default function About({ preview, pageContent, footerContent }) {
             <ImageText5050SplitRight
               heading={pageContent.fields.guidesCopyHeading2}
               text={documentToHtmlString(pageContent.fields.guidesCopyRichText2)}
-              image={`/rachel-handstand.png`}
+              image={pageContent.fields.guidesCopyImage2.fields.file.url}
+              alt={pageContent.fields.guidesCopyImage2.fields.description}
               buttonText={pageContent.fields.guidesCopyButtonText2}
               buttonLink={pageContent.fields.guidesCopyButtonLink2}
               buttonColor={`purple`}
             />
             <div className={`youtube-videos`}>
               <h2 className={`text-h2 font-rylan text-text-color leading-none text-center pb-4`}>{pageContent.fields.youTubeVideosHeading}</h2>
-              <div className={`text-paragraph leading-normal font-barlow px-24`}>
+              <div className={`text-paragraph leading-normal font-barlow md:px-8`}>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.youTubeVideosSubtext, htmlRenderingOptions) }} />
               </div>
               <div className={`video-quadrant block`}>
-                <div className={`video-quadrant__row flex`}>
+                <div className={`video-quadrant__row block md:flex`}>
                   <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
-                    <div className={`iframe-container w-full p-8 text-center m-auto`}>
+                    <div className={`iframe-container w-full py-4 md:p-8 text-center m-auto`}>
                       <iframe src={pageContent.fields.youTubeVideo1} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
                     </div>
                   </div>
                   <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
-                    <div className={`iframe-container w-full p-8 text-center m-auto`}>
+                    <div className={`iframe-container w-full py-4 md:p-8 text-center m-auto`}>
                       <iframe src={pageContent.fields.youTubeVideo2} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
                     </div>
                   </div>
                 </div>
-                <div className={`video-quadrant__row flex`}>
+                <div className={`video-quadrant__row block md:flex`}>
                   <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
-                    <div className={`iframe-container w-full p-8 text-center m-auto`}>
+                    <div className={`iframe-container w-full py-4 md:p-8 text-center m-auto`}>
                       <iframe src={pageContent.fields.youTubeVideo3} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
                     </div>
                   </div>
                   <div className={`video-quadrant__row__video bg-paint-shapes bg-cover bg-no-repeat m-auto`}>
-                    <div className={`iframe-container w-full p-8 text-center m-auto`}>
+                    <div className={`iframe-container w-full py-4 md:p-8 text-center m-auto`}>
                       <iframe src={pageContent.fields.youTubeVideo4} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
                     </div>
                   </div>

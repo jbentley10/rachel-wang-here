@@ -34,12 +34,12 @@ export default function Practice({ preview, pageContent, sidebarContent, footerC
             image={pageContent.fields.pageHeadingImage.fields.file.url}
             alt={pageContent.fields.pageHeadingImage.fields.description}
           />
-          <div className={`page-body-content md:px-24 lg:px-32 xl:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
+          <div className={`page-body-content py-8 px-12 md:px-24 lg:px-32 xl:px-64 bg-side-blobs-combined--purple bg-contain bg-no-repeat`}>
             <div className={`sidebar-body-split flex`}>
-              <div className={`text-block-layout-container flex-initial md:w-7/12 pr-16 mt-24`}>
+              <div className={`text-block-layout-container flex-initial w-full md:w-7/12 md:pr-16 mt-24`}>
                 <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(pageContent.fields.introText, htmlRenderingOptions) }} />
               </div>
-              <div className={`sidebar-layout-container bg-clear-background w-5/12 px-12`}>
+              <div className={`sidebar-layout-container md:bg-clear-background w-5/12 px-12`}>
                 <Sidebar posts={recentPosts} content={sidebarContent.fields}/>
               </div>
             </div>

@@ -2,15 +2,13 @@
  * @file index.js
  */
 // Import dependencies
-import React, { useState, createRef } from 'react';
+import React, { useState } from 'react';
 import Head from "next/head";
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Modal from 'react-modal';
-import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 // Import library variables
 import { getAllPostsForHome } from "../lib/api";
-import { BLOG_NAME } from "../lib/constants";
 
 // Import components
 import Container from "../components/container";
@@ -30,8 +28,6 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
   const recentPosts = edges.slice(0, 3);  
 
   // For the subscribe modal
-  const mailChimpURL = "https://rachelwanghere.us20.list-manage.com/subscribe/post?u=6f3b45340606635b68f91ec8b&amp;id=0d280962fa";
-  const emailRef = createRef(undefined)
   const [isModalOpen, setIsModalOpen] = useState();
 
   const handleOpenModal = () => {

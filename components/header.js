@@ -62,7 +62,7 @@ export default function Header() {
             customBurgerIcon={ <img src="../static/SVG/menu-burger.svg" /> }
             customCrossIcon={ <img src="../static/SVG/menu-cross.svg" /> }
           >       
-            <ul className={`block`}>
+            <ul className={`block outline-none`}>
               <li className={mobileLinkStyles}><Link href="/about"><a id="about" className="menu-item">About</a></Link></li>
               <li className={mobileLinkStyles}><Link href="/practice"><a id="practice" className="menu-item">Practice</a></Link></li>
               <li className={mobileLinkStyles}><Link href="/resources"><a id="resources" className="menu-item">Resources</a></Link></li>
