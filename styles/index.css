@@ -4,19 +4,7 @@
 
 @import './header.css';
 
-@font-face {
-  font-family: 'Barlow';
-  src: url('../public/fonts/Barlow/Barlow-Black.ttf');
-  src: url('../public/fonts/Barlow/Barlow-Light.ttf');
-  src: url('../public/fonts/Barlow/Barlow-Medium.ttf');
-  src: url('../public/fonts/Barlow/Barlow-Bold.ttf');
-  src: url('../public/fonts/Barlow/Barlow-Regular.ttf');
-  src: url('../public/fonts/Barlow/Barlow-SemiBold.ttf');
-  src: url('../public/fonts/Barlow/Barlow-Thin.ttf');
-
-  font-family: 'Rylan';
-  src: url('../public/fonts/Rylan/Rylan-Regular.ttf');
-}
+@import '../public/fonts.css';
 
 .has-text-align-left {
   @apply text-left;
