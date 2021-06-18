@@ -14,7 +14,7 @@ export async function fetchSidebar() {
 }
 
 export async function fetchHomepage() {
-  const entry = await client.getEntry('6zWeHkoyyGIJGeijxexGAq')
+  const entry = await client.getEntry('2Iz7POLFBf5F36chHcBoOs')
   if (entry.fields) return entry
 
   console.log(`Error getting Entry.`)
@@ -78,6 +78,14 @@ export async function fetchProgramOfferings() {
 
 export async function fetchFreeMeditations() {
   const entry = await client.getEntry('461RsUfaqhtUnROz8KvEEo')
+  if (entry.fields) return entry
+
+  console.log(`Error getting Entry.`)
+}
+
+
+export async function fetchUnderConstruction() {
+  const entry = await client.getEntry('UhQ3GRNGk6nq3nukotWDR')
   if (entry.fields) return entry
 
   console.log(`Error getting Entry.`)

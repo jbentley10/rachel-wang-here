@@ -13,7 +13,7 @@ export default function PageLayout({ ctaButtonOnClick, footerContent, preview, c
         {/* <Alert preview={preview} /> */}
         <main>{children}</main>
       </div>
-      {footerContent &&
+      {/* {footerContent &&
         <Footer 
           heading={footerContent.fields.heading}
           posts={[
@@ -46,7 +46,7 @@ export default function PageLayout({ ctaButtonOnClick, footerContent, preview, c
             onClick: ctaButtonOnClick
           }}
         />
-      }
+      } */}
     </>
   )
 }

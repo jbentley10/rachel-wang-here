@@ -42,7 +42,7 @@ export default function Header() {
     <div className={`navigation bg-white relative z-30 md:text-center md:py-16 align-middle w-full`}>
       {/* Mobile Navigation */}
       <div className={`flex align-middle py-8 md:hidden`}>
-        <div className={`menu-container w-7/12 flex-initial`}>
+        {/* <div className={`menu-container w-7/12 flex-initial`}>
           <Menu
             left
             noOverlay        
@@ -70,7 +70,7 @@ export default function Header() {
               <li className={mobileLinkStyles}><Link href="/contact"><a id="contact" className="menu-item">Contact</a></Link></li>
             </ul>
           </Menu>
-        </div>
+        </div> */}
         <div className={`logo-container w-5/12 flex-inital`}>
           <Link to={`/`} href="/">
             <Image 
@@ -103,7 +103,7 @@ export default function Header() {
             />
           </Link>
         </div>
-        <div className={`navigation__links-container align-bottom w-9/12 md:py-8`}>
+        {/* <div className={`navigation__links-container align-bottom w-9/12 md:py-8`}>
           <div className={`navigation__links md:inline-block`}>
             <ul className={`navigation__link-list md:flex md:text-30px md:text-center md:w-full`}>
               <li className={`navigation__link md:flex-initial md:py-4 md:px-8 lg:px-5`}>
@@ -133,7 +133,7 @@ export default function Header() {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
       <style jsx>{` 
          
