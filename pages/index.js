@@ -64,7 +64,7 @@ export default function Index({ allPosts: { edges }, preview, homepageContent, f
           <Modal 
            isOpen={isModalOpen}
            contentLabel="Minimal Modal Example"
-           style={modalStyle}
+           style={modalStyle} 
            shouldCloseOnOverlayClick={true}
            onRequestClose={handleCloseModal}
           >
